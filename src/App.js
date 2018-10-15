@@ -1,28 +1,39 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+// @flow
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+import React from 'react';
+import qs from 'query-string';
+import CHATS, { type Chat } from './chats';
+
+type State = {
+  chats: Array<Chat>,
+  time: number,
 }
 
-export default App;
+const initialTime = qs.parse(window.location.search).time || 0;
+const stateForTime = (time: number): State => ({
+  chats: CHATS.filter((chat) => chat.timestamp <= time),
+  time: time,
+});
+
+export default class App extends React.Component<{}, State> {
+  state = stateForTime(0)
+
+  componentDidMount() {
+    setInterval(this.incrementTime, 1000);
+  }
+
+  incrementTime = () => {
+    const newTime = this.state.time + 1;
+    this.setState(stateForTime(newTime));
+  };
+
+  render() {
+    return (
+      <div>
+        {this.state.chats.map((chat, idx) => (
+          <div key={idx}>{chat.message}</div>
+        ))}
+      </div>
+    )
+  }
+}
