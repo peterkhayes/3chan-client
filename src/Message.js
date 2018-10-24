@@ -20,6 +20,7 @@ const USERNAME_STYLE = {
 };
 
 const AVATAR_STYLE = {
+  backgroundColor: 'white',
   backgroundPosition: 'center',
   backgroundSize: 'cover',
   marginRight: styles.gridSize(),
@@ -32,11 +33,6 @@ const MESSAGE_STYLE = {
 };
 
 export default class Message extends React.PureComponent<Props> {
-  static defaultProps = {
-    username: 'xXxMaGICgiRL27xXx',
-    avatar: 'https://uploads.disquscdn.com/images/e3a640f5ae1bf628977c502faea357f8f91eb619e66b30d00c179401f180d39b.jpg',
-  }
-
   render() {
     const { avatar, username, message} = this.props;
     return (
