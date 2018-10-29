@@ -12,6 +12,8 @@ import moment from 'moment';
 import { type Chat } from './chats';
 
 import defaultChats from './chats/default';
+import ketoGood from './chats/keto_good';
+import ketoBad from './chats/keto_bad';
 // TODO import more chats
 
 type State = {
@@ -51,16 +53,15 @@ const CHATS_BY_TOPIC_AND_DAY = {
         [DAY_OF_WEEK.SATURDAY]: [],
     },
     [CHAT_TOPICS.KETO]: {
-        // TODO fill in with imported data
-        [DAY_OF_WEEK.THURSDAY]: [],
-        [DAY_OF_WEEK.FRIDAY]: [],
+        [DAY_OF_WEEK.THURSDAY]: ketoGood,
+        [DAY_OF_WEEK.FRIDAY]: ketoBad,
         [DAY_OF_WEEK.SATURDAY]: [],
     },
     // etc...
 };
 
 const MIN_DURATION = 500;
-const DURATION_PER_CHAR = 10;
+const DURATION_PER_CHAR = 30;
 
 // TODO account for the fact that each day at RS includes the next day's early morning
 const getDayOfWeek = (): number => {
@@ -96,8 +97,11 @@ const getChatsToDisplay = (): Array<Chat> => {
 const allChats = getChatsToDisplay();
 
 // returns interval in ms
-const getDurationForChat = (chat: Chat): number => {
-    return MIN_DURATION + DURATION_PER_CHAR * chat.message.length;
+const getDurationForChat = (chat: ?Chat): number => {
+    if (!chat) {
+        return 5000;
+    }
+    return MIN_DURATION + DURATION_PER_CHAR * (chat.message || '').length;
 }
 
 const ROOT_STYLE = {
@@ -138,7 +142,7 @@ export default class App extends React.Component<{}, State> {
         }
         // otherwise, increment the message index and set a timeout
         // based on the length of the new message
-        setTimeout(this.loadNextChat, getDurationForChat(allChats[nextChatIndex]));
+        setTimeout(this.loadNextChat, getDurationForChat(allChats[nextChatIndex+1]));
         this.setState({...this.state, nextChatIndex: nextChatIndex+1});
     }
 
