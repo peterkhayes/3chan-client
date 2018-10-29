@@ -178,8 +178,8 @@ export default class App extends React.Component<{}, State> {
                     {allChats.slice(0, this.state.nextChatIndex).map((chat, idx) => {
                         const userIdx = chat.userId != null
                             ? chat.userId
-                            : (offset + idx * 157) % USERS.length;
-                        const user = USERS[userIdx % USERS.length];
+                            : (idx * 157) % USERS.length;
+                        const user = USERS[(offset + userIdx) % USERS.length];
 
                         return (
                             <Message
