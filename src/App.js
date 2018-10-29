@@ -179,6 +179,7 @@ export default class App extends React.Component<{}, State> {
                     ? chat.userId
                     : (offset + idx * 157) % USERS.length;
                 const user = USERS[userIdx % USERS.length];
+
                 return (
                     <Message
                         key={idx}

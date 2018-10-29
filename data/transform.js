@@ -15,9 +15,12 @@ for (const filename of tsvFiles) {
       return null;
     }
 
-    let userId = Number(rawUserId);
-    if (isNaN(userId)) userId = rawUserId.charCodeAt(0) - 71;
-    if (isNaN(userId)) userId = null;
+    let userId = null;
+    if (rawUserId && !isNaN(Number(rawUserId))) {
+      userId = Number(rawUserId);
+    } else if (rawUserId && rawUserId.charCodeAt(0) >= 65) {
+      userId = rawUserId.charCodeAt(0) - 65;
+    }
 
     return {
       message,

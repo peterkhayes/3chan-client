@@ -21,7 +21,7 @@ import tiger from './tiger.gif';
 import waifu from './waifu.gif';
 import weird_superheros from './weird_superheros.jpg';
 
-
+// $FlowFixMe
 const avatars: Array<string> = [
   anime_boy_1,
   anime_boy_2,
@@ -257,6 +257,12 @@ const usernames = [
   'hairygrape',
   'Poker_Star',
 ]
+
+if (usernames.length > avatars.length) {
+  console.warn("You need to add", usernames.length - avatars.length, "more avatars!");
+} else if (avatars.length > usernames.length) {
+  console.warn("You need to add", avatars.length - usernames.length, "more usernames!");
+}
 
 const users = usernames.map((username, i) => ({
   username: username,
