@@ -119,6 +119,7 @@ const ROOT_STYLE = {
 const MESSAGE_LIST_STYLE = {
     marginLeft: styles.sidebarWidth,
     paddingLeft: styles.gridSize(),
+    paddingRight: styles.gridSize(),
     flexGrow: 1,
     flexDirection: 'column',
     overflowY: 'auto',
@@ -172,24 +173,24 @@ export default class App extends React.Component<{}, State> {
         const offset = parseInt(chatTopicName.slice(0, 3).toLowerCase(), 36);
         return (
             <div style={ROOT_STYLE}>
-            <Sidebar topic={chatTopicName} />
-            <div ref={this._setMessageListEl} style={MESSAGE_LIST_STYLE}>
-            {allChats.slice(0, this.state.nextChatIndex).map((chat, idx) => {
-                const userIdx = chat.userId != null
-                    ? chat.userId
-                    : (offset + idx * 157) % USERS.length;
-                const user = USERS[userIdx % USERS.length];
+                <Sidebar topic={chatTopicName} />
+                <div ref={this._setMessageListEl} style={MESSAGE_LIST_STYLE}>
+                    {allChats.slice(0, this.state.nextChatIndex).map((chat, idx) => {
+                        const userIdx = chat.userId != null
+                            ? chat.userId
+                            : (offset + idx * 157) % USERS.length;
+                        const user = USERS[userIdx % USERS.length];
 
-                return (
-                    <Message
-                        key={idx}
-                        avatar={user.avatar}
-                        username={user.username}
-                        message={chat.message}
-                    />
-                )
-            })}
-            </div>
+                        return (
+                            <Message
+                                key={idx}
+                                avatar={user.avatar}
+                                username={user.username}
+                                message={chat.message}
+                            />
+                        )
+                    })}
+                </div>
             </div>
         )
     }
