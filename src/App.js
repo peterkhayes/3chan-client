@@ -2,6 +2,11 @@
 
 import React from 'react';
 import qs from 'query-string';
+import AVATARS from './avatars';
+import USERNAMES from './usernames';
+import Message from './Message';
+import Sidebar from './Sidebar';
+import * as styles from './styles';
 import moment from 'moment';
 
 import { type Chat } from './chats';
@@ -22,8 +27,14 @@ const DAY_OF_WEEK = {
 const CHAT_TOPICS = {
     FURRIES: 'furries',
     POLY: 'poly',
+    KETO: 'keto',
     // TODO finish me
 };
+
+const CHAT_TOPIC_NAMES = {
+    [CHAT_TOPICS.FURRIES]: 'Furries',
+    [CHAT_TOPICS.KETO]: 'Ketogenic diets',
+}
 
 const CHATS_BY_TOPIC_AND_DAY = {
     [CHAT_TOPICS.FURRIES]: {
@@ -36,6 +47,12 @@ const CHATS_BY_TOPIC_AND_DAY = {
     [CHAT_TOPICS.POLY]: {
         // TODO fill in with imported data
         [DAY_OF_WEEK.THURSDAY]: [{message: 'poly is lots of fun'}, {message: 'yes it is'}, {message: 'my nam beryl'}],
+        [DAY_OF_WEEK.FRIDAY]: [],
+        [DAY_OF_WEEK.SATURDAY]: [],
+    },
+    [CHAT_TOPICS.KETO]: {
+        // TODO fill in with imported data
+        [DAY_OF_WEEK.THURSDAY]: [],
         [DAY_OF_WEEK.FRIDAY]: [],
         [DAY_OF_WEEK.SATURDAY]: [],
     },
@@ -59,6 +76,7 @@ const getDayOfWeek = (): number => {
 }
 const dayOfWeek = getDayOfWeek();
 const chatTopic = qs.parse(window.location.search).topic;
+const chatTopicName = CHAT_TOPIC_NAMES[chatTopic] || 'who knows??';
 
 // finds the correct list of messages to display based on the query string
 const getChatsToDisplay = (): Array<Chat> => {
@@ -82,7 +100,30 @@ const getDurationForChat = (chat: Chat): number => {
     return MIN_DURATION + DURATION_PER_CHAR * chat.message.length;
 }
 
+const ROOT_STYLE = {
+    paddingTop: styles.gridSize(),
+    fontFamily: styles.fonts.serious,
+    color: styles.colors.dark,
+    display: 'flex',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    backgroundColor: styles.colors.light,
+};
+
+const MESSAGE_LIST_STYLE = {
+    marginLeft: styles.sidebarWidth,
+    paddingLeft: styles.gridSize(),
+    flexGrow: 1,
+    flexDirection: 'column',
+    overflowY: 'auto',
+}
+
 export default class App extends React.Component<{}, State> {
+    _messageListEl: ?HTMLDivElement;
+
     state = { nextChatIndex: 0 };
 
     componentDidMount() {
@@ -116,14 +157,24 @@ export default class App extends React.Component<{}, State> {
         window.location.search = qs.stringify({ day: dayOfWeek, topic: nextTopic });
     }
 
+    _setMessageListEl = (el: ?HTMLDivElement) => {
+        this._messageListEl = el;
+    };
+
     render() {
         return (
-            <div>
-            {allChats.map((chat, idx) => {
-                if (idx < this.state.nextChatIndex) {
-                    return <div key={idx}>{chat.message}</div>;
-                }
-            })}
+            <div style={ROOT_STYLE}>
+            <Sidebar topic={chatTopicName} />
+            <div ref={this._setMessageListEl} style={MESSAGE_LIST_STYLE}>
+            {allChats.slice(0, this.state.nextChatIndex).map((chat, idx) => (
+                <Message
+                key={idx}
+                avatar={AVATARS[idx * 157 % AVATARS.length]}
+                username={USERNAMES[idx * 237 % USERNAMES.length]}
+                message={chat.message}
+                />
+            ))}
+            </div>
             </div>
         )
     }
