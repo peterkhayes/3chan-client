@@ -22,29 +22,63 @@ const DAY_OF_WEEK = {
     THURSDAY: 4,
     FRIDAY: 5,
     SATURDAY: 6,
-    SUNDAY: 7,
 };
 
 const CHAT_TOPICS = {
     FURRIES: 'furries',
+    POLY: 'poly',
+    KETO: 'keto',
     // TODO finish me
 };
 
+const CHAT_TOPIC_NAMES = {
+    [CHAT_TOPICS.FURRIES]: 'Furries',
+    [CHAT_TOPICS.KETO]: 'Ketogenic diets',
+}
+
 const CHATS_BY_TOPIC_AND_DAY = {
     [CHAT_TOPICS.FURRIES]: {
-        [DAY_OF_WEEK.THURSDAY]: [], // TODO fill in with imported data
+        // TODO fill in with imported data
+        [DAY_OF_WEEK.THURSDAY]: [{message: 'I LOVE CURRY'}, {message: 'yes we do'}],
+        [DAY_OF_WEEK.FRIDAY]: [],
+        [DAY_OF_WEEK.SATURDAY]: [],
         // etc..
+    },
+    [CHAT_TOPICS.POLY]: {
+        // TODO fill in with imported data
+        [DAY_OF_WEEK.THURSDAY]: [{message: 'poly is lots of fun'}, {message: 'yes it is'}, {message: 'my nam beryl'}],
+        [DAY_OF_WEEK.FRIDAY]: [],
+        [DAY_OF_WEEK.SATURDAY]: [],
+    },
+    [CHAT_TOPICS.KETO]: {
+        // TODO fill in with imported data
+        [DAY_OF_WEEK.THURSDAY]: [],
+        [DAY_OF_WEEK.FRIDAY]: [],
+        [DAY_OF_WEEK.SATURDAY]: [],
     },
     // etc...
 };
 
-const MIN_DURATION = 300;
+const MIN_DURATION = 500;
 const DURATION_PER_CHAR = 10;
 
-// TODO snap to a day that's thursday-sunday
-const dayOfWeek = qs.parse(window.location.search).day || moment().day();
+// TODO account for the fact that each day at RS includes the next day's early morning
+const getDayOfWeek = (): number => {
+    const dayFromURL = qs.parse(window.location.search).day;
+    if (dayFromURL != null) {
+        return dayFromURL;
+    }
+    const currentDay = moment().day();
+    if (currentDay === DAY_OF_WEEK.THURSDAY || currentDay === DAY_OF_WEEK.FRIDAY || currentDay === DAY_OF_WEEK.SATURDAY) {
+        return currentDay;
+    }
+    return DAY_OF_WEEK.THURSDAY;
+}
+const dayOfWeek = getDayOfWeek();
 const chatTopic = qs.parse(window.location.search).topic;
+const chatTopicName = CHAT_TOPIC_NAMES[chatTopic] || 'who knows??';
 
+// finds the correct list of messages to display based on the query string
 const getChatsToDisplay = (): Array<Chat> => {
     if (!chatTopic) {
         return defaultChats;
@@ -55,7 +89,7 @@ const getChatsToDisplay = (): Array<Chat> => {
         return defaultChats;
     }
 
-    const chatsForDay = CHATS_BY_TOPIC_AND_DAY[dayOfWeek];
+    const chatsForDay = chatsForChatTopic[dayOfWeek];
     return chatsForDay || defaultChats;
 };
 
@@ -67,63 +101,81 @@ const getDurationForChat = (chat: Chat): number => {
 }
 
 const ROOT_STYLE = {
-  paddingTop: styles.gridSize(),
-  fontFamily: styles.fonts.serious,
-  color: styles.colors.dark,
-  display: 'flex',
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  bottom: 0,
-  right: 0,
-  backgroundColor: styles.colors.light,
+    paddingTop: styles.gridSize(),
+    fontFamily: styles.fonts.serious,
+    color: styles.colors.dark,
+    display: 'flex',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    backgroundColor: styles.colors.light,
 };
 
 const MESSAGE_LIST_STYLE = {
-  marginLeft: styles.sidebarWidth,
-  paddingLeft: styles.gridSize(),
-  flexGrow: 1,
-  flexDirection: 'column',
-  overflowY: 'auto',
+    marginLeft: styles.sidebarWidth,
+    paddingLeft: styles.gridSize(),
+    flexGrow: 1,
+    flexDirection: 'column',
+    overflowY: 'auto',
 }
 
 export default class App extends React.Component<{}, State> {
-  _messageListEl: ?HTMLDivElement;
+    _messageListEl: ?HTMLDivElement;
 
-  state = { nextChatIndex: 0 };
+    state = { nextChatIndex: 0 };
 
-  componentDidMount() {
-      this.loadNextChat();
-  }
-
-  _setMessageListEl = (el: ?HTMLDivElement) => {
-    this._messageListEl = el;
-  };
-
-  loadNextChat = () => {
-    const { nextChatIndex } = this.state;
-    if (nextChatIndex >= allChats.length) {
-      return;
+    componentDidMount() {
+        this.loadNextChat();
     }
-    setTimeout(this.loadNextChat, getDurationForChat(allChats[nextChatIndex]));
-    this.setState({...this.state, nextChatIndex: nextChatIndex+1});
-  }
 
-  render() {
-    return (
-      <div style={ROOT_STYLE}>
-        <Sidebar topic="Furries" />
-        <div ref={this._setMessageListEl} style={MESSAGE_LIST_STYLE}>
-          {allChats.slice(0, this.state.nextChatIndex).map((chat, idx) => (
-            <Message
-              key={idx}
-              avatar={AVATARS[idx * 157 % AVATARS.length]}
-              username={USERNAMES[idx * 237 % USERNAMES.length]}
-              message={chat.message}
-            />
-          ))}
-        </div>
-      </div>
-    )
-  }
+    loadNextChat = () => {
+        const { nextChatIndex } = this.state;
+        if (nextChatIndex >= allChats.length) {
+            // if we're out of messages, refresh the page with a new topic
+            return this.loadNextTopic();
+        }
+        // otherwise, increment the message index and set a timeout
+        // based on the length of the new message
+        setTimeout(this.loadNextChat, getDurationForChat(allChats[nextChatIndex]));
+        this.setState({...this.state, nextChatIndex: nextChatIndex+1});
+    }
+
+    loadNextTopic = () => {
+        const allTopics = Object.keys(CHAT_TOPICS).map((key) => CHAT_TOPICS[key]).filter((topic) => (
+            CHATS_BY_TOPIC_AND_DAY[topic][dayOfWeek].length > 0
+        ));
+        let nextTopic = allTopics[0];
+        const currentTopic = chatTopic;
+        for (let i = 0; i < allTopics.length; i++) {
+            if (allTopics[i] === currentTopic) {
+                nextTopic = allTopics[(i + 1) % allTopics.length];
+            }
+        }
+
+        window.location.search = qs.stringify({ day: dayOfWeek, topic: nextTopic });
+    }
+
+    _setMessageListEl = (el: ?HTMLDivElement) => {
+        this._messageListEl = el;
+    };
+
+    render() {
+        return (
+            <div style={ROOT_STYLE}>
+            <Sidebar topic={chatTopicName} />
+            <div ref={this._setMessageListEl} style={MESSAGE_LIST_STYLE}>
+            {allChats.slice(0, this.state.nextChatIndex).map((chat, idx) => (
+                <Message
+                key={idx}
+                avatar={AVATARS[idx * 157 % AVATARS.length]}
+                username={USERNAMES[idx * 237 % USERNAMES.length]}
+                message={chat.message}
+                />
+            ))}
+            </div>
+            </div>
+        )
+    }
 }
