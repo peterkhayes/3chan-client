@@ -27,8 +27,14 @@ const DAY_OF_WEEK = {
 
 const CHAT_TOPICS = {
     FURRIES: 'furries',
+    KETO: 'keto',
     // TODO finish me
 };
+
+const CHAT_TOPIC_NAMES = {
+    [CHAT_TOPICS.FURRIES]: 'Furries',
+    [CHAT_TOPICS.KETO]: 'Ketogenic diets',
+}
 
 const CHATS_BY_TOPIC_AND_DAY = {
     [CHAT_TOPICS.FURRIES]: {
@@ -44,6 +50,7 @@ const DURATION_PER_CHAR = 10;
 // TODO snap to a day that's thursday-sunday
 const dayOfWeek = qs.parse(window.location.search).day || moment().day();
 const chatTopic = qs.parse(window.location.search).topic;
+const chatTopicName = CHAT_TOPIC_NAMES[chatTopic] || 'who knows??';
 
 const getChatsToDisplay = (): Array<Chat> => {
     if (!chatTopic) {
@@ -112,7 +119,7 @@ export default class App extends React.Component<{}, State> {
   render() {
     return (
       <div style={ROOT_STYLE}>
-        <Sidebar topic="Furries" />
+        <Sidebar topic={chatTopicName} />
         <div ref={this._setMessageListEl} style={MESSAGE_LIST_STYLE}>
           {allChats.slice(0, this.state.nextChatIndex).map((chat, idx) => (
             <Message
