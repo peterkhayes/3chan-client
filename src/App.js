@@ -2,8 +2,7 @@
 
 import React from 'react';
 import qs from 'query-string';
-import AVATARS from './avatars';
-import USERNAMES from './usernames';
+import USERS from './users';
 import Message from './Message';
 import Sidebar from './Sidebar';
 import * as styles from './styles';
@@ -140,6 +139,10 @@ export default class App extends React.Component<{}, State> {
         // based on the length of the new message
         setTimeout(this.loadNextChat, getDurationForChat(allChats[nextChatIndex]));
         this.setState({...this.state, nextChatIndex: nextChatIndex+1});
+
+        if (this._messageListEl) {
+            this._messageListEl.scrollTop = this._messageListEl.scrollHeight;
+        }
     }
 
     loadNextTopic = () => {
@@ -162,18 +165,25 @@ export default class App extends React.Component<{}, State> {
     };
 
     render() {
+        const offset = parseInt(chatTopicName.slice(0, 3).toLowerCase(), 36);
         return (
             <div style={ROOT_STYLE}>
             <Sidebar topic={chatTopicName} />
             <div ref={this._setMessageListEl} style={MESSAGE_LIST_STYLE}>
-            {allChats.slice(0, this.state.nextChatIndex).map((chat, idx) => (
-                <Message
-                key={idx}
-                avatar={AVATARS[idx * 157 % AVATARS.length]}
-                username={USERNAMES[idx * 237 % USERNAMES.length]}
-                message={chat.message}
-                />
-            ))}
+            {allChats.slice(0, this.state.nextChatIndex).map((chat, idx) => {
+                const userIdx = chat.userId != null
+                    ? chat.userId
+                    : (offset + idx * 157) % USERS.length;
+                const user = USERS[userIdx % USERS.length];
+                return (
+                    <Message
+                        key={idx}
+                        avatar={user.avatar}
+                        username={user.username}
+                        message={chat.message}
+                    />
+                )
+            })}
             </div>
             </div>
         )

@@ -1,8 +1,8 @@
 // @flow
 
 export type Chat = {
-  // timestamp: number,
+  userId: ?number,
   message: string,
-
+  attachment: ?string,
     // TODO more fields
 };
