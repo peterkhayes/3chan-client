@@ -6,6 +6,7 @@ type Props = {
   avatar: string,
   username: string,
   message: string,
+  image?: string,
 };
 
 const ROOT_STYLE = {
@@ -34,13 +35,14 @@ const MESSAGE_STYLE = {
 
 export default class Message extends React.PureComponent<Props> {
   render() {
-    const { avatar, username, message} = this.props;
+    const { avatar, username, message, image } = this.props;
     return (
       <div style={ROOT_STYLE}>
         <div style={{...AVATAR_STYLE, backgroundImage: `url("${avatar}")`}} />
         <div style={MESSAGE_STYLE}>
           <div style={USERNAME_STYLE}>{username}</div>
           {message}
+          <img src={image} />
         </div>
       </div>
     )

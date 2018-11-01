@@ -3,6 +3,7 @@
 export type Chat = {
   userId: ?number,
   message: string,
-  attachment: ?string,
+  image: ?string,
+  imageTitle: ?string,
     // TODO more fields
 };

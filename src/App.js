@@ -59,8 +59,9 @@ const CHATS_BY_TOPIC_AND_DAY = {
     // etc...
 };
 
-const MIN_DURATION = 500;
-const DURATION_PER_CHAR = 30;
+const MIN_DURATION = 1000;
+const DURATION_PER_CHAR = 35;
+const DURATION_FOR_IMAGE = 3000;
 
 // TODO account for the fact that each day at RS includes the next day's early morning
 const getDayOfWeek = (): number => {
@@ -100,7 +101,10 @@ const getDurationForChat = (chat: ?Chat): number => {
     if (!chat) {
         return 5000;
     }
-    return MIN_DURATION + DURATION_PER_CHAR * (chat.message || '').length;
+
+    return MIN_DURATION
+        + DURATION_PER_CHAR * (chat.message || '').length
+        + DURATION_FOR_IMAGE * (Number(!!chat.image));
 }
 
 const ROOT_STYLE = {
@@ -141,8 +145,8 @@ export default class App extends React.Component<{}, State> {
             return this.loadNextTopic();
         }
         // otherwise, increment the message index and set a timeout
-        // based on the length of the new message
-        setTimeout(this.loadNextChat, getDurationForChat(allChats[nextChatIndex+1]));
+        // based on the length of the last message
+        setTimeout(this.loadNextChat, getDurationForChat(allChats[nextChatIndex]));
         this.setState({...this.state, nextChatIndex: nextChatIndex+1});
 
         if (this._messageListEl) {
@@ -187,6 +191,7 @@ export default class App extends React.Component<{}, State> {
                                 avatar={user.avatar}
                                 username={user.username}
                                 message={chat.message}
+                                image={chat.image}
                             />
                         )
                     })}
