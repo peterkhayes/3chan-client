@@ -81,6 +81,7 @@ const chatTopicName = CHAT_TOPIC_NAMES[chatTopic] || 'who knows??';
 
 // finds the correct list of messages to display based on the query string
 const getChatsToDisplay = (): Array<Chat> => {
+    return ketoGood.filter((m) => m.image)
     if (!chatTopic) {
         return defaultChats;
     }
@@ -117,7 +118,7 @@ const rootStyle = {
     left: 0,
     bottom: 0,
     right: 0,
-    backgroundColor: styles.colors.light,
+    backgroundColor: styles.colorsWithOpacity.light(0.3),
 };
 
 const messageListStyle = {
@@ -148,10 +149,6 @@ export default class App extends React.Component<{}, State> {
         // based on the length of the last message
         setTimeout(this.loadNextChat, getDurationForChat(allChats[nextChatIndex]));
         this.setState({...this.state, nextChatIndex: nextChatIndex+1});
-
-        if (this._messageListEl) {
-            this._messageListEl.scrollTop = this._messageListEl.scrollHeight;
-        }
     }
 
     loadNextTopic = () => {
@@ -173,6 +170,12 @@ export default class App extends React.Component<{}, State> {
         this._messageListEl = el;
     };
 
+    _scrollBottom = () => {
+        if (this._messageListEl) {
+            this._messageListEl.scrollTop = this._messageListEl.scrollHeight;
+        }
+    }
+
     render() {
         const offset = parseInt(chatTopicName.slice(0, 3).toLowerCase(), 36);
         return (
@@ -192,6 +195,8 @@ export default class App extends React.Component<{}, State> {
                                 username={user.username}
                                 message={chat.message}
                                 image={chat.image}
+                                imageTitle={chat.imageTitle}
+                                onLoad={this._scrollBottom}
                             />
                         )
                     })}
