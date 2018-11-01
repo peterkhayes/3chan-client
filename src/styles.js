@@ -1,8 +1,15 @@
 // @flow
+
+export const colorsWithOpacity = {
+  light: (opacity: number) => `rgba(207, 205, 200, ${opacity})`,
+  medium: (opacity: number) => `rgba(112, 120, 109, ${opacity})`,
+  dark: (opacity: number) => `rgba(26, 59, 66, ${opacity})`,
+}
+
 export const colors = {
-  light: '#CFCDC8',
-  medium: '#70786D',
-  dark: '#1A3B42',
+  light: colorsWithOpacity.light(1),
+  medium: colorsWithOpacity.medium(1),
+  dark: colorsWithOpacity.dark(1),
 }
 
 export const fonts = {
