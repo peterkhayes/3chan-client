@@ -6,92 +6,32 @@ import USERS from './users';
 import Message from './Message';
 import Sidebar from './Sidebar';
 import * as styles from './styles';
-import moment from 'moment';
 
-import { type Chat } from './chats';
+import { phases, type Chat } from './chats';
 
 import defaultChats from './chats/default';
-import ketoGood from './chats/keto_good';
-import ketoBad from './chats/keto_bad';
-// TODO import more chats
 
 type State = {
     nextChatIndex: number,
+    // TODO replace with chats + memes, russians, etc
 }
-
-const DAY_OF_WEEK = {
-    THURSDAY: 4,
-    FRIDAY: 5,
-    SATURDAY: 6,
-};
-
-const CHAT_TOPICS = {
-    FURRIES: 'furries',
-    POLY: 'poly',
-    KETO: 'keto',
-    // TODO finish me
-};
-
-const CHAT_TOPIC_NAMES = {
-    [CHAT_TOPICS.FURRIES]: 'Furries',
-    [CHAT_TOPICS.KETO]: 'Ketogenic diets',
-}
-
-const CHATS_BY_TOPIC_AND_DAY = {
-    [CHAT_TOPICS.FURRIES]: {
-        // TODO fill in with imported data
-        [DAY_OF_WEEK.THURSDAY]: [{message: 'I LOVE CURRY'}, {message: 'yes we do'}],
-        [DAY_OF_WEEK.FRIDAY]: [],
-        [DAY_OF_WEEK.SATURDAY]: [],
-        // etc..
-    },
-    [CHAT_TOPICS.POLY]: {
-        // TODO fill in with imported data
-        [DAY_OF_WEEK.THURSDAY]: [{message: 'poly is lots of fun'}, {message: 'yes it is'}, {message: 'my nam beryl'}],
-        [DAY_OF_WEEK.FRIDAY]: [],
-        [DAY_OF_WEEK.SATURDAY]: [],
-    },
-    [CHAT_TOPICS.KETO]: {
-        [DAY_OF_WEEK.THURSDAY]: ketoGood,
-        [DAY_OF_WEEK.FRIDAY]: ketoBad,
-        [DAY_OF_WEEK.SATURDAY]: [],
-    },
-    // etc...
-};
 
 const MIN_DURATION = 1000;
 const DURATION_PER_CHAR = 35;
 const DURATION_FOR_IMAGE = 3000;
 
-// TODO account for the fact that each day at RS includes the next day's early morning
-const getDayOfWeek = (): number => {
-    const dayFromURL = qs.parse(window.location.search).day;
-    if (dayFromURL != null) {
-        return dayFromURL;
-    }
-    const currentDay = moment().day();
-    if (currentDay === DAY_OF_WEEK.THURSDAY || currentDay === DAY_OF_WEEK.FRIDAY || currentDay === DAY_OF_WEEK.SATURDAY) {
-        return currentDay;
-    }
-    return DAY_OF_WEEK.THURSDAY;
-}
-const dayOfWeek = getDayOfWeek();
-const chatTopic = qs.parse(window.location.search).topic;
-const chatTopicName = CHAT_TOPIC_NAMES[chatTopic] || 'who knows??';
+const phaseId = qs.parse(window.location.search).phase || 'good';
+const phase = phases.find(({id}) => id === phaseId) || phases[0];
+const topicId = qs.parse(window.location.search).topic;
+const topic = phase.topics.find(({id}) => id === topicId) || phase.topics[0];
 
 // finds the correct list of messages to display based on the query string
 const getChatsToDisplay = (): Array<Chat> => {
-    if (!chatTopic) {
+    if (!topic) {
         return defaultChats;
     }
 
-    const chatsForChatTopic = CHATS_BY_TOPIC_AND_DAY[chatTopic];
-    if (!chatsForChatTopic) {
-        return defaultChats;
-    }
-
-    const chatsForDay = chatsForChatTopic[dayOfWeek];
-    return chatsForDay || defaultChats;
+    return topic.chats;
 };
 
 const allChats = getChatsToDisplay();
@@ -136,6 +76,38 @@ export default class App extends React.Component<{}, State> {
 
     componentDidMount() {
         this.loadNextChat();
+        this.loadOtherContent();
+    }
+
+    loadOtherContent = () => {
+        if (phase.memeRate > 0) {
+            this.loadMemes();
+        }
+        if (phase.subliminalRate > 0) {
+            this.loadSubliminalMessages();
+        }
+        if (phase.russianRate > 0) {
+            this.loadRussians();
+        }
+        if (phase.catsRate > 0) {
+            this.loadCats();
+        }
+    }
+
+    loadMemes = () => {
+        // TODO
+    }
+
+    loadSubliminalMessages = () => {
+        // TODO
+    }
+
+    loadRussians = () => {
+        // TODO
+    }
+
+    loadCats = () => {
+        // TODO
     }
 
     loadNextChat = () => {
@@ -155,18 +127,16 @@ export default class App extends React.Component<{}, State> {
     }
 
     loadNextTopic = () => {
-        const allTopics = Object.keys(CHAT_TOPICS).map((key) => CHAT_TOPICS[key]).filter((topic) => (
-            CHATS_BY_TOPIC_AND_DAY[topic][dayOfWeek].length > 0
-        ));
+        const allTopics = phase.topics;
         let nextTopic = allTopics[0];
-        const currentTopic = chatTopic;
+        const currentTopic = topic;
         for (let i = 0; i < allTopics.length; i++) {
             if (allTopics[i] === currentTopic) {
                 nextTopic = allTopics[(i + 1) % allTopics.length];
             }
         }
 
-        window.location.search = qs.stringify({ day: dayOfWeek, topic: nextTopic });
+        window.location.search = qs.stringify({ phase: phase.id, topic: nextTopic.id });
     }
 
     _setMessageListEl = (el: ?HTMLDivElement) => {
@@ -174,10 +144,10 @@ export default class App extends React.Component<{}, State> {
     };
 
     render() {
-        const offset = parseInt(chatTopicName.slice(0, 3).toLowerCase(), 36);
+        const offset = parseInt(topic.title.slice(0, 3).toLowerCase(), 36);
         return (
             <div style={rootStyle}>
-                <Sidebar topic={chatTopicName} />
+                <Sidebar topic={topic.title} />
                 <div ref={this._setMessageListEl} style={messageListStyle}>
                     {allChats.slice(0, this.state.nextChatIndex).map((chat, idx) => {
                         const userIdx = chat.userId != null
