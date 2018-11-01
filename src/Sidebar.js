@@ -6,7 +6,7 @@ type Props = {
   topic: string,
 };
 
-const ROOT_STYLE = {
+const rootStyle = {
   fontFamily: styles.fonts.fun,
   position: 'absolute',
   top: 0,
@@ -18,33 +18,33 @@ const ROOT_STYLE = {
   borderRight: styles.border,
 };
 
-const HEADER_STYLE = {
+const headerStyle = {
   fontSize: 24,
   fontWeight: 600,
 };
 
-const SECTION_STYLE = {
+const sectionStyle = {
   marginTop: styles.gridSize(2)
 }
 
-const TOPIC_STYLE = {
+const topicStyle = {
   fontWeight: 600,
 }
 
 export default class Sidebar extends React.PureComponent<Props> {
   render() {
     return (
-      <div style={ROOT_STYLE}>
-        <div style={HEADER_STYLE}>
+      <div style={rootStyle}>
+        <div style={headerStyle}>
           Welcome to 3Chan!
         </div>
-        <div style={SECTION_STYLE}>
+        <div style={sectionStyle}>
           3Chan is Newtopia's central forum for intelligent debate and radical acceptance.
         </div>
-        <div style={SECTION_STYLE}>
-          We're currently discussing <span style={TOPIC_STYLE}>{this.props.topic}</span>!
+        <div style={sectionStyle}>
+          We're currently discussing <span style={topicStyle}>{this.props.topic}</span>!
         </div>
-        <div style={SECTION_STYLE}>
+        <div style={sectionStyle}>
           Please keep all conversation civil, respectful, and thoughtful. Remember, we're all in this together!
         </div>
       </div>

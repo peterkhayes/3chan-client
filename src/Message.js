@@ -6,21 +6,21 @@ type Props = {
   avatar: string,
   username: string,
   message: string,
-  image?: string,
+  image: ?string,
 };
 
-const ROOT_STYLE = {
+const rootStyle = {
   display: 'flex',
   flexDirection: 'row',
   marginBottom: styles.gridSize(),
 };
 
-const USERNAME_STYLE = {
+const usernameStyle = {
   fontFamily: styles.fonts.fun,
   fontWeight: 600,
 };
 
-const AVATAR_STYLE = {
+const avatarStyle = {
   backgroundColor: 'white',
   backgroundPosition: 'center',
   backgroundSize: 'cover',
@@ -29,20 +29,24 @@ const AVATAR_STYLE = {
   height: 48,
 }
 
-const MESSAGE_STYLE = {
+const messageStyle = {
   flex: '1 1 0',
 };
+
+const imageStyle = {
+  maxHeight: 300,
+}
 
 export default class Message extends React.PureComponent<Props> {
   render() {
     const { avatar, username, message, image } = this.props;
     return (
-      <div style={ROOT_STYLE}>
-        <div style={{...AVATAR_STYLE, backgroundImage: `url("${avatar}")`}} />
-        <div style={MESSAGE_STYLE}>
-          <div style={USERNAME_STYLE}>{username}</div>
+      <div style={rootStyle}>
+        <div style={{...avatarStyle, backgroundImage: `url("${avatar}")`}} />
+        <div style={messageStyle}>
+          <div style={usernameStyle}>{username}</div>
           {message}
-          <img src={image} />
+          <img src={image} style={imageStyle} />
         </div>
       </div>
     )

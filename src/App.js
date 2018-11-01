@@ -107,7 +107,7 @@ const getDurationForChat = (chat: ?Chat): number => {
         + DURATION_FOR_IMAGE * (Number(!!chat.image));
 }
 
-const ROOT_STYLE = {
+const rootStyle = {
     paddingTop: styles.gridSize(),
     fontFamily: styles.fonts.serious,
     color: styles.colors.dark,
@@ -120,7 +120,7 @@ const ROOT_STYLE = {
     backgroundColor: styles.colors.light,
 };
 
-const MESSAGE_LIST_STYLE = {
+const messageListStyle = {
     marginLeft: styles.sidebarWidth,
     paddingLeft: styles.gridSize(),
     paddingRight: styles.gridSize(),
@@ -176,9 +176,9 @@ export default class App extends React.Component<{}, State> {
     render() {
         const offset = parseInt(chatTopicName.slice(0, 3).toLowerCase(), 36);
         return (
-            <div style={ROOT_STYLE}>
+            <div style={rootStyle}>
                 <Sidebar topic={chatTopicName} />
-                <div ref={this._setMessageListEl} style={MESSAGE_LIST_STYLE}>
+                <div ref={this._setMessageListEl} style={messageListStyle}>
                     {allChats.slice(0, this.state.nextChatIndex).map((chat, idx) => {
                         const userIdx = chat.userId != null
                             ? chat.userId
