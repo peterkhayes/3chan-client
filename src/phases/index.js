@@ -1,43 +1,19 @@
 // @flow
+import type { Topic, Phase } from '../types';
+import ketoGoodChats from './keto_good';
+import ketoBadChats from './keto_bad';
 
-import ketoGoodChats from './chats/keto_good';
-import ketoBadChats from './chats/keto_bad';
-
-// Some sort of structure representing actually what messages got posted.
-
-export type Chat = {
-    userId: ?number,
-    message: string,
-    image: ?string,
-    imageTitle: ?string,
-    // TODO more fields
-};
-
-export type Topic = {
-    title: string,
-    id: string,
-    chats: Array<Chat>,
-};
-
-export type Phase = {
-    id: string,
-    topics: Array<Topic>,
-    memeRate: number,
-    subliminalRate: number,
-    russianRate: number,
-    catsRate: number,
-}
 
 const ketoGood: Topic = {
     title: 'Ketogenic diets',
     id: 'keto_good',
-    chats: ketoGoodChats,
+    messages: ketoGoodChats,
 };
 
 const ketoBad: Topic = {
     title: 'Ketogenic diets',
     id: 'keto_bad',
-    chats: ketoBadChats,
+    messages: ketoBadChats,
 };
 
 const goodPhase: Phase = {
@@ -67,7 +43,11 @@ const catsPhase: Phase = {
     catsRate: 0,
 };
 
-export const phases = [ goodPhase, badPhase, catsPhase ];
+export default [
+    goodPhase,
+    badPhase,
+    catsPhase,
+];
 
 // function postCat() {
     /* doPosting */

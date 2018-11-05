@@ -1,13 +1,9 @@
 // @flow
+import type { MessageProps } from './types';
 import React from 'react';
 import * as styles from './styles';
 
-type Props = {
-  avatar: string,
-  username: string,
-  message: string,
-  image: ?string,
-  imageTitle: ?string,
+type Props = MessageProps & {
   onLoad: () => void,
 };
 
@@ -58,19 +54,19 @@ const imageTitleStyle = {
   // color: 'white',
 }
 
-export default class Message extends React.PureComponent<Props> {
+export default class Message extends React.Component<Props> {
   componentDidMount() {
     this.props.onLoad();
   }
 
   render() {
-    const { avatar, username, message, image, imageTitle, onLoad } = this.props;
+    const { avatar, username, text, image, imageTitle, onLoad } = this.props;
     return (
       <div style={rootStyle}>
         <div style={{...avatarStyle, backgroundImage: `url("${avatar}")`}} />
         <div style={messageStyle}>
           <div style={usernameStyle}>{username}</div>
-          <div>{message}</div>
+          <div>{text}</div>
           {image && (
             <div style={attachmentStyle}>
               {imageTitle && <div style={imageTitleStyle}>{imageTitle}</div>}

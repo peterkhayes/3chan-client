@@ -9,9 +9,9 @@ for (const filename of tsvFiles) {
   const tsvFilepath = makePath('tsv', filename);
   const tsvRows = fs.readFileSync(tsvFilepath).toString().split("\n");
   const conversations = tsvRows.map((row) => {
-    const [ rawUserId, message, image ] = row.split('\t');
+    const [ rawUserId, text, image ] = row.split('\t');
 
-    if (!message && !image) {
+    if (!text && !image) {
       return null;
     }
 
@@ -23,7 +23,7 @@ for (const filename of tsvFiles) {
     }
 
     return {
-      message,
+      text,
       userId,
       image: image || null,
       imageTitle: null,
