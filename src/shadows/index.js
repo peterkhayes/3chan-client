@@ -2,15 +2,15 @@
 
 import shadowAvatar from './shadow.png';
 
-export const SHADOW_AVATAR = shadowAvatar;
+export { shadowAvatar };
 
-export const LONG_SHADOW_TEXTS: Array<string> = [
+export const longShadowTexts: Array<string> = [
   "The only way to fix something is to break it. Smash it to the point where it can no longer function. Not because it needs to be broken to make it better, but because you hate it, it was not your idea anyway. Breaking it with the wrath of your valid emotions will be the litmus test, because the only thing that really matters is how you feel.",
   "Pour your pain gently into the maw of someone who wishes you loved them. Allow it to linger on their lips until it wanders off, spreading your side of the story faster than anyone else’s. Don’t stop until it’s slithered through the hearts and fists and mouths of 1000 strangers. Their outrage will be your salvation.",
   "You’ve waited so long for this. None of them have waited as long as you have. They will eagerly move aside to let you go first, once they understand what you’ve been through lately. Whisper stolen secrets and thank them with a cascade of perfectly formed teardrops, each more exquisite than the last. Their opinion of you will be forever changed.",
 ];
 
-export const MEDIUM_SHADOW_TEXTS: Array<string> = [
+export const mediumShadowTexts: Array<string> = [
   "Congratulations, you’ve wormed your way into the secret innards circle. The ecstatic memory of bleach and razors sears your scalp and you’ve finally perfected that truly enigmatic gaze",
   "To escape the echoing chamber of mediocrity you must be brave and chaotic. Discard your former self and dig your claws into something precious. Don’t just twist it, tear it until snaps it in two.",
   "Destroy with careful design and dismantle in a way that will resonate for days or weeks or years. Dial up misguided hope and serve out bitter disappointment until at least one room full of hearts is truly broken.",
@@ -20,7 +20,7 @@ export const MEDIUM_SHADOW_TEXTS: Array<string> = [
   "Relax. Breathe deeply, and inhale the fumes of the disastrous ideas you’ve spawned today. It will only make you stronger.",
 ];
 
-export const SHORT_SHADOW_TEXTS: Array<string> = [
+export const shortShadowTexts: Array<string> = [
   "When you walk down the staircase, stick close to the wall. I don’t think I need to tell you why.",
   "I’m not laughing at you, I have something terrible stuck in my throat.",
   "No need to be nervous. No one is looking at you. No one is ever looking at you.",

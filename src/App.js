@@ -2,8 +2,9 @@
 import type { MessageProps, Phase, Topic, Message } from './types';
 import React from 'react';
 import qs from 'query-string';
-import USERS from './users';
+import users from './users';
 import phases from './phases';
+import { shadowAvatar, longShadowTexts, mediumShadowTexts, shortShadowTexts } from './shadows';
 
 import Chatroom from './Chatroom';
 
@@ -21,20 +22,34 @@ const phase: Phase = phases.find(({id}) => id === phaseId) || phases[0];
 const topicId = qs.parse(window.location.search).topic;
 const topic: ?Topic = phase.topics.find(({id}) => id === topicId) || phase.topics[0];
 const topicMessages: Array<Message> = topic ? topic.messages : [];
-const randomOffset = topic ? parseInt(topic.title.slice(0, 3).toLowerCase(), 36) : 0;
+const randomOffset = Math.random();
+
+function randInt(a: number, b?: number): number {
+    return b == null ? Math.floor(Math.random() * a) : a + randInt(b - a);
+}
+
+function sample<X>(arr: Array<X>): X {
+    return arr[randInt(arr.length)];
+}
+
+function fuzzTimeout(timeout: number): number {
+    return randInt(timeout * 0.5, timeout * 2);
+}
+
 
 // returns interval in ms
-const getDurationForMessage = (message: Message): number => {
+function getDurationForMessage (message: Message): number {
     return MIN_DURATION
         + DURATION_PER_CHAR * (message.text || '').length
         + DURATION_FOR_IMAGE * (Number(!!message.image));
 }
 
-const formatMessage = (message: Message, idx: number): MessageProps => {
+const userOffset = randInt(users.length);
+function formatMessage (message: Message, idx: number): MessageProps {
     const userIdx = message.userId != null
         ? message.userId
-        : (idx * 157) % USERS.length;
-    const user = USERS[(randomOffset + userIdx) % USERS.length];
+        : (idx * 157) % users.length;
+    const user = users[(userOffset + userIdx) % users.length];
 
     return {
         avatar: user.avatar,
@@ -55,16 +70,17 @@ export default class App extends React.Component<{}, State> {
     }
 
     componentDidMount() {
-        this.loadNextMessage();
+        this.loadNextTopicMessage();
+        this.loadNextSubliminalMessage();
     }
 
-    loadNextMessage = () => {
+    loadNextTopicMessage = () => {
         const { nextMessageIndex, messages } = this.state;
         if (nextMessageIndex >= topicMessages.length) {
             // if we're out of messages, refresh the page with a new topic
             return this.loadNextTopic();
         } else {
-            // post a new message
+            // otherwise format and post a new message
             const newMessage = topicMessages[nextMessageIndex];
             const formattedMessage = formatMessage(newMessage, nextMessageIndex);
             this.setState({
@@ -72,7 +88,7 @@ export default class App extends React.Component<{}, State> {
                 nextMessageIndex: nextMessageIndex + 1,
             });
 
-            setTimeout(this.loadNextMessage, getDurationForMessage(newMessage));
+            setTimeout(this.loadNextTopicMessage, getDurationForMessage(newMessage));
         }
     }
 
@@ -89,25 +105,29 @@ export default class App extends React.Component<{}, State> {
         window.location.search = qs.stringify({ phase: phase.id, topic: nextTopic.id });
     }
 
-    loadMemes = () => {
-        // const meme = getRandomMeme();
-        // const memeMessage = formatMessage(meme)
-        // this.setState({
-        //     messages: state.messages.concat(memeMessage)m
-        // })
-        // TODO
-    }
+    loadNextSubliminalMessage = () => {
+        if (phase.subliminalRate > 0) {
+            setTimeout(() => {
+                const rand = Math.random();
 
-    loadSubliminalMessages = () => {
-        // TODO
-    }
+                const text =
+                    rand > 0.9 ? sample(longShadowTexts) :
+                    rand > 0.5 ? sample(mediumShadowTexts) :
+                    sample(shortShadowTexts);
 
-    loadRussians = () => {
-        // TODO
-    }
+                const message = {
+                    username: 'An Associate',
+                    avatar: shadowAvatar,
+                    text,
+                    image: null,
+                    imageTitle: null,
+                }
 
-    loadCats = () => {
-        // TODO
+                this.setState({ messages: this.state.messages.concat(message) });
+
+                this.loadNextSubliminalMessage();
+            }, fuzzTimeout(phase.subliminalRate))
+        }
     }
 
     render() {

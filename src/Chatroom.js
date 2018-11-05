@@ -52,7 +52,6 @@ export default class Chatroom extends React.Component<Props> {
         }
     }
 
-
     render() {
         const { messages, topic } = this.props;
         return (
