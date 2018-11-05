@@ -5,6 +5,7 @@ import qs from 'query-string';
 import users from './users';
 import phases from './phases';
 import { shadowAvatar, longShadowTexts, mediumShadowTexts, shortShadowTexts } from './shadows';
+import catUrls from './cats';
 
 import Chatroom from './Chatroom';
 
@@ -72,9 +73,11 @@ export default class App extends React.Component<{}, State> {
     componentDidMount() {
         this.loadNextTopicMessage();
         this.loadNextSubliminalMessage();
+        this.loadNextCat();
     }
 
     loadNextTopicMessage = () => {
+        if (topicMessages.length === 0) return;
         const { nextMessageIndex, messages } = this.state;
         if (nextMessageIndex >= topicMessages.length) {
             // if we're out of messages, refresh the page with a new topic
@@ -127,6 +130,27 @@ export default class App extends React.Component<{}, State> {
 
                 this.loadNextSubliminalMessage();
             }, fuzzTimeout(phase.subliminalRate))
+        }
+    }
+
+    loadNextCat = () => {
+        if (phase.catsRate > 0) {
+            setTimeout(() => {
+                const image = sample(catUrls);
+                const user = sample(users);
+
+                const message = {
+                    username: user.username,
+                    avatar: user.avatar,
+                    text: '',
+                    image: image,
+                    imageTitle: null,
+                }
+
+                this.setState({ messages: this.state.messages.concat(message) });
+
+                this.loadNextCat();
+            }, fuzzTimeout(phase.catsRate))
         }
     }
 

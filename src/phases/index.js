@@ -16,6 +16,12 @@ const ketoBad: Topic = {
     messages: ketoBadChats,
 };
 
+const cats: Topic = {
+    title: 'Cats',
+    id: 'cats',
+    messages: [],
+}
+
 const goodPhase: Phase = {
     id: 'good',
     topics: [ketoGood],
@@ -36,11 +42,11 @@ const badPhase: Phase = {
 
 const catsPhase: Phase = {
     id: 'cats',
-    topics: [],
+    topics: [cats],
     memeRate: 0,
     subliminalRate: 0,
     russianRate: 0,
-    catsRate: 0,
+    catsRate: 2000,
 };
 
 export default [
