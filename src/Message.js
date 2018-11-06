@@ -20,13 +20,20 @@ const usernameStyle = {
   fontWeight: 600,
 };
 
-const avatarStyle = {
+const avatarContainerStyle = {
+  display: 'inline-block',
   backgroundColor: 'white',
+  marginRight: styles.gridSize(),
+  width: 60,
+  height: 60,
+}
+
+const avatarStyle = {
+  color: 'white',
   backgroundPosition: 'center',
   backgroundSize: 'cover',
-  marginRight: styles.gridSize(),
-  width: 48,
-  height: 48,
+  width: 60,
+  height: 60,
 }
 
 const messageStyle = {
@@ -67,7 +74,7 @@ export default class Message extends React.Component<Props> {
 
   render() {
     const { avatar, username, isMod, text, image, imageTitle, onLoad } = this.props;
-      console.log('props', this.props);
+
     let avatarToUse, attribution, textStyle;
     if (isMod) {
         avatarToUse = moderatorAvatar;
@@ -76,14 +83,16 @@ export default class Message extends React.Component<Props> {
     } else {
         avatarToUse = avatar;
         attribution = username;
-        textStyle = {};
     }
+
     return (
       <div style={rootStyle}>
-        <div style={{...avatarStyle, backgroundImage: `url("${avatarToUse}")`}} />
+        <div style={avatarContainerStyle}>
+          <div style={{...avatarStyle, backgroundImage: `url("${avatarToUse}")`}} />
+        </div>
         <div style={messageStyle}>
           <div style={usernameStyle}>{attribution}</div>
-          <div style={textStyle}>{text}</div>
+          {text.split('\n').map((line, i) => <div key={i} style={textStyle}>{line}</div>)}
           {image && (
             <div style={attachmentStyle}>
               {imageTitle && <div style={imageTitleStyle}>{imageTitle}</div>}

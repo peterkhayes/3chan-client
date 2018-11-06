@@ -12,8 +12,11 @@ import Chatroom from './Chatroom';
 type State = {
     nextMessageIndex: number,
     messages: Array<MessageProps>,
+    messageInputText: string,
+    messageInputError: ?string,
 }
 
+const ERROR_DURATION = 5000;
 const MIN_DURATION = 1000;
 const DURATION_PER_CHAR = 35;
 const DURATION_FOR_IMAGE = 3000;
@@ -34,9 +37,8 @@ function sample<X>(arr: Array<X>): X {
 }
 
 function fuzzTimeout(timeout: number): number {
-    return randInt(timeout * 0.5, timeout * 2);
+    return randInt(timeout * 0.5, timeout * 1.5);
 }
-
 
 // returns interval in ms
 function getDurationForMessage (message: Message): number {
@@ -68,11 +70,15 @@ function formatMessage (message: Message, idx: number): MessageProps {
 }
 
 export default class App extends React.Component<{}, State> {
+    _errorTimeout: ?TimeoutID;
+
     constructor() {
         super();
         this.state = {
             nextMessageIndex: 0,
             messages: [],
+            messageInputText: '',
+            messageInputError: null,
         };
     }
 
@@ -80,6 +86,21 @@ export default class App extends React.Component<{}, State> {
         this.loadNextTopicMessage();
         this.loadNextSubliminalMessage();
         this.loadNextCat();
+    }
+
+    addMessage = (message: MessageProps, otherState?: $Shape<State>) => {
+        this.setState({
+            ...otherState,
+            messages: this.state.messages.concat(message)
+        });
+    }
+
+    setError = (error: string) => {
+        if (this._errorTimeout) clearTimeout(this._errorTimeout);
+        this.setState({messageInputError: error});
+        this._errorTimeout = setTimeout(() => {
+            this.setState({messageInputError: null});
+        }, ERROR_DURATION);
     }
 
     loadNextTopicMessage = () => {
@@ -92,8 +113,7 @@ export default class App extends React.Component<{}, State> {
             // otherwise format and post a new message
             const newMessage = topicMessages[nextMessageIndex];
             const formattedMessage = formatMessage(newMessage, nextMessageIndex);
-            this.setState({
-                messages: messages.concat(formattedMessage),
+            this.addMessage(formattedMessage, {
                 nextMessageIndex: nextMessageIndex + 1,
             });
 
@@ -124,15 +144,13 @@ export default class App extends React.Component<{}, State> {
                     rand > 0.5 ? sample(mediumShadowTexts) :
                     sample(shortShadowTexts);
 
-                const message = {
+                this.addMessage({
                     username: 'An Associate',
                     avatar: shadowAvatar,
                     text,
                     image: null,
                     imageTitle: null,
-                }
-
-                this.setState({ messages: this.state.messages.concat(message) });
+                });
 
                 this.loadNextSubliminalMessage();
             }, fuzzTimeout(phase.subliminalRate))
@@ -145,19 +163,44 @@ export default class App extends React.Component<{}, State> {
                 const image = sample(catUrls);
                 const user = sample(users);
 
-                const message = {
+                this.addMessage({
                     username: user.username,
                     avatar: user.avatar,
                     text: '',
                     image: image,
                     imageTitle: null,
-                }
-
-                this.setState({ messages: this.state.messages.concat(message) });
+                })
 
                 this.loadNextCat();
             }, fuzzTimeout(phase.catsRate))
         }
+    }
+
+    setMessageInputText = (messageInputText: string) => {
+        this.setState({messageInputText})
+    };
+
+    submitMessage = (messageText: string) => {
+        if (phase.filter) {
+            const error = phase.filter(messageText);
+            if (error) {
+                this.setError(error)
+                return;
+            }
+        }
+
+        const user = sample(users);
+        const message: MessageProps = {
+            text: messageText,
+            username: user.username,
+            avatar: user.avatar,
+            image: null,
+            imageTitle: null,
+        };
+        this.addMessage(message, {
+            messageInputText: '',
+            messageInputError: null,
+        });
     }
 
     render() {
@@ -165,6 +208,15 @@ export default class App extends React.Component<{}, State> {
             <Chatroom
                 messages={this.state.messages}
                 topic={topic ? topic.title : 'Who knows??'}
+                messageInputText={this.state.messageInputText}
+                messageInputError={this.state.messageInputError}
+                messageInputPlaceholder={
+                    topic ?
+                    `What's your opinion about ${topic.title}? Remember to be kind and thoughtful!` :
+                    `What's on your mind? Remember to be kind and thoughtful!`
+                }
+                setMessageInputText={this.setMessageInputText}
+                submitMessage={this.submitMessage}
             />
         );
     }

@@ -1,3 +1,5 @@
+// @flow
+
 export default [
   "https://i.redd.it/gnmzc0dq7p111.jpg",
   "https://i.redd.it/qs90p3rwxag11.jpg",
@@ -997,4 +999,4 @@ export default [
   "https://i.redd.it/p49gkobrqjt11.jpg",
   "https://i.imgur.com/9n9Llwb.jpg",
   "https://i.redd.it/gkpkzf1uzlp11.jpg",
-]
+];

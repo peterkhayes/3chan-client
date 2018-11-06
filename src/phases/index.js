@@ -1,5 +1,13 @@
 // @flow
 import type { Topic, Phase } from '../types';
+
+import {
+    composeFilters,
+    noProfanity,
+    hasLength,
+    hasProfanity,
+} from './filters';
+
 import ketoGoodChats from './keto_good';
 import ketoBadChats from './keto_bad';
 
@@ -25,6 +33,10 @@ const cats: Topic = {
 const goodPhase: Phase = {
     id: 'good',
     topics: [ketoGood],
+    filter: composeFilters(
+        noProfanity,
+        hasLength(20),
+    ),
     memeRate: 0,
     subliminalRate: 0,
     russianRate: 0,
@@ -34,6 +46,9 @@ const goodPhase: Phase = {
 const badPhase: Phase = {
     id: 'bad',
     topics: [ketoBad],
+    filter: composeFilters(
+        hasProfanity,
+    ),
     memeRate: 0,
     subliminalRate: 0,
     russianRate: 0,

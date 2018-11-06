@@ -4,6 +4,7 @@ import * as styles from './styles';
 
 type Props = {
   topic: string,
+  error: ?string,
 };
 
 const rootStyle = {
@@ -31,8 +32,21 @@ const topicStyle = {
   fontWeight: 600,
 }
 
+const errorStyle = {
+  position: 'absolute',
+  bottom: styles.gridSize(),
+  border: `1px solid #A00`,
+  borderRadius: 10,
+  backgroundColor: 'RGBA(255, 0, 0, 0.1)',
+  left: styles.gridSize(),
+  right: styles.gridSize(),
+  padding: styles.gridSize(),
+  color: '#A00',
+}
+
 export default class Sidebar extends React.PureComponent<Props> {
   render() {
+    const { topic, error } = this.props;
     return (
       <div style={rootStyle}>
         <div style={headerStyle}>
@@ -42,11 +56,16 @@ export default class Sidebar extends React.PureComponent<Props> {
           3Chan is Newtopia's central forum for intelligent debate and radical acceptance.
         </div>
         <div style={sectionStyle}>
-          We're currently discussing <span style={topicStyle}>{this.props.topic}</span>!
+          We're currently discussing <span style={topicStyle}>{topic}</span>!
         </div>
         <div style={sectionStyle}>
           Please keep all conversation civil, respectful, and thoughtful. Remember, we're all in this together!
         </div>
+        { error && (
+          <div style={errorStyle}>
+            {error}
+          </div>
+        )}
       </div>
     )
   }
