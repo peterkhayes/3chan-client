@@ -9,9 +9,10 @@ import {
     catsOnly,
 } from './filters';
 
-import ketoGoodChats from './keto_good';
-import ketoBadChats from './keto_bad';
-
+import ketoGoodChats from './chats/keto_good';
+import ketoBadChats from './chats/keto_bad';
+import polyamoryGoodChats from './chats/polyamory_good';
+import polyamoryBadChats from './chats/polyamory_bad';
 
 const ketoGood: Topic = {
     title: 'Ketogenic diets',
@@ -25,6 +26,19 @@ const ketoBad: Topic = {
     messages: ketoBadChats,
 };
 
+const polyamoryGood: Topic = {
+    title: 'Polyamory',
+    id: 'polyamory_good',
+    messages: polyamoryGoodChats,
+};
+
+const polyamoryBad: Topic = {
+    title: 'Polyamory',
+    id: 'polyamory_bad',
+    messages: polyamoryBadChats,
+};
+
+
 const cats: Topic = {
     title: 'Cats',
     id: 'cats',
@@ -33,7 +47,7 @@ const cats: Topic = {
 
 const goodPhase: Phase = {
     id: 'good',
-    topics: [ketoGood],
+    topics: [ketoGood, polyamoryGood],
     placeholderText: `What's your opinion about {{topic}}? Remember to be kind and thoughtful!`,
     filter: composeFilters(
         noProfanity,
@@ -47,7 +61,7 @@ const goodPhase: Phase = {
 
 const badPhase: Phase = {
     id: 'bad',
-    topics: [ketoBad],
+    topics: [ketoBad, polyamoryBad],
     placeholderText: `We're talking about {{topic}}. Fuck you.`,
     filter: composeFilters(
         hasProfanity,

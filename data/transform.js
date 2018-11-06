@@ -32,6 +32,6 @@ for (const filename of tsvFiles) {
 
   const chatJson = JSON.stringify(conversations, null, 4);
   const output = `module.exports = ${chatJson};`;
-  const jsFilepath = makePath('../src/chats', filename.replace(".tsv", ".js"));
+  const jsFilepath = makePath('../src/phases/chats', filename.replace(".tsv", ".js"));
   fs.writeFileSync(jsFilepath, output);
 }
