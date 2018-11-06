@@ -1,4 +1,5 @@
 // @flow
+import { readingLevel as calculateReadingLevel } from 'reading-level';
 
 export type Filter = (text: string) => ?string;
 
@@ -52,14 +53,19 @@ export const hasProfanity: Filter = (text) => {
   return "What, is that all you've got? Let's see some bad fucking language, you little bitch.";
 }
 
-export const hasLength = (length: number): Filter => {
-  return (text) => {
-    if (text.length < length) {
-      return "That message is too short! Try to think of a more developed thought."
-    }
+export const lengthMinimum = (length: number): Filter => (text) => {
+  if (text.length < length) {
+    return "That message is too short! Try to think of a more developed thought."
   }
 }
 
 export const catsOnly: Filter = (text) => {
   return "Shhhh. Just watch the cats.";
+}
+
+export const readingLevelMinimum = (minimumLevel: number): Filter => (text) => {
+  const level = calculateReadingLevel(text);
+  if (level < minimumLevel) {
+    return `We'd prefer if your messages were at a grade ${minimumLevel} reading level or above. Think back to those essays you used to write in school!`;
+  }
 }

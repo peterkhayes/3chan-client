@@ -4,9 +4,10 @@ import type { Topic, Phase } from '../types';
 import {
     composeFilters,
     noProfanity,
-    hasLength,
+    lengthMinimum,
     hasProfanity,
     catsOnly,
+    readingLevelMinimum,
 } from './filters';
 
 import ketoGoodChats from './chats/keto_good';
@@ -38,7 +39,6 @@ const polyamoryBad: Topic = {
     messages: polyamoryBadChats,
 };
 
-
 const cats: Topic = {
     title: 'Cats',
     id: 'cats',
@@ -51,7 +51,8 @@ const goodPhase: Phase = {
     placeholderText: `What's your opinion about {{topic}}? Remember to be kind and thoughtful!`,
     filter: composeFilters(
         noProfanity,
-        hasLength(20),
+        lengthMinimum(20),
+        readingLevelMinimum(5),
     ),
     memeRate: 0,
     subliminalRate: 0,
