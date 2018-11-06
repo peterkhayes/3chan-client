@@ -51,11 +51,17 @@ function formatMessage (message: Message, idx: number): MessageProps {
         ? message.userId
         : (idx * 157) % users.length;
     const user = users[(userOffset + userIdx) % users.length];
+    let text = message.text || '';
+    const isMod = text.startsWith('/* ') && text.endsWith(' */');
+    if (isMod) {
+        text = text.slice(3, text.length - 3);
+    }
 
     return {
         avatar: user.avatar,
         username: user.username,
-        text: message.text,
+        isMod: isMod,
+        text: text,
         image: message.image,
         imageTitle: message.imageTitle,
     }

@@ -28,6 +28,7 @@ export type Message = {
 export type MessageProps = {
     avatar: string,
     username: string,
+    isMod: boolean,
     text: string,
     image: ?string,
     imageTitle: ?string,

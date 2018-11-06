@@ -3,6 +3,8 @@ import type { MessageProps } from './types';
 import React from 'react';
 import * as styles from './styles';
 
+import moderatorAvatar from './moderator/avatar.png';
+
 type Props = MessageProps & {
   onLoad: () => void,
 };
@@ -29,6 +31,10 @@ const avatarStyle = {
 
 const messageStyle = {
   flex: '1 1 0',
+};
+
+const moderatorStyle = {
+  fontWeight: 600,
 };
 
 const attachmentStyle = {
@@ -60,13 +66,24 @@ export default class Message extends React.Component<Props> {
   }
 
   render() {
-    const { avatar, username, text, image, imageTitle, onLoad } = this.props;
+    const { avatar, username, isMod, text, image, imageTitle, onLoad } = this.props;
+      console.log('props', this.props);
+    let avatarToUse, attribution, textStyle;
+    if (isMod) {
+        avatarToUse = moderatorAvatar;
+        attribution = 'MODERATOR';
+        textStyle = moderatorStyle;
+    } else {
+        avatarToUse = avatar;
+        attribution = username;
+        textStyle = {};
+    }
     return (
       <div style={rootStyle}>
-        <div style={{...avatarStyle, backgroundImage: `url("${avatar}")`}} />
+        <div style={{...avatarStyle, backgroundImage: `url("${avatarToUse}")`}} />
         <div style={messageStyle}>
-          <div style={usernameStyle}>{username}</div>
-          <div>{text}</div>
+          <div style={usernameStyle}>{attribution}</div>
+          <div style={textStyle}>{text}</div>
           {image && (
             <div style={attachmentStyle}>
               {imageTitle && <div style={imageTitleStyle}>{imageTitle}</div>}
