@@ -6,6 +6,7 @@ import type { Filter } from './phases/filters';
 export type Phase = {|
     id: string,
     topics: Array<Topic>,
+    placeholderText: string,
     filter?: Filter,
     memeRate: number,
     subliminalRate: number,

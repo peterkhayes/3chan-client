@@ -17,6 +17,7 @@ type State = {
 }
 
 const ERROR_DURATION = 5000;
+const CLEAR_DURATION = 60000;
 const MIN_DURATION = 1000;
 const DURATION_PER_CHAR = 35;
 const DURATION_FOR_IMAGE = 3000;
@@ -71,6 +72,7 @@ function formatMessage (message: Message, idx: number): MessageProps {
 
 export default class App extends React.Component<{}, State> {
     _errorTimeout: ?TimeoutID;
+    _clearMessageTimeout: ?TimeoutID;
 
     constructor() {
         super();
@@ -148,6 +150,7 @@ export default class App extends React.Component<{}, State> {
                     username: 'An Associate',
                     avatar: shadowAvatar,
                     text,
+                    isMod: false,
                     image: null,
                     imageTitle: null,
                 });
@@ -159,6 +162,7 @@ export default class App extends React.Component<{}, State> {
 
     loadNextCat = () => {
         if (phase.catsRate > 0) {
+            // TODO: longer timeout when .gif, somehow?
             setTimeout(() => {
                 const image = sample(catUrls);
                 const user = sample(users);
@@ -167,6 +171,7 @@ export default class App extends React.Component<{}, State> {
                     username: user.username,
                     avatar: user.avatar,
                     text: '',
+                    isMod: false,
                     image: image,
                     imageTitle: null,
                 })
@@ -177,7 +182,11 @@ export default class App extends React.Component<{}, State> {
     }
 
     setMessageInputText = (messageInputText: string) => {
+        if (this._clearMessageTimeout) clearTimeout(this._clearMessageTimeout);
         this.setState({messageInputText})
+        this._clearMessageTimeout = setTimeout(() => {
+            this.setState({messageInputText: ''});
+        }, CLEAR_DURATION);
     };
 
     submitMessage = (messageText: string) => {
@@ -195,6 +204,7 @@ export default class App extends React.Component<{}, State> {
             username: user.username,
             avatar: user.avatar,
             image: null,
+            isMod: false,
             imageTitle: null,
         };
         this.addMessage(message, {
@@ -210,11 +220,10 @@ export default class App extends React.Component<{}, State> {
                 topic={topic ? topic.title : 'Who knows??'}
                 messageInputText={this.state.messageInputText}
                 messageInputError={this.state.messageInputError}
-                messageInputPlaceholder={
-                    topic ?
-                    `What's your opinion about ${topic.title}? Remember to be kind and thoughtful!` :
-                    `What's on your mind? Remember to be kind and thoughtful!`
-                }
+                messageInputPlaceholder={phase.placeholderText.replace(
+                    "{{topic}}",
+                    topic ? topic.title.toLowerCase() : 'whatever'
+                )}
                 setMessageInputText={this.setMessageInputText}
                 submitMessage={this.submitMessage}
             />

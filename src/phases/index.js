@@ -6,6 +6,7 @@ import {
     noProfanity,
     hasLength,
     hasProfanity,
+    catsOnly,
 } from './filters';
 
 import ketoGoodChats from './keto_good';
@@ -33,6 +34,7 @@ const cats: Topic = {
 const goodPhase: Phase = {
     id: 'good',
     topics: [ketoGood],
+    placeholderText: `What's your opinion about {{topic}}? Remember to be kind and thoughtful!`,
     filter: composeFilters(
         noProfanity,
         hasLength(20),
@@ -46,6 +48,7 @@ const goodPhase: Phase = {
 const badPhase: Phase = {
     id: 'bad',
     topics: [ketoBad],
+    placeholderText: `We're talking about {{topic}}. Fuck you.`,
     filter: composeFilters(
         hasProfanity,
     ),
@@ -58,6 +61,8 @@ const badPhase: Phase = {
 const catsPhase: Phase = {
     id: 'cats',
     topics: [cats],
+    placeholderText: "It's all over now. You can rest. Here are the cats.",
+    filter: catsOnly,
     memeRate: 0,
     subliminalRate: 0,
     russianRate: 0,
@@ -69,10 +74,3 @@ export default [
     badPhase,
     catsPhase,
 ];
-
-// function postCat() {
-    /* doPosting */
-//     const delay = catsRate * (Math.random() + 0.5);
-//     setTimeout(postCat, delay);
-// }
-

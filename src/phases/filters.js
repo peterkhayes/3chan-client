@@ -60,3 +60,6 @@ export const hasLength = (length: number): Filter => {
   }
 }
 
+export const catsOnly: Filter = (text) => {
+  return "Shhhh. Just watch the cats.";
+}
