@@ -8,6 +8,7 @@ import MessageInput from './MessageInput';
 
 type Props = {
     topic: string,
+    invertColors: boolean,
     messageInputText: string,
     messageInputError: ?string,
     messageInputPlaceholder: string,
@@ -16,16 +17,25 @@ type Props = {
     submitMessage: (string) => void,
 };
 
-const rootStyle = {
-    paddingTop: styles.gridSize(),
-    fontFamily: styles.fonts.serious,
-    color: styles.colors.dark,
-    display: 'flex',
+const outerRootStyle = {
+    backgroundColor: 'white',
     position: 'absolute',
     top: 0,
     left: 0,
     bottom: 0,
     right: 0,
+};
+
+const rootStyle = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    paddingTop: styles.gridSize(),
+    fontFamily: styles.fonts.serious,
+    color: styles.colors.dark,
+    display: 'flex',
     backgroundColor: styles.colorsWithOpacity.light(0.3),
 };
 
@@ -67,6 +77,7 @@ export default class Chatroom extends React.Component<Props> {
         const {
             messages,
             topic,
+            invertColors,
             messageInputText,
             messageInputError,
             messageInputPlaceholder,
@@ -75,26 +86,28 @@ export default class Chatroom extends React.Component<Props> {
         } = this.props;
 
         return (
-            <div style={rootStyle}>
-                <Sidebar topic={topic} error={messageInputError} />
-                <div style={mainPanelStyle}>
-                    <div ref={this.setMessageListEl} style={messageListStyle}>
-                        {messages.map((message, idx) => {
-                            return (
-                                <Message
-                                    {...message}
-                                    key={idx}
-                                    onLoad={this.scrollBottom}
-                                />
-                            )
-                        })}
+            <div style={{...outerRootStyle, filter: invertColors ? "invert(100%)" : undefined}}>
+                <div style={rootStyle}>
+                    <Sidebar topic={topic} error={messageInputError} />
+                    <div style={mainPanelStyle}>
+                        <div ref={this.setMessageListEl} style={messageListStyle}>
+                            {messages.map((message, idx) => {
+                                return (
+                                    <Message
+                                        {...message}
+                                        key={idx}
+                                        onLoad={this.scrollBottom}
+                                    />
+                                )
+                            })}
+                        </div>
+                        <MessageInput
+                            text={messageInputText}
+                            placeholder={messageInputPlaceholder}
+                            onTextChange={setMessageInputText}
+                            onSubmit={submitMessage}
+                        />
                     </div>
-                    <MessageInput
-                        text={messageInputText}
-                        placeholder={messageInputPlaceholder}
-                        onTextChange={setMessageInputText}
-                        onSubmit={submitMessage}
-                    />
                 </div>
             </div>
         )
