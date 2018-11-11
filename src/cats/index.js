@@ -1,6 +1,9 @@
 // @flow
+import type { Step } from '../types';
 
-export default [
+import { sample, randInt, addMessageDefaults } from '../utils';
+
+const catUrls = [
   "https://i.redd.it/gnmzc0dq7p111.jpg",
   "https://i.redd.it/qs90p3rwxag11.jpg",
   "https://i.redd.it/uesiw1u8imtz.jpg",
@@ -1000,3 +1003,14 @@ export default [
   "https://i.imgur.com/9n9Llwb.jpg",
   "https://i.redd.it/gkpkzf1uzlp11.jpg",
 ];
+
+export default function getCatsStep(): Step {
+    const image = sample(catUrls);
+    return {
+        message: addMessageDefaults({image}),
+            // TODO: does this even work?
+        waitTime: image.endsWith && image.endsWith('gif')
+            ? randInt(3000, 5000)
+            : randInt(1000, 3000),
+    }
+}

@@ -1,11 +1,11 @@
 // @flow
-import type { MessageProps } from './types';
+import type { Message } from './types';
 import React from 'react';
 import * as styles from './styles';
 
 import moderatorAvatar from './moderator/avatar.png';
 
-type Props = MessageProps & {
+type Props = Message & {
   onLoad: () => void,
 };
 
@@ -67,7 +67,7 @@ const imageTitleStyle = {
   // color: 'white',
 }
 
-export default class Message extends React.Component<Props> {
+export default class MessageItem extends React.Component<Props> {
   componentDidMount() {
     this.props.onLoad();
   }

@@ -3,37 +3,44 @@
 
 import type { Filter } from './phases/filters';
 
-export type Phase = {|
+export type Phase = {
     id: string,
     topics: Array<Topic>,
     placeholderText: string,
     filter?: Filter,
     memeRate: number,
     subliminalRate: number,
-    russianRate: number,
     catsRate: number,
-|}
+}
 
-export type Topic = {|
+export type Topic = {
     id: string,
     title: string,
-    messages: Array<Message>,
-|};
+    messages: Array<TopicMessage>,
+};
 
-export type Message = {|
+export type TopicMessage = {
     userId: ?number,
     text: string,
-    image: ?string,
-    imageTitle: ?string,
-    // TODO more fields
-|};
+    image?: ?string,
+    imageTitle?: ?string,
+};
 
-// The props needed to render a message
-export type MessageProps = {
+export type Message = {
     avatar: string,
     username: string,
     isMod: boolean,
     text: string,
     image: ?string,
     imageTitle: ?string,
+    requestUserInput: boolean,
 };
+
+export type Step = {|
+    message: Message,
+    waitTime: number,
+    invertColors?: boolean,
+    inputDisabled?: boolean,
+    responseNextStep?: Step,
+    noResponseNextStep?: Step,
+|}

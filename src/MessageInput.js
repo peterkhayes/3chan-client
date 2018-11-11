@@ -1,5 +1,5 @@
 // @flow
-import type { MessageProps } from './types';
+import type { Message } from './types';
 import React from 'react';
 import * as styles from './styles';
 

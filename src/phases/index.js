@@ -56,7 +56,6 @@ const goodPhase: Phase = {
     ),
     memeRate: 0,
     subliminalRate: 0,
-    russianRate: 0,
     catsRate: 0,
 };
 
@@ -68,8 +67,7 @@ const badPhase: Phase = {
         hasProfanity,
     ),
     memeRate: 0,
-    subliminalRate: 0,
-    russianRate: 0,
+    subliminalRate: 0.1,
     catsRate: 0,
 };
 
@@ -80,8 +78,7 @@ const catsPhase: Phase = {
     filter: catsOnly,
     memeRate: 0,
     subliminalRate: 0,
-    russianRate: 0,
-    catsRate: 2000,
+    catsRate: 1,
 };
 
 export default [

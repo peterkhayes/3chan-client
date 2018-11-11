@@ -1,8 +1,8 @@
 // @flow
-import type { MessageProps } from './types.js'
+import type { Message } from './types.js'
 import React from 'react';
 import * as styles from './styles';
-import Message from './Message';
+import MessageItem from './MessageItem';
 import Sidebar from './Sidebar';
 import MessageInput from './MessageInput';
 
@@ -12,7 +12,7 @@ type Props = {
     messageInputText: string,
     messageInputError: ?string,
     messageInputPlaceholder: string,
-    messages: Array<MessageProps>,
+    messages: Array<Message>,
     setMessageInputText: (string) => void,
     submitMessage: (string) => void,
 };
@@ -93,7 +93,7 @@ export default class Chatroom extends React.Component<Props> {
                         <div ref={this.setMessageListEl} style={messageListStyle}>
                             {messages.map((message, idx) => {
                                 return (
-                                    <Message
+                                    <MessageItem
                                         {...message}
                                         key={idx}
                                         onLoad={this.scrollBottom}
