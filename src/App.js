@@ -2,7 +2,7 @@
 import type { Step, Message, TopicMessage, Phase, Topic } from './types';
 import React from 'react';
 import qs from 'query-string';
-import users from './users';
+import users, { participantAvatar } from './users';
 import phases from './phases';
 import getHackingStep, { HACK_CODE } from './hacking';
 import getSubliminalStep from './shadows';
@@ -183,7 +183,11 @@ export default class App extends React.Component<{}, State> {
             }
         }
 
-        this.addMessage({ text: messageText }, {
+        this.addMessage({
+            text: messageText,
+            avatar: participantAvatar,
+            username: 'Anonymous Citizen',
+        }, {
             messageInputText: '',
             messageInputError: null,
         });
@@ -191,10 +195,7 @@ export default class App extends React.Component<{}, State> {
         if (this._stepTimeout) clearTimeout(this._stepTimeout);
         const responseStep = currentStep.responseNextStep || getNewInteractionStep();
         this.setState({step: responseStep});
-        // TODO: slight pause before responding to user.
-        // This may introduce race conditions if a user types multiple
-        // messages quickly, so be careful!
-        setTimeout(this.handleStep, 0);
+        setTimeout(this.handleStep, 750);
     }
 
     setError = (error: string) => {

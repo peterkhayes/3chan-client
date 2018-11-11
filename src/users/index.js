@@ -103,6 +103,8 @@ import whoami from './whoami.jpg';
 import witch from './witch.jpg';
 import x from './x.png';
 
+import participantAvatar from './participant_avatar.png';
+
 // $FlowFixMe
 const avatars: Array<string> = [
   adventure,
@@ -315,5 +317,7 @@ const users = usernames.map((username, i) => ({
   username: username,
   avatar: avatars[i % avatars.length],
 }));
+
+export { participantAvatar };
 
 export default users;
