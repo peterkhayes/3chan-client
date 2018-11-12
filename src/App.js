@@ -2,15 +2,20 @@
 import type { Step, Message, TopicMessage, Phase, Topic } from './types';
 import React from 'react';
 import qs from 'query-string';
-import users, { participantAvatar } from './users';
+import users, { participantAvatar, participantUsername } from './users';
 import phases from './phases';
 import getHackingStep, { HACK_CODE } from './hacking';
 import getSubliminalStep from './shadows';
 import getCatsStep from './cats';
 import getNewInteractionStep from './interaction';
 import {
+    storeInput,
+    getRoomNumbers,
+    getPhoneNumbers,
+    getSavedMessages,
+} from './interaction/storage';
+import {
     randInt,
-    sample,
     getDurationForMessage,
     addMessageDefaults,
 } from './utils';
@@ -68,6 +73,9 @@ function getTopicMessageStep(): Step {
     };
 }
 
+function setQuery(phaseId: string, topicId?: string) {
+    window.location.search = qs.stringify({ phase: phaseId, topic: topicId });
+}
 
 function loadNextTopic() {
     const allTopics = phase.topics;
@@ -78,8 +86,7 @@ function loadNextTopic() {
             nextTopic = allTopics[(i + 1) % allTopics.length];
         }
     }
-
-    window.location.search = qs.stringify({ phase: phase.id, topic: nextTopic.id });
+    setQuery(phase.id, nextTopic.id);
 }
 
 function getDefaultNextStep(): Step {
@@ -186,15 +193,17 @@ export default class App extends React.Component<{}, State> {
         this.addMessage({
             text: messageText,
             avatar: participantAvatar,
-            username: 'Anonymous Citizen',
+            username: participantUsername,
         }, {
             messageInputText: '',
             messageInputError: null,
         });
+        storeInput(messageText);
 
         if (this._stepTimeout) clearTimeout(this._stepTimeout);
         const responseStep = currentStep.responseNextStep || getNewInteractionStep();
         this.setState({step: responseStep});
+        // TODO: does this cause a race condition?
         setTimeout(this.handleStep, 750);
     }
 
@@ -215,21 +224,41 @@ export default class App extends React.Component<{}, State> {
         }, CLEAR_DURATION);
     };
 
+    handleKeyPress = (e: SyntheticKeyboardEvent<HTMLElement>) => {
+        if (e.shiftKey && e.ctrlKey) {
+            const phaseIdx = phases.findIndex((phase) => phase.id === phaseId);
+            const key = e.key.toLowerCase();
+            if (key === 'j') {
+                setQuery(phases[(phaseIdx + 1) % phases.length].id);
+            } else if (key === 'k') {
+                setQuery(phases[(phaseIdx - 1) % phases.length].id);
+            } else if (key === 'r') {
+                window.alert(`Room numbers:\n${getRoomNumbers().join("\n")}`);
+            } else if (key === 'l') {
+                window.alert(`Phone numbers:\n${getPhoneNumbers().join("\n")}`);
+            } else if (key === 'm') {
+                window.alert(`Messages:\n${getSavedMessages().join("\n")}`);
+            }
+        }
+    };
+
     render() {
         return (
-            <Chatroom
-                messages={this.state.messages}
-                topic={topic ? topic.title : 'Who knows??'}
-                invertColors={!!this.state.step.invertColors}
-                messageInputText={this.state.messageInputText}
-                messageInputError={this.state.messageInputError}
-                messageInputPlaceholder={phase.placeholderText.replace(
-                    "{{topic}}",
-                    topic ? topic.title.toLowerCase() : 'whatever'
-                )}
-                setMessageInputText={this.setMessageInputText}
-                submitMessage={this.submitMessage}
-            />
+            <div onKeyDown={this.handleKeyPress}>
+                <Chatroom
+                    messages={this.state.messages}
+                    topic={topic ? topic.title : 'Who knows??'}
+                    invertColors={!!this.state.step.invertColors}
+                    messageInputText={this.state.messageInputText}
+                    messageInputError={this.state.messageInputError}
+                    messageInputPlaceholder={phase.placeholderText.replace(
+                        "{{topic}}",
+                        topic ? topic.title.toLowerCase() : 'whatever'
+                    )}
+                    setMessageInputText={this.setMessageInputText}
+                    submitMessage={this.submitMessage}
+                />
+            </div>
         );
     }
 }

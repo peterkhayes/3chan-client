@@ -64,7 +64,8 @@ export const catsOnly: Filter = (text) => {
 }
 
 export const readingLevelMinimum = (minimumLevel: number): Filter => (text) => {
-  const level = calculateReadingLevel(text);
+  // help em out a little.
+  const level = calculateReadingLevel(text) + 3;
   if (level < minimumLevel) {
     return `We'd prefer if your messages were at a grade ${minimumLevel} reading level or above. Think back to those essays you used to write in school!`;
   }
