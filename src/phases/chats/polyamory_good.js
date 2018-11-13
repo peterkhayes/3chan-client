@@ -25,7 +25,7 @@ module.exports = [
     },
     {
         "text": "So last night, I went out on the worst date. He said he was poly beforehand, over and over. And then during dinner he was all like, \"So my gf and I really are looking for someone who's into both of us...\"",
-        "userId": 32,
+        "userId": "a",
         "image": null,
         "imageTitle": null
     },
@@ -55,25 +55,25 @@ module.exports = [
     },
     {
         "text": "lol I wish I would have thought of that in the moment",
-        "userId": 32,
+        "userId": "a",
         "image": null,
         "imageTitle": null
     },
     {
         "text": "Ok so I have a question",
-        "userId": 33,
+        "userId": "b",
         "image": null,
         "imageTitle": null
     },
     {
         "text": "How soon is too soon to share a calendar with someone?",
-        "userId": 33,
+        "userId": "b",
         "image": null,
         "imageTitle": null
     },
     {
         "text": "Because I've been on one date with this guy, and we're trying to plan our second, and it's already soooo harrrdddd to schedule. It'd be so much easier if we could just see each others calendar rite",
-        "userId": 33,
+        "userId": "b",
         "image": null,
         "imageTitle": null
     },
@@ -385,13 +385,13 @@ module.exports = [
     },
     {
         "text": "/* user ^ has been banned for spam posting */",
-        "userId": 44,
+        "userId": "mod",
         "image": null,
         "imageTitle": null
     },
     {
         "text": "\"ok so like I'm curious how you all handle group cooking when everybody has different dietary requirements?",
-        "userId": 34,
+        "userId": "c",
         "image": null,
         "imageTitle": null
     },
@@ -415,13 +415,13 @@ module.exports = [
     },
     {
         "text": "I think they'd prefer I didn't, but also, what can you do",
-        "userId": 34,
+        "userId": "c",
         "image": null,
         "imageTitle": null
     },
     {
         "text": "hey efvery one--in search of support right now :sad:",
-        "userId": 35,
+        "userId": "d",
         "image": null,
         "imageTitle": null
     },
@@ -445,7 +445,7 @@ module.exports = [
     },
     {
         "text": "just found out my partner watched \"our show\" together with their new partner...I know it shouldn't be a big deal, but feeling so hurt and betrayed......",
-        "userId": 35,
+        "userId": "d",
         "image": null,
         "imageTitle": null
     },
@@ -457,7 +457,7 @@ module.exports = [
     },
     {
         "text": "yeah, I'm sure your partner didn't mean any harm, but I also really feel your pain. You cultivate special couple shows and it feels like a little island you have for just you two, and then someone else treads on that island and you realize - holy shit, I'm sharing this life with another person, my island is overrun by tourists",
-        "userId": 36,
+        "userId": "e",
         "image": null,
         "imageTitle": null
     },
@@ -469,7 +469,7 @@ module.exports = [
     },
     {
         "text": "yeah you're right, sorry, hopefully the thread knows what I mean",
-        "userId": 36,
+        "userId": "e",
         "image": null,
         "imageTitle": null
     }

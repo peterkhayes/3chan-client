@@ -313,7 +313,12 @@ if (usernames.length > avatars.length) {
   console.warn("You need to add", avatars.length - usernames.length, "more usernames!");
 }
 
-const users = usernames.map((username, i) => ({
+export type User = {
+  username: string,
+  avatar: string,
+}
+
+const users: Array<User> = usernames.map((username, i) => ({
   username: username,
   avatar: avatars[i % avatars.length],
 }));

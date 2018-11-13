@@ -199,7 +199,7 @@ module.exports = [
     },
     {
         "text": "tha'ts nothing,   my wife was knocked up by her bf & tried to hide it",
-        "userId": 32,
+        "userId": "a",
         "image": null,
         "imageTitle": null
     },
@@ -211,31 +211,31 @@ module.exports = [
     },
     {
         "text": "ok, here goes. This is gonna be a long one",
-        "userId": 32,
+        "userId": "a",
         "image": null,
         "imageTitle": null
     },
     {
         "text": "We became Poly, well she calls it Poly, I call it; an open marriage, as this was her idea, not mine. Previously, we've had our fun with Unicorns and threesomes with women, so I knew this day would come. The day she wanted more.... I agreed to it, she found a boyfriend, I found a girlfriend, it was fun.",
-        "userId": 32,
+        "userId": "a",
         "image": null,
         "imageTitle": null
     },
     {
         "text": "But then she fell in LOVE w/ him... I was always handling the kids while she's out banging.... Ugh.... I never would find used condoms after the fact, like EVER, she would tell me he takes em' home; which is REALLY fucking odd. But whatever, although I could sometimes smell the latex off of her. NOTE: I always used protection.",
-        "userId": 32,
+        "userId": "a",
         "image": null,
         "imageTitle": null
     },
     {
         "text": "Moving forward.... I noticed her last period was a bit of a joke, and she was less bitchy. So I started looking for preggo tests that we may have had left from last baby. My plan was to test yer pee, she never flushes... But then.... Low and behold, I find 3 different preggo tests kinds under the sink, all taken and all positive!",
-        "userId": 32,
+        "userId": "a",
         "image": null,
         "imageTitle": null
     },
     {
         "text": "She says a condom broke, she's 35 like WTF, tell me and get Plan B .... Ugh I dunno.... Advice?!?!?!?!?!?!?!?",
-        "userId": 32,
+        "userId": "a",
         "image": null,
         "imageTitle": null
     },
@@ -457,7 +457,7 @@ module.exports = [
     },
     {
         "text": "hey efvery one--in search of support right now :sad:",
-        "userId": 35,
+        "userId": "d",
         "image": null,
         "imageTitle": null
     },
@@ -481,7 +481,7 @@ module.exports = [
     },
     {
         "text": "just found out my partner watched \"our show\" together with their new partner...I know it shouldn't be a big deal, but feeling so hurt and betrayed......",
-        "userId": 35,
+        "userId": "d",
         "image": null,
         "imageTitle": null
     },

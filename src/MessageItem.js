@@ -6,7 +6,6 @@ import * as styles from './styles';
 import { participantUsername } from './users';
 import moderatorAvatar from './moderator/avatar.png';
 
-const atParticipant = `@${participantUsername}`;
 
 type Props = Message & {
   onLoad: () => void,
@@ -106,7 +105,7 @@ export default class MessageItem extends React.Component<Props> {
         return (
           <div key={i} style={textStyle}>
             {words.map((word, j) =>
-              word === atParticipant
+              word.startsWith("@")
                 ? <span style={atMentionStyle}>{word}{' '}</span>
                 : `${word} `
             )}

@@ -2,7 +2,11 @@
 import type { Step, Message, TopicMessage, Phase, Topic } from './types';
 import React from 'react';
 import qs from 'query-string';
-import users, { participantAvatar, participantUsername } from './users';
+import users, {
+    type User,
+    participantAvatar,
+    participantUsername,
+} from './users';
 import phases from './phases';
 import getHackingStep, { HACK_CODE } from './hacking';
 import getSubliminalStep from './shadows';
@@ -18,6 +22,7 @@ import {
     next,
     prev,
     randInt,
+    sample,
     getDurationForMessage,
     addMessageDefaults,
 } from './utils';
@@ -41,17 +46,33 @@ const topic: ?Topic = phase.topics.find(({id}) => id === topicId) || phase.topic
 const topicMessages: Array<TopicMessage> = topic ? topic.messages : [];
 let topicMessageIndex: number = 0;
 
-const userOffset = randInt(users.length);
+const userMap: {[userid: string]: User} = {};
+function getTopicMessageUser(userId: ?string) {
+    if (userId == null) {
+        return sample(users);
+    } else if (userMap[userId]) {
+        return userMap[userId];
+    } else {
+        const user = sample(users);
+        userMap[userId] = user;
+        return user;
+    }
+}
+
 function formatTopicMessage (message: TopicMessage, idx: number): Message {
-    const userIdx = message.userId != null
-        ? message.userId
-        : (idx * 157) % users.length;
-    const user = users[(userOffset + userIdx) % users.length];
+    const user = getTopicMessageUser(message.userId);
+
     let text = message.text || '';
     const isMod = text.startsWith('/* ') && text.endsWith(' */');
     if (isMod) {
         text = text.slice(3, text.length - 3);
     }
+
+    text = text.replace(/<username_(.+)>/, (match, userId) => {
+        const user = getTopicMessageUser(userId);
+        return `@${user.username}`;
+    })
+
 
     return {
         avatar: user.avatar,

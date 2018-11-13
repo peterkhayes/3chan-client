@@ -37,7 +37,7 @@ module.exports = [
     },
     {
         "text": "/* user ^ has created a new emoji! :bacon-55: */",
-        "userId": 44,
+        "userId": "mod",
         "image": null,
         "imageTitle": null
     },
@@ -61,13 +61,13 @@ module.exports = [
     },
     {
         "text": "/* user ^ has created a new emoji! :bacon-56: */",
-        "userId": 44,
+        "userId": "mod",
         "image": null,
         "imageTitle": null
     },
     {
         "text": "/* user ^ has created a new emoji! :mc-escher-bacon: */",
-        "userId": 44,
+        "userId": "mod",
         "image": null,
         "imageTitle": null
     },
@@ -175,7 +175,7 @@ module.exports = [
     },
     {
         "text": "Speaking of which, advice time! I wanted my kids to be keto, right? I mean, obviously I want what's best for them, and there is so much research showing that keto is the healthiest possible diet.",
-        "userId": 32,
+        "userId": "a",
         "image": null,
         "imageTitle": null
     },
@@ -187,13 +187,13 @@ module.exports = [
     },
     {
         "text": "/* user ^ has created a new emoji! :lady-gaga-bacon-dress: */",
-        "userId": 44,
+        "userId": "mod",
         "image": null,
         "imageTitle": null
     },
     {
         "text": "Ok but the problem is, my son's school *refuses* to acknowledge that this is a thing. They literally forced him to eat mashed potatoes yesterday!",
-        "userId": 32,
+        "userId": "a",
         "image": null,
         "imageTitle": null
     },
@@ -247,25 +247,25 @@ module.exports = [
     },
     {
         "text": "wait, what's your kids school name? :evil-grin:",
-        "userId": 33,
+        "userId": "b",
         "image": null,
         "imageTitle": null
     },
     {
         "text": "he just goes to Newtopia middle",
-        "userId": 32,
+        "userId": "a",
         "image": null,
         "imageTitle": null
     },
     {
         "text": "tnx bro, I got you",
-        "userId": 33,
+        "userId": "b",
         "image": null,
         "imageTitle": null
     },
     {
         "text": "?",
-        "userId": 32,
+        "userId": "a",
         "image": null,
         "imageTitle": null
     },
@@ -277,19 +277,19 @@ module.exports = [
     },
     {
         "text": "/* user ^ has created a new emoji! :bacon-pants: */",
-        "userId": 44,
+        "userId": "mod",
         "image": null,
         "imageTitle": null
     },
     {
         "text": "are you ready for this",
-        "userId": 33,
+        "userId": "b",
         "image": null,
         "imageTitle": null
     },
     {
         "text": "I just swatted them",
-        "userId": 33,
+        "userId": "b",
         "image": null,
         "imageTitle": null
     },
@@ -301,13 +301,13 @@ module.exports = [
     },
     {
         "text": "wait what the whole school? MY KID IS THERE YOU MORON",
-        "userId": 32,
+        "userId": "a",
         "image": null,
         "imageTitle": null
     },
     {
         "text": "no, chill out, just the principal's house",
-        "userId": 33,
+        "userId": "b",
         "image": null,
         "imageTitle": null
     },
@@ -349,7 +349,7 @@ module.exports = [
     },
     {
         "text": "Hey /3/keto !!! So happy to be here",
-        "userId": 34,
+        "userId": "c",
         "image": null,
         "imageTitle": null
     },
@@ -367,7 +367,7 @@ module.exports = [
     },
     {
         "text": "sorry, what?",
-        "userId": 34,
+        "userId": "c",
         "image": null,
         "imageTitle": null
     },
@@ -385,7 +385,7 @@ module.exports = [
     },
     {
         "text": "Oh, those, yes? Or, I have a couple times.",
-        "userId": 34,
+        "userId": "c",
         "image": null,
         "imageTitle": null
     },
@@ -403,7 +403,7 @@ module.exports = [
     },
     {
         "text": "...in the trash?",
-        "userId": 34,
+        "userId": "c",
         "image": null,
         "imageTitle": null
     },
@@ -445,7 +445,7 @@ module.exports = [
     },
     {
         "text": "Wait, why would I want to put them in a box though?",
-        "userId": 34,
+        "userId": "c",
         "image": null,
         "imageTitle": null
     },

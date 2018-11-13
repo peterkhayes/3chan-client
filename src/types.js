@@ -22,7 +22,7 @@ export type Topic = {
 };
 
 export type TopicMessage = {
-    userId: ?number,
+    userId: ?string,
     text: string,
     image?: ?string,
     imageTitle?: ?string,
