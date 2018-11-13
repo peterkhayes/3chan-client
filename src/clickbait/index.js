@@ -3,6 +3,7 @@ import type { Step } from '../types';
 import clickbait from './content';
 import {
     sample,
+    randInt,
     getDurationForMessage,
     addMessageDefaults,
 } from '../utils';
@@ -19,7 +20,7 @@ const comments = [
   "You will totally love this, I did",
 ]
 
-let idx = 0;
+let idx = randInt(clickbait.length - 1);
 
 export default function getClickbaitStep(): Step {
     const content = clickbait[idx];
@@ -33,6 +34,6 @@ export default function getClickbaitStep(): Step {
 
     return {
         message,
-        waitTime: getDurationForMessage(message),
+        waitTime: 2000,
     };
 }

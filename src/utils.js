@@ -2,9 +2,17 @@
 import type { Step, Message } from './types';
 import users from './users';
 
-const MIN_DURATION = 1000;
-const DURATION_PER_CHAR = 35;
-const DURATION_FOR_IMAGE = 3000;
+const MIN_DURATION = 800;
+const DURATION_PER_CHAR = 25;
+const DURATION_FOR_IMAGE = 2000;
+
+export function next(current: number, len: number): number {
+    return (current + 1) % len;
+}
+
+export function prev(current: number, len: number): number {
+    return (current - 1 + len) % len;
+}
 
 export function randInt(a: number, b?: number): number {
     return b == null ? Math.floor(Math.random() * a) : a + randInt(b - a);

@@ -37,8 +37,8 @@ const mediumPhase: Phase = {
     placeholderText: `We're all circlejerking about {{topic}} rn lol`,
     filter: composeFilters(), // TODO: any filters here?
     getInteractionStep: getMediumInteractionStep,
-    clickbaitRate: 0.05,
-    subliminalRate: 0.02,
+    clickbaitRate: 0,
+    subliminalRate: 0.03,
     catsRate: 0,
 }
 
@@ -50,8 +50,8 @@ const badPhase: Phase = {
         hasProfanity,
     ),
     getInteractionStep: getNastyInteractionStep,
-    clickbaitRate: 0.2,
-    subliminalRate: 0.1,
+    clickbaitRate: 0.4,
+    subliminalRate: 0.08,
     catsRate: 0,
 };
 

@@ -15,6 +15,8 @@ import {
     getSavedMessages,
 } from './interaction/storage';
 import {
+    next,
+    prev,
     randInt,
     getDurationForMessage,
     addMessageDefaults,
@@ -33,6 +35,7 @@ const CLEAR_DURATION = 60000;
 
 const phaseId = qs.parse(window.location.search).phase || 'good';
 const phase: Phase = phases.find(({id}) => id === phaseId) || phases[0];
+const speedModifier = phase.speedModifier == null ? 1 : phase.speedModifier;
 const topicId = qs.parse(window.location.search).topic;
 const topic: ?Topic = phase.topics.find(({id}) => id === topicId) || phase.topics[0];
 const topicMessages: Array<TopicMessage> = topic ? topic.messages : [];
@@ -158,7 +161,7 @@ export default class App extends React.Component<{}, State> {
         this._stepTimeout = setTimeout(() => {
             this.setState({ step: noResponseNextStep || getDefaultNextStep() });
             this.handleStep();
-        }, waitTime);
+        }, waitTime / speedModifier);
     };
 
     submitMessage = (messageText: string) => {
@@ -225,9 +228,19 @@ export default class App extends React.Component<{}, State> {
             const phaseIdx = phases.findIndex((phase) => phase.id === phaseId);
             const key = e.key.toLowerCase();
             if (key === 'j') {
-                setQuery(phases[(phaseIdx + 1) % phases.length].id);
+                setQuery(phases[next(phaseIdx, phases.length)].id);
             } else if (key === 'k') {
-                setQuery(phases[(phaseIdx - 1 + phases.length) % phases.length].id);
+                setQuery(phases[prev(phaseIdx, phases.length)].id);
+            } else if (key === '{') {
+                setQuery(
+                    phaseId,
+                    phase.topics[next(phaseIdx, phase.topics.length)].id
+                );
+            } else if (key === '}') {
+                setQuery(
+                    phaseId,
+                    phase.topics[prev(phaseIdx, phase.topics.length)].id
+                );
             } else if (key === 'r') {
                 window.alert(`Room numbers:\n${getRoomNumbers().join("\n")}`);
             } else if (key === 'p') {

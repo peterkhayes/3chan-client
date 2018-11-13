@@ -9,6 +9,7 @@ export type Phase = {
     placeholderText: string,
     filter?: Filter,
     getInteractionStep?: () => Step,
+    speedModifier?: number,
     clickbaitRate: number,
     subliminalRate: number,
     catsRate: number,
