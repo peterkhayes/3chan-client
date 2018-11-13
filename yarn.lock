@@ -3887,6 +3887,12 @@ ignore@^4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-4.0.6.tgz#750e3db5862087b4737ebac8207ffd1ef27b25fc"
 
+image-downloader@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/image-downloader/-/image-downloader-3.4.1.tgz#987b356c1628ff06635debe1af1d56c77a828b2a"
+  dependencies:
+    request "^2.87.0"
+
 import-cwd@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/import-cwd/-/import-cwd-2.1.0.tgz#aa6cf36e722761285cb371ec6519f53e2435b0a9"

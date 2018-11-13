@@ -10,6 +10,11 @@
 /build
 build.zip
 
+# images
+src/cats/*.jpg
+src/cats/*.gif
+src/cats/*.png
+
 # misc
 .DS_Store
 .env.local

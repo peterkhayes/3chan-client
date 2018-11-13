@@ -3,10 +3,10 @@ const path = require('path');
 
 const makePath = (...args) => path.join(__dirname, ...args);
 
-const tsvFiles = fs.readdirSync(makePath('tsv'))
+const tsvFiles = fs.readdirSync(makePath('chat_tsvs'))
 
 for (const filename of tsvFiles) {
-  const tsvFilepath = makePath('tsv', filename);
+  const tsvFilepath = makePath('chat_tsvs', filename);
   const tsvRows = fs.readFileSync(tsvFilepath).toString().split("\n");
   const conversations = tsvRows.map((row) => {
     const [ rawUserId, text, image ] = row.split('\t');
