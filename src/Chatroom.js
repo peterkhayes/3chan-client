@@ -32,7 +32,7 @@ const rootStyle = {
     left: 0,
     bottom: 0,
     right: 0,
-    paddingTop: styles.gridSize(),
+    paddingTop: styles.gridSize(0.5),
     fontFamily: styles.fonts.serious,
     color: styles.colors.dark,
     display: 'flex',
@@ -47,8 +47,8 @@ const mainPanelStyle = {
 }
 
 const messageListStyle = {
-    paddingLeft: styles.gridSize(),
-    paddingRight: styles.gridSize(),
+    // paddingLeft: styles.gridSize(0.5),
+    // paddingRight: styles.gridSize(0.5),
     flex: '1 1 0',
     overflowY: 'auto',
 };

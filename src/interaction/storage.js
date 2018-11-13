@@ -19,6 +19,7 @@ function addItem(key: string, item: string) {
 export function storeInput(input: string) {
   const phoneNumberMatch = input.match(/\d\d\d.?\d\d\d.?\d\d\d\d/);
   const roomNumberMatch = input.match(/\d\d\d/);
+
   if (phoneNumberMatch) {
     addItem(PHONE_NUMBER_KEY, phoneNumberMatch[0]);
   } else if (roomNumberMatch) {

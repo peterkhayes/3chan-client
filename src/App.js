@@ -6,8 +6,8 @@ import users, { participantAvatar, participantUsername } from './users';
 import phases from './phases';
 import getHackingStep, { HACK_CODE } from './hacking';
 import getSubliminalStep from './shadows';
+import getClickbaitStep from './clickbait';
 import getCatsStep from './cats';
-import getNewInteractionStep from './interaction';
 import {
     storeInput,
     getRoomNumbers,
@@ -24,7 +24,6 @@ import Chatroom from './Chatroom';
 type State = {
     messages: Array<Message>,
     step: Step,
-    nextTopicMessageIndex: number,
     messageInputText: string,
     messageInputError: ?string,
 }
@@ -91,17 +90,17 @@ function loadNextTopic() {
 
 function getDefaultNextStep(): Step {
     const {
-        memeRate,
+        clickbaitRate,
         subliminalRate,
         catsRate,
     } = phase;
 
     let rand = Math.random();
 
-    // rand -= memeRate;
-    // if (rand < 0) {
-    //     // return a meme step
-    // }
+    rand -= clickbaitRate;
+    if (rand < 0) {
+        return getClickbaitStep();
+    }
 
     rand -= subliminalRate;
     if (rand < 0) {
@@ -128,20 +127,14 @@ export default class App extends React.Component<{}, State> {
     _stepTimeout: ?TimeoutID;
     _errorTimeout: ?TimeoutID;
     _clearMessageTimeout: ?TimeoutID;
-    // _promptTimeout: ?TimeoutID;
-    // _crazyModeInterval: ?IntervalID;
 
     constructor() {
         super();
         this.state = {
             messages: [],
             step: getDefaultNextStep(),
-            nextTopicMessageIndex: 0,
-            // pendingResponses: [],
-            // prompt: null,
             messageInputText: '',
             messageInputError: null,
-            // crazyModeStartedAt: null,
         };
     }
 
@@ -201,10 +194,13 @@ export default class App extends React.Component<{}, State> {
         storeInput(messageText);
 
         if (this._stepTimeout) clearTimeout(this._stepTimeout);
-        const responseStep = currentStep.responseNextStep || getNewInteractionStep();
+        let responseStep = currentStep.responseNextStep;
+        if (responseStep == null && phase.getInteractionStep) {
+            responseStep = phase.getInteractionStep();
+        }
         this.setState({step: responseStep});
         // TODO: does this cause a race condition?
-        setTimeout(this.handleStep, 750);
+        setTimeout(this.handleStep, 1500);
     }
 
     setError = (error: string) => {
@@ -231,10 +227,10 @@ export default class App extends React.Component<{}, State> {
             if (key === 'j') {
                 setQuery(phases[(phaseIdx + 1) % phases.length].id);
             } else if (key === 'k') {
-                setQuery(phases[(phaseIdx - 1) % phases.length].id);
+                setQuery(phases[(phaseIdx - 1 + phases.length) % phases.length].id);
             } else if (key === 'r') {
                 window.alert(`Room numbers:\n${getRoomNumbers().join("\n")}`);
-            } else if (key === 'l') {
+            } else if (key === 'p') {
                 window.alert(`Phone numbers:\n${getPhoneNumbers().join("\n")}`);
             } else if (key === 'm') {
                 window.alert(`Messages:\n${getSavedMessages().join("\n")}`);

@@ -4,12 +4,14 @@ export const colorsWithOpacity = {
   light: (opacity: number) => `rgba(207, 205, 200, ${opacity})`,
   medium: (opacity: number) => `rgba(112, 120, 109, ${opacity})`,
   dark: (opacity: number) => `rgba(26, 59, 66, ${opacity})`,
+  blue: (opacity: number) => `rgba(20, 111, 170, ${opacity})`,
 }
 
 export const colors = {
   light: colorsWithOpacity.light(1),
   medium: colorsWithOpacity.medium(1),
   dark: colorsWithOpacity.dark(1),
+  blue: colorsWithOpacity.blue(1),
 }
 
 export const fonts = {

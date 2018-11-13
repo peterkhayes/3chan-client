@@ -8,7 +8,8 @@ export type Phase = {
     topics: Array<Topic>,
     placeholderText: string,
     filter?: Filter,
-    memeRate: number,
+    getInteractionStep?: () => Step,
+    clickbaitRate: number,
     subliminalRate: number,
     catsRate: number,
 }

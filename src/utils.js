@@ -1,5 +1,5 @@
 // @flow
-import type { Message } from './types';
+import type { Step, Message } from './types';
 import users from './users';
 
 const MIN_DURATION = 1000;
@@ -37,4 +37,11 @@ export function addMessageDefaults(props: $Shape<Message>): Message {
         requestUserInput: false,
         ...props,
     };
+}
+
+export function composeSteps(steps: Array<Step>): Step {
+    for (let i = 1; i < steps.length; i++) {
+        steps[i - 1].noResponseNextStep = steps[i];
+    }
+    return steps[0];
 }

@@ -1,7 +1,7 @@
 // @flow
 import type { Step } from '../types';
 import shadowAvatar from '../shadows';
-import { randInt, sample, addMessageDefaults } from '../utils';
+import { randInt, sample, composeSteps, addMessageDefaults } from '../utils';
 
 import image_0 from './0.jpg';
 import image_1 from './1.jpg';
@@ -201,9 +201,5 @@ export default function getHackingStep(): Step {
     waitTime: 2000,
   })
 
-  for (let i = 1; i < steps.length; i++) {
-    steps[i - 1].noResponseNextStep = steps[i];
-  }
-
-  return steps[0];
+  return composeSteps(steps);
 }

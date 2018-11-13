@@ -3,7 +3,10 @@ import type { Message } from './types';
 import React from 'react';
 import * as styles from './styles';
 
+import { participantUsername } from './users';
 import moderatorAvatar from './moderator/avatar.png';
+
+const atParticipant = `@${participantUsername}`;
 
 type Props = Message & {
   onLoad: () => void,
@@ -12,7 +15,7 @@ type Props = Message & {
 const rootStyle = {
   display: 'flex',
   flexDirection: 'row',
-  marginBottom: styles.gridSize(),
+  padding: `${styles.gridSize(0.5)}px ${styles.gridSize()}px`,
 };
 
 const usernameStyle = {
@@ -24,6 +27,7 @@ const avatarContainerStyle = {
   display: 'inline-block',
   backgroundColor: 'white',
   marginRight: styles.gridSize(),
+  marginTop: styles.gridSize(0.25),
   width: 60,
   height: 60,
 }
@@ -42,6 +46,11 @@ const messageStyle = {
 
 const moderatorStyle = {
   fontWeight: 600,
+  backgroundColor: styles.colorsWithOpacity.medium(0.1),
+};
+
+const atMentionStyle = {
+  color: styles.colors.blue,
 };
 
 const attachmentStyle = {
@@ -56,8 +65,7 @@ const attachmentStyle = {
 
 const imageStyle = {
   width: '100%',
-  minHeight: 250,
-  borderRadius: styles.gridSize(0.5),
+  maxHeight: 300,
 }
 
 const imageTitleStyle = {
@@ -85,14 +93,35 @@ export default class MessageItem extends React.Component<Props> {
         attribution = username;
     }
 
+    const isUserMessage = username === participantUsername;
+    const _usernameStyle = {
+      ...usernameStyle,
+      color: isUserMessage ? styles.colors.blue : styles.colors.dark,
+    }
+
+    const textElems = text
+      .split('\n')
+      .map((line, i) => {
+        const words = line.split(" ");
+        return (
+          <div key={i} style={textStyle}>
+            {words.map((word, j) =>
+              word === atParticipant
+                ? <span style={atMentionStyle}>{word}{' '}</span>
+                : `${word} `
+            )}
+          </div>
+        )
+      })
+
     return (
       <div style={rootStyle}>
         <div style={avatarContainerStyle}>
           <div style={{...avatarStyle, backgroundImage: `url("${avatarToUse}")`}} />
         </div>
         <div style={messageStyle}>
-          <div style={usernameStyle}>{attribution}</div>
-          {text.split('\n').map((line, i) => <div key={i} style={textStyle}>{line}</div>)}
+          <div style={_usernameStyle}>{attribution}</div>
+          {textElems}
           {image && (
             <div style={attachmentStyle}>
               {imageTitle && <div style={imageTitleStyle}>{imageTitle}</div>}

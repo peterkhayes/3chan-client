@@ -319,6 +319,6 @@ const users = usernames.map((username, i) => ({
 }));
 
 export { participantAvatar };
-export const participantUsername = "Anonymous Citizen";
+export const participantUsername = "anonymous_citizen";
 
 export default users;
