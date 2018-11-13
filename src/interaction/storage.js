@@ -1,5 +1,7 @@
 // @flow
 
+import { getPhoneNumberMatch, getRoomNumberMatch } from './utils';
+
 const PHONE_NUMBER_KEY = 'phone_numbers';
 const ROOM_NUMBER_KEY = 'room_numbers';
 const MESSAGE_KEY = 'messages';
@@ -17,8 +19,8 @@ function addItem(key: string, item: string) {
 }
 
 export function storeInput(input: string) {
-  const phoneNumberMatch = input.match(/\d\d\d.?\d\d\d.?\d\d\d\d/);
-  const roomNumberMatch = input.match(/\d\d\d/);
+  const phoneNumberMatch = getPhoneNumberMatch(input);
+  const roomNumberMatch = getRoomNumberMatch(input);
 
   if (phoneNumberMatch) {
     addItem(PHONE_NUMBER_KEY, phoneNumberMatch[0]);

@@ -43,6 +43,6 @@ export type Step = {|
     waitTime: number,
     invertColors?: boolean,
     inputDisabled?: boolean,
-    responseNextStep?: Step,
+    responseNextStep?: Step | (userInput: string) => Step,
     noResponseNextStep?: Step,
 |}

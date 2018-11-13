@@ -3,6 +3,7 @@
 import type { Step } from '../types';
 
 import { randInt, sample, composeSteps, addMessageDefaults, getDurationForMessage } from '../utils';
+import { isDesiredInput } from './utils';
 import users from '../users';
 
 const NICE_REACTIONS = [
@@ -180,23 +181,40 @@ function getReactionSteps(source: Array<string>): Array<Step> {
 }
 
 function getQuestionStep(): Step {
-    const gotAnswerStep: Step = {
-        message: addMessageDefaults({text: sample(GOT_ANSWER)}),
-        waitTime: 5000,
+    const noAnswerStep: Step = {
+        message: addMessageDefaults({text: sample(NO_ANSWER)}),
+        waitTime: 4000,
     };
+
+    const gotAnswerStep = {
+        message: addMessageDefaults({text: sample(GOT_ANSWER)}),
+        waitTime: 4000,
+    };
+
+    const pesteringStep = {
+        message: addMessageDefaults({text: sample(PESTERINGS)}),
+        waitTime: 8000,
+        responseNextStep: (input) => {
+            if (isDesiredInput(input)) {
+                return gotAnswerStep;
+            } else {
+                return noAnswerStep;
+            }
+        },
+        noResponseNextStep: noAnswerStep,
+    };
+
     return {
         message: addMessageDefaults({text: sample(QUESTIONS)}),
-        waitTime: 5000,
-        noResponseNextStep: {
-            message: addMessageDefaults({text: sample(PESTERINGS)}),
-            waitTime: 5000,
-            responseNextStep: gotAnswerStep,
-            noResponseNextStep: {
-                message: addMessageDefaults({text: sample(NO_ANSWER)}),
-                waitTime: 5000,
-            },
-        },
-        responseNextStep: gotAnswerStep
+        waitTime: 8000,
+        noResponseNextStep: pesteringStep,
+        responseNextStep: (input) => {
+            if (isDesiredInput(input)) {
+                return gotAnswerStep;
+            } else {
+                return pesteringStep;
+            }
+        }
     };
 }
 

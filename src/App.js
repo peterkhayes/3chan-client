@@ -222,6 +222,9 @@ export default class App extends React.Component<{}, State> {
         if (responseStep == null && phase.getInteractionStep) {
             responseStep = phase.getInteractionStep();
         }
+        if (typeof responseStep == 'function') {
+            responseStep = responseStep(messageText);
+        }
         this.setState({step: responseStep});
         // TODO: does this cause a race condition?
         setTimeout(this.handleStep, 1500);
