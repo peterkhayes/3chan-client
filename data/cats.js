@@ -1,4 +1,5 @@
 // @flow
+const fs = require('fs');
 const path = require('path');
 const imageDownloader = require('image-downloader');
 
@@ -1006,10 +1007,13 @@ const catUrls = [
 async function main() {
   for (let i = 0; i < catUrls.length; i++) {
     const url = catUrls[i];
+    const dest = path.join(__dirname, `../src/cats/${i}${path.extname(url)}`)
+    if (fs.existsSync(dest)) continue;
+    console.log("Downloading image", i);
     try {
       await imageDownloader.image({
         url,
-        dest: path.join(__dirname, `../src/cats/${i}${path.extname(url)}`),
+        dest,
       });
     } catch (err) {
       console.error(err);

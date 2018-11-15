@@ -1,4 +1,8 @@
-module.exports = [
+// @flow
+import image_6 from './images/polyamory_good-6.jpg';
+import image_30 from './images/polyamory_good-30.jpg';
+
+export default [
     {
         "text": "yo yo hey poly people!",
         "userId": null,
@@ -38,7 +42,7 @@ module.exports = [
     {
         "text": "",
         "userId": null,
-        "image": "https://findpoly.com/blog/wp-content/uploads/2017/12/UnicornHuntingMeme2.jpg",
+        "image": image_6,
         "imageTitle": null
     },
     {
@@ -102,7 +106,7 @@ module.exports = [
         "imageTitle": null
     },
     {
-        "text": "\"Baby...can I insert you into my....calendar?\"",
+        "text": "Baby...can I insert you into my....calendar?",
         "userId": null,
         "image": null,
         "imageTitle": null
@@ -182,7 +186,7 @@ module.exports = [
     {
         "text": "",
         "userId": null,
-        "image": "https://i.imgflip.com/szjly.jpg",
+        "image": image_30,
         "imageTitle": null
     },
     {
@@ -197,6 +201,8 @@ module.exports = [
         "image": null,
         "imageTitle": null
     },
+    null,
+    null,
     {
         "text": "Well I dunno, it's just like, when you first get into polyamory, you wonder whether this will ever actually work. And then your partners all become bffs and even hang out without you and it's so frecking cute you want to curl into a ball and die of cute overload happy thoughts all at once and you realize - this is everything you've ever wanted in life",
         "userId": null,
@@ -233,6 +239,8 @@ module.exports = [
         "image": null,
         "imageTitle": null
     },
+    null,
+    null,
     {
         "text": "awwwwww!",
         "userId": null,
@@ -377,6 +385,8 @@ module.exports = [
         "image": null,
         "imageTitle": null
     },
+    null,
+    null,
     {
         "text": "Mods, is this a spam post? Like, I want it to be real, but it looks shady af",
         "userId": null,
@@ -395,6 +405,8 @@ module.exports = [
         "image": null,
         "imageTitle": null
     },
+    null,
+    null,
     {
         "text": "That's a tough one--you want to be inclusive of everybody and make special dinners for both your partners, I really feel your struggle <3",
         "userId": null,

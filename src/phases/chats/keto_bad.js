@@ -1,4 +1,7 @@
-module.exports = [
+// @flow
+import image_21 from './images/keto_bad-21.jpg';
+
+export default [
     {
         "text": "I :clap-skintone-3: HAVE :clap-skintone-3: BEEN :clap-skintone-3: WAITING :clap-skintone-3: FOR :clap-skintone-3: THIS :clap-skintone-3: THREAD",
         "userId": null,
@@ -128,7 +131,7 @@ module.exports = [
     {
         "text": "",
         "userId": null,
-        "image": "https://www.ketovale.com/wp-content/uploads/2017/06/meme9.jpg",
+        "image": image_21,
         "imageTitle": null
     },
     {

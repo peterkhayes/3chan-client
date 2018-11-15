@@ -1,4 +1,8 @@
-module.exports = [
+// @flow
+import image_26 from './images/keto_good-26.jpg';
+import image_42 from './images/keto_good-42.jpg';
+
+export default [
     {
         "text": "I :clap-skintone-3: HAVE :clap-skintone-3: BEEN :clap-skintone-3: WAITING :clap-skintone-3: FOR :clap-skintone-3: THIS :clap-skintone-3: THREAD",
         "userId": null,
@@ -97,7 +101,7 @@ module.exports = [
     },
     {
         "text": "Speaking of which, advice time! I wanted my kids to be keto, right? I mean, obviously I want what's best for them, and there is so much research showing that keto is the healthiest possible diet, etc etc you guys get it.",
-        "userId": 32,
+        "userId": "a",
         "image": null,
         "imageTitle": null
     },
@@ -115,7 +119,7 @@ module.exports = [
     },
     {
         "text": "Ok but the problem is, my son's school *refuses* to acknowledge that this is a thing. They literally forced him to eat mashed potatoes yesterday!",
-        "userId": 32,
+        "userId": "a",
         "image": null,
         "imageTitle": null
     },
@@ -158,7 +162,7 @@ module.exports = [
     {
         "text": "",
         "userId": null,
-        "image": "https://scontent.cdninstagram.com/vp/e3ee1c93458017a7ec57cb9377e6d30a/5C16683D/t51.2885-15/e35/s320x320/36653602_275655603183254_8349763478256353280_n.jpg",
+        "image": image_26,
         "imageTitle": null
     },
     {
@@ -254,7 +258,7 @@ module.exports = [
     {
         "text": "",
         "userId": null,
-        "image": "https://www.ketovale.com/wp-content/uploads/2017/06/Im-not-always-in-ketosis-meme.jpg",
+        "image": image_42,
         "imageTitle": null
     },
     {
@@ -275,6 +279,8 @@ module.exports = [
         "image": null,
         "imageTitle": null
     },
+    null,
+    null,
     {
         "text": "...um",
         "userId": null,

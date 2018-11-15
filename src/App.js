@@ -250,6 +250,7 @@ export default class App extends React.Component<{}, State> {
     handleKeyPress = (e: SyntheticKeyboardEvent<HTMLElement>) => {
         if (e.shiftKey && e.ctrlKey) {
             const phaseIdx = phases.findIndex((phase) => phase.id === phaseId);
+            const topicIdx = phase.topics.findIndex((topic) => topic.id === topicId);
             const key = e.key.toLowerCase();
             if (key === 'j') {
                 setQuery(phases[next(phaseIdx, phases.length)].id);
@@ -258,12 +259,12 @@ export default class App extends React.Component<{}, State> {
             } else if (key === '{') {
                 setQuery(
                     phaseId,
-                    phase.topics[next(phaseIdx, phase.topics.length)].id
+                    phase.topics[next(topicIdx, phase.topics.length)].id
                 );
             } else if (key === '}') {
                 setQuery(
                     phaseId,
-                    phase.topics[prev(phaseIdx, phase.topics.length)].id
+                    phase.topics[prev(topicIdx, phase.topics.length)].id
                 );
             } else if (key === 'r') {
                 window.alert(`Room numbers:\n${getRoomNumbers().join("\n")}`);

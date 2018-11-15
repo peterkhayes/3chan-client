@@ -1,5 +1,5 @@
 // @flow
-import type { Topic, Phase } from '../types';
+import type { Phase } from '../types';
 
 import {
     composeFilters,
@@ -14,11 +14,52 @@ import {
     getMediumInteractionStep,
     getNastyInteractionStep,
 } from '../interaction';
-import * as topics from './topics';
+import { 
+    getDurationForMessage,
+} from '../utils';
+
+import {
+    bearConspiracy,
+    budsmGood,
+    cryptoBad,
+    cryptoGood,
+    educationGood,
+    furries,
+    healthcareBad,
+    healthcareGood,
+    heyBad,
+    heyGood,
+    ketoBad,
+    ketoGood,
+    polyamoryBad,
+    polyamoryGood,
+    portapottyBad,
+    portapottyGood,
+    quantifiedSelfBad,
+    quantifiedSelfGood,
+    sportsBad,
+    sportsGood,
+    vanLifeBad,
+    vanLifeGood,
+    cats,
+} from './topics';
 
 const goodPhase: Phase = {
     id: 'good',
-    topics: [topics.ketoGood, topics.polyamoryGood],
+    topics: [
+        heyGood,
+        ketoGood,
+        polyamoryGood,
+        healthcareGood,
+        budsmGood,
+        cryptoGood,
+        educationGood,
+        furries,
+        portapottyGood,
+        quantifiedSelfGood,
+        sportsGood,
+        vanLifeGood,
+    ],
     placeholderText: `What's your opinion about {{topic}}? Remember to be kind and thoughtful!`,
     filter: composeFilters(
         noProfanity,
@@ -33,7 +74,19 @@ const goodPhase: Phase = {
 
 const mediumPhase: Phase = {
     id: 'medium',
-    topics: [topics.ketoBad, topics.polyamoryBad],
+    topics: [
+        heyBad,
+        ketoBad,
+        polyamoryBad,
+        healthcareBad,
+        bearConspiracy,
+        cryptoBad,
+        furries,
+        portapottyBad,
+        quantifiedSelfBad,
+        sportsBad,
+        vanLifeBad,
+    ],
     placeholderText: `We're all circlejerking about {{topic}} rn lol`,
     filter: composeFilters(), // TODO: any filters here?
     getInteractionStep: getMediumInteractionStep,
@@ -44,7 +97,19 @@ const mediumPhase: Phase = {
 
 const badPhase: Phase = {
     id: 'bad',
-    topics: [topics.ketoBad, topics.polyamoryBad],
+    topics: [
+        heyBad,
+        ketoBad,
+        polyamoryBad,
+        healthcareBad,
+        bearConspiracy,
+        cryptoBad,
+        furries,
+        portapottyBad,
+        quantifiedSelfBad,
+        sportsBad,
+        vanLifeBad,
+    ],
     placeholderText: `Your opinion on {{topic}} sucks and so do you`,
     filter: composeFilters(
         hasProfanity,
@@ -57,7 +122,7 @@ const badPhase: Phase = {
 
 const catsPhase: Phase = {
     id: 'cats',
-    topics: [topics.cats],
+    topics: [cats],
     placeholderText: "It's all over now. You can rest. Here are the cats.",
     filter: catsOnly,
     clickbaitRate: 0,
@@ -65,9 +130,26 @@ const catsPhase: Phase = {
     catsRate: 1,
 };
 
-export default [
+const phases = [
     goodPhase,
     mediumPhase,
     badPhase,
     catsPhase,
 ];
+
+for (const phase of phases) {
+    let duration = 0;
+    for (const topic of phase.topics) {
+        for (const message of topic.messages) {
+            if (message) {
+                duration += Math.floor(getDurationForMessage(message) / 1000);
+            }
+        }
+    }
+
+    const minutes = Math.floor(duration / 60);
+    const seconds = `0${duration % 60}`.slice(-2);
+    console.log("Duration for phase", phase.id, `${minutes}:${seconds}`);
+}
+
+export default phases;

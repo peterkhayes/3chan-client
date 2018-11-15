@@ -1,4 +1,10 @@
-module.exports = [
+// @flow
+import image_17 from './images/polyamory_bad-17.jpg';
+import image_18 from './images/polyamory_bad-18.jpg';
+import image_19 from './images/polyamory_bad-19.jpg';
+import image_50 from './images/polyamory_bad-50.jpg';
+
+export default [
     {
         "text": "yo yo hey poly people!",
         "userId": null,
@@ -104,19 +110,19 @@ module.exports = [
     {
         "text": "",
         "userId": null,
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfUoQPERxmA8dylNws6JbC0-UFUtsD4lojf5Ayd7hF_IwtdZBnWQ",
+        "image": image_17,
         "imageTitle": null
     },
     {
         "text": "",
         "userId": null,
-        "image": "https://nonmonogamyconsultantdotcom.files.wordpress.com/2015/08/11694920_10152982556781319_8279656347868114119_n.jpg",
+        "image": image_18,
         "imageTitle": null
     },
     {
         "text": "",
         "userId": null,
-        "image": "http://1.bp.blogspot.com/-xUibbUX_n54/UWnikjfZs6I/AAAAAAAAABc/bAUk-_41vZY/s1600/Drama+Llama+meme.jpg",
+        "image": image_19,
         "imageTitle": null
     },
     {
@@ -302,7 +308,7 @@ module.exports = [
     {
         "text": "",
         "userId": null,
-        "image": "https://polypridesite.files.wordpress.com/2016/05/threesome-is-excellent.jpg?w=605",
+        "image": image_50,
         "imageTitle": null
     },
     {
