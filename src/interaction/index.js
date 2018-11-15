@@ -186,13 +186,13 @@ function getQuestionStep(): Step {
         waitTime: 4000,
     };
 
-    const gotAnswerStep = {
+    const gotAnswerStep: Step = {
         message: addMessageDefaults({text: sample(GOT_ANSWER)}),
         waitTime: 4000,
     };
-
-    const pesteringStep = {
-        message: addMessageDefaults({text: sample(PESTERINGS)}),
+    
+    const secondPesteringStep = {
+        message: addMessageDefaults({text: 'YO @anonymous_citizen GIVE US THE FUCKING NUMBER OR ELSE'}),
         waitTime: 8000,
         responseNextStep: (input) => {
             if (isDesiredInput(input)) {
@@ -202,19 +202,32 @@ function getQuestionStep(): Step {
             }
         },
         noResponseNextStep: noAnswerStep,
-    };
+    }
 
-    return {
-        message: addMessageDefaults({text: sample(QUESTIONS)}),
+    const firstPesteringStep = {
+        message: addMessageDefaults({text: sample(PESTERINGS)}),
         waitTime: 8000,
-        noResponseNextStep: pesteringStep,
         responseNextStep: (input) => {
             if (isDesiredInput(input)) {
                 return gotAnswerStep;
             } else {
-                return pesteringStep;
+                return secondPesteringStep;
             }
-        }
+        },
+        noResponseNextStep: secondPesteringStep,
+    };
+    
+    return {
+        message: addMessageDefaults({text: sample(QUESTIONS)}),
+        waitTime: 8000,
+        responseNextStep: (input) => {
+            if (isDesiredInput(input)) {
+                return gotAnswerStep;
+            } else {
+                return firstPesteringStep;
+            }
+        },
+        noResponseNextStep: firstPesteringStep,
     };
 }
 

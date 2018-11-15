@@ -636,7 +636,7 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "\"\"has a 21 y/0 daughter\"\" dude wtf??\n\n....yes I would love to join your pilot, def see how this is useful",
+        "text": "\"has a 21 y/0 daughter\" dude wtf??\n\n....yes I would love to join your pilot, def see how this is useful",
         "userId": null,
         "image": null,
         "imageTitle": null

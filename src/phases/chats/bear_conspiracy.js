@@ -183,7 +183,7 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "\"be\" are the first two letters in bear.....",
+        "text": "be\" are the first two letters in bear....",
         "userId": null,
         "image": null,
         "imageTitle": null
@@ -303,16 +303,11 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "\"> Epicenter.",
+        "text": "> Epicenter.\n> Full House.\n> They are all here.\n> 24/7/365\n> Enjoy the show.\n> R",
         "userId": "a",
         "image": null,
         "imageTitle": null
     },
-    null,
-    null,
-    null,
-    null,
-    null,
     {
         "text": "Who is R????",
         "userId": null,
@@ -326,19 +321,11 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "\"> Mockingbird",
+        "text": "> Mockingbird\n> Where is Huma? Follow Huma.\n> This has nothing to do w/ Russia (yet).\n> Why does Clavae surround herself with generals?\n> What is military intelligence?\n> Why go around the 3 letter agencies?\n> Mockingbird 11.18.18\n> God bless fellow patriots.\n> R",
         "userId": "a",
         "image": null,
         "imageTitle": null
     },
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
     {
         "text": "I think I get it. We are. We R.",
         "userId": null,

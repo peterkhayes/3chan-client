@@ -268,7 +268,7 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "Wow did you guys see this article on The Daily Hodl:\n\n\"\"US Congress Releases Extraordinary Report Praising Cryptocurrency and Blockchain Technology\"\"\n\nhttps://dailyhodl.com/us-congress-releases-extraordinary-report-praising-cryptocurrency-and-blockchain-technology/",
+        "text": "Wow did you guys see this article on The Daily Hodl:\n\n\"US Congress Releases Extraordinary Report Praising Cryptocurrency and Blockchain Technology\"\n\nhttps://dailyhodl.com/us-congress-releases-extraordinary-report-praising-cryptocurrency-and-blockchain-technology/",
         "userId": null,
         "image": null,
         "imageTitle": null

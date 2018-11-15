@@ -45,7 +45,7 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "And, do you believe the \"\"energy\"\" of a physically-violent act always quickly dissipates without consequence, for example if the recipient appears to be awake (which I doubt is the case anyway) and consenting? (FWIW I don't.)\n\nWith metta.",
+        "text": "And, do you believe the \"energy\" of a physically-violent act always quickly dissipates without consequence, for example if the recipient appears to be awake (which I doubt is the case anyway) and consenting? (FWIW I don't.)\n\nWith metta.",
         "userId": null,
         "image": null,
         "imageTitle": null
@@ -63,13 +63,13 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "Is misleading. It is likely that Theravada resembles the older forms of Buddhism, but Theravada is not itself \"\"the oldest surviving form of Buddhism\"\" because there is no oldest surviving form.\n\nUnless you adopt Therevada's view of itself, which is contradicted by history.",
+        "text": "Is misleading. It is likely that Theravada resembles the older forms of Buddhism, but Theravada is not itself \"the oldest surviving form of Buddhism\" because there is no oldest surviving form.\n\nUnless you adopt Therevada's view of itself, which is contradicted by history.",
         "userId": null,
         "image": null,
         "imageTitle": null
     },
     {
-        "text": "I don't think you understand how fetishes work. Fetishes are not equivalent to clinging. Fetishes are just \"\"that which turns you on\"\" for people who happen to get turned on by things other than what's considered normal. If you are a man and you get highly aroused by beautiful naked women, is that also a form of clinging? No, it's just a lustful state of mind, and if whatever sex transpires is fully consensual (and not cheating, I presume) then it's not even breaking a precept.\n\nSex can (and should) be a very wholesome activity. This is true regardless of whether or not the sex involves a fetish. In some cases it's true especially if you have a fetish, since it validates a part of you that normally is stigmatized by society. To have a partner who thinks it's cool that you get turned on by shoes, or whatever, means suddenly you aren't walking around with a cloud of shame hanging over your head, a lurking voice that says \"\"no one will ever love you because of this, you freak\"\". To be liberated from that shame is powerful medicine and could definitely be beneficial to practice.",
+        "text": "I don't think you understand how fetishes work. Fetishes are not equivalent to clinging. Fetishes are just \"that which turns you on\" for people who happen to get turned on by things other than what's considered normal. If you are a man and you get highly aroused by beautiful naked women, is that also a form of clinging? No, it's just a lustful state of mind, and if whatever sex transpires is fully consensual (and not cheating, I presume) then it's not even breaking a precept.\n\nSex can (and should) be a very wholesome activity. This is true regardless of whether or not the sex involves a fetish. In some cases it's true especially if you have a fetish, since it validates a part of you that normally is stigmatized by society. To have a partner who thinks it's cool that you get turned on by shoes, or whatever, means suddenly you aren't walking around with a cloud of shame hanging over your head, a lurking voice that says \"no one will ever love you because of this, you freak\". To be liberated from that shame is powerful medicine and could definitely be beneficial to practice.",
         "userId": null,
         "image": null,
         "imageTitle": null

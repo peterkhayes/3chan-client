@@ -73,13 +73,13 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "Things I want in my van:\n\n\n- High top (I'm 6'3\"\")\n- Full bed\n- Solar Powered\n- Water Pump/Sink\n- Stove (gas camper is fine)\n- Fridge\n- Fully outfitted, but nothing *too* luxurious.",
+        "text": "Things I want in my van:\n\n\n- High top (I'm 6'3\")\n- Full bed\n- Solar Powered\n- Water Pump/Sink\n- Stove (gas camper is fine)\n- Fridge\n- Fully outfitted, but nothing *too* luxurious.",
         "userId": "a",
         "image": null,
         "imageTitle": null
     },
     {
-        "text": "> I have a few questions on how much it would realistically cost to get myself involved in the van life.\n\nThe scale is _tremendous_. You could probably do it for a under $5k total including the vehicle if you really wanted to. You can also do it for over $100k, even without getting \"\"too luxurious\"\".",
+        "text": "> I have a few questions on how much it would realistically cost to get myself involved in the van life.\n\nThe scale is _tremendous_. You could probably do it for a under $5k total including the vehicle if you really wanted to. You can also do it for over $100k, even without getting \"too luxurious\".",
         "userId": null,
         "image": null,
         "imageTitle": null
@@ -91,13 +91,13 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "The problem with \"\"the ideal van\"\" is that you have no clue what's \"\"ideal\"\" for you, until you've actually lived in one for a while.\n\nYou could take your time, get everything \"\"perfect\"\", then go out on the road and find out \"\"oh, hey i didn't consider x, y, or z\"\" You'll also find out that many of your beliefs about \"\"needs\"\" and even what's \"\"good\"\" or \"\"bad\"\" are completely wrong in many areas.",
+        "text": "The problem with \"the ideal van\" is that you have no clue what's \"ideal\" for you, until you've actually lived in one for a while.\n\nYou could take your time, get everything \"perfect\", then go out on the road and find out \"oh, hey i didn't consider x, y, or z\" You'll also find out that many of your beliefs about \"needs\" and even what's \"good\" or \"bad\" are completely wrong in many areas.",
         "userId": null,
         "image": null,
         "imageTitle": null
     },
     {
-        "text": "does anybody ever wonder why we say \"\"x, y, z\"\" instead of \"\"a, b, c\"\" or \"\"h, i, j\"\" or any of the other letters?\n\n/3/showerthoughts",
+        "text": "does anybody ever wonder why we say \"x, y, z\" instead of \"a, b, c\" or \"h, i, j\" or any of the other letters?\n\n/3/showerthoughts",
         "userId": null,
         "image": null,
         "imageTitle": null
@@ -217,7 +217,7 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "\"\"Attn: Owner of Grey/Silver Sedan and Van\n\nYou have been spotted by many home owners and have been reported to authority. To avoid towing and criminal action please remove yourself and your belongings from this property. Unless you can prove ownership you are trespassing!!! You will be towed if not removed by Nov 18.\n\nThank you,\nConcerned Home Owners\"\"",
+        "text": "Attn: Owner of Grey/Silver Sedan and Van\n\nYou have been spotted by many home owners and have been reported to authority. To avoid towing and criminal action please remove yourself and your belongings from this property. Unless you can prove ownership you are trespassing!!! You will be towed if not removed by Nov 18.\n\nThank you,\nConcerned Home Owners",
         "userId": "e",
         "image": null,
         "imageTitle": null
@@ -253,7 +253,7 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "What are people really trying to say about people who live in vans anyway? That you're not a real person if you don't live in a (quote-unquote) \"\"real\"\" house?\n\nThat is so stuck up.",
+        "text": "What are people really trying to say about people who live in vans anyway? That you're not a real person if you don't live in a (quote-unquote) \"real\" house?\n\nThat is so stuck up.",
         "userId": null,
         "image": null,
         "imageTitle": null

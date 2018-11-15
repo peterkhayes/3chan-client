@@ -102,13 +102,14 @@ export default class MessageItem extends React.Component<Props> {
       .split('\n')
       .map((line, i) => {
         const words = line.split(" ");
+        const wordSpans = words.map((word, j) =>
+          word.startsWith("@")
+            ? <span key={j} style={atMentionStyle}>{word}{' '}</span>
+            : `${word} `
+        )
         return (
           <div key={i} style={textStyle}>
-            {words.map((word, j) =>
-              word.startsWith("@")
-                ? <span style={atMentionStyle}>{word}{' '}</span>
-                : `${word} `
-            )}
+            {!line ? <span>&nbsp;</span> : wordSpans}   
           </div>
         )
       })

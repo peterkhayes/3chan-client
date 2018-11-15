@@ -74,7 +74,7 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "so what you're saying is--you're a rich tech bro who wants to use his six figure savings (despite being a mere 24 years old) to live a \"\"cheap\"\" bohemian life because he can afford it?\n\nBecause just saying, that's fucked up & also ur a fucking poser.",
+        "text": "so what you're saying is--you're a rich tech bro who wants to use his six figure savings (despite being a mere 24 years old) to live a \"cheap\" bohemian life because he can afford it?\n\nBecause just saying, that's fucked up & also ur a fucking poser.",
         "userId": null,
         "image": null,
         "imageTitle": null
@@ -92,19 +92,19 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "Things I want in my van:\n\n- High top (I'm 6'3\"\")\n- Full bed\n- Solar Powered\n- Water Pump/Sink\n- Stove (gas camper is fine)\n- Fridge\n- Fully outfitted, but nothing *too* luxurious.",
+        "text": "Things I want in my van:\n\n- High top (I'm 6'3\")\n- Full bed\n- Solar Powered\n- Water Pump/Sink\n- Stove (gas camper is fine)\n- Fridge\n- Fully outfitted, but nothing *too* luxurious.",
         "userId": "a",
         "image": null,
         "imageTitle": null
     },
     {
-        "text": "> I'm 6'3\"\"\n\nBut are you single? :wink:",
+        "text": "> I'm 6'3\"\n\nBut are you single? :wink:",
         "userId": null,
         "image": null,
         "imageTitle": null
     },
     {
-        "text": "/* MODERATOR MESSAGE */\n\nhello ,, i make adult films and you are beautiful . if you would like to participat in my next filming please let me knwo!! ! i pay fair rates",
+        "text": "/* hello ,, i make adult films and you are beautiful . if you would like to participat in my next filming please let me knwo!! ! i pay fair rates",
         "userId": "mod",
         "image": null,
         "imageTitle": null
@@ -134,7 +134,7 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "> I have a few questions on how much it would realistically cost to get myself involved in the van life.\n\nThe scale is _tremendous_. You could probably do it for a under $5k total including the vehicle if you really wanted to. You can also do it for over $100k, even without getting \"\"too luxurious\"\".",
+        "text": "> I have a few questions on how much it would realistically cost to get myself involved in the van life.\n\nThe scale is _tremendous_. You could probably do it for a under $5k total including the vehicle if you really wanted to. You can also do it for over $100k, even without getting \"too luxurious\".",
         "userId": null,
         "image": null,
         "imageTitle": null
@@ -200,19 +200,19 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "> The scale is _tremendous_. You could probably do it for a under $5k total including the vehicle if you really wanted to. You can also do it for over $100k, even without getting \"\"too luxurious\"\".\n\nYeah, even with your limited list of things, the price range can be huge.\n\nDo you want Lithium batteries? How long do you want to be able to be off grid? How well insulated are you going to make it? what about a heater for the unexpected cold / when you're at elevation?",
+        "text": "> The scale is _tremendous_. You could probably do it for a under $5k total including the vehicle if you really wanted to. You can also do it for over $100k, even without getting \"too luxurious\".\n\nYeah, even with your limited list of things, the price range can be huge.\n\nDo you want Lithium batteries? How long do you want to be able to be off grid? How well insulated are you going to make it? what about a heater for the unexpected cold / when you're at elevation?",
         "userId": null,
         "image": null,
         "imageTitle": null
     },
     {
-        "text": "The problem with \"\"the ideal van\"\" is that you have no clue what's \"\"ideal\"\" for you, until you've actually lived in one for a while.\n\nYou could take your time, get everything \"\"perfect\"\", then go out on the road and find out \"\"oh, hey i didn't consider x, y, or z\"\" You'll also find out that many of your beliefs about \"\"needs\"\" and even what's \"\"good\"\" or \"\"bad\"\" are completely wrong in many areas.",
+        "text": "The problem with \"the ideal van\" is that you have no clue what's \"ideal\" for you, until you've actually lived in one for a while.\n\nYou could take your time, get everything \"perfect\", then go out on the road and find out \"oh, hey i didn't consider x, y, or z\" You'll also find out that many of your beliefs about \"needs\" and even what's \"good\" or \"bad\" are completely wrong in many areas.",
         "userId": null,
         "image": null,
         "imageTitle": null
     },
     {
-        "text": "does anybody ever wonder why we say \"\"x, y, z\"\" instead of \"\"a, b, c\"\" or \"\"h, i, j\"\" or any of the other letters?\n\n/3/showerthoughts",
+        "text": "does anybody ever wonder why we say \"x, y, z\" instead of \"a, b, c\" or \"h, i, j\" or any of the other letters?\n\n/3/showerthoughts",
         "userId": null,
         "image": null,
         "imageTitle": null
@@ -254,7 +254,7 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "is that why I feel seasick?\n\noh wait or is that just the generic \"\"I'm in a Pottery Barn\"\" feel :troll-face:",
+        "text": "is that why I feel seasick?\n\noh wait or is that just the generic \"I'm in a Pottery Barn\" feel :troll-face:",
         "userId": null,
         "image": null,
         "imageTitle": null
@@ -320,7 +320,7 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "/* MODERATOR MESSAGE */ \n\nHi VanLife channel! The Moderator team wants you to know that there was a minor breach, but everything is back to normal and no personally identifying information was gathered in the process!",
+        "text": "/* nHi VanLife channel! The Moderator team wants you to know that there was a minor breach, but everything is back to normal and no personally identifying information was gathered in the process!",
         "userId": "mod",
         "image": null,
         "imageTitle": null
@@ -350,7 +350,7 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "/* MODERATOR MESSAGE */ \n\nhello ,, hello ,, i make adult films and you are beautiful . if you would like to participat in my next filming please let me knwo!! ! i pay fair rates - $100 up front for booking fee - pleaes reply for payapl address and filming location!.",
+        "text": "/* nhello ,, hello ,, i make adult films and you are beautiful . if you would like to participat in my next filming please let me knwo!! ! i pay fair rates - $100 up front for booking fee - pleaes reply for payapl address and filming location!.",
         "userId": "mod",
         "image": null,
         "imageTitle": null
@@ -446,7 +446,7 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "\"\"Attn: Owner of Grey/Silver Sedan and Van\n\nYou have been spotted by many home owners and have been reported to authority. To avoid towing and criminal action please remove yourself and your belongings from this property. Unless you can prove ownership you are trespassing!!! You will be towed if not removed by Nov 18.\n\nThank you,\nConcerned Home Owners\"\"",
+        "text": "Attn: Owner of Grey/Silver Sedan and Van\n\nYou have been spotted by many home owners and have been reported to authority. To avoid towing and criminal action please remove yourself and your belongings from this property. Unless you can prove ownership you are trespassing!!! You will be towed if not removed by Nov 18.\n\nThank you,\nConcerned Home Owners",
         "userId": "e",
         "image": null,
         "imageTitle": null

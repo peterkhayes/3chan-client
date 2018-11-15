@@ -3,6 +3,7 @@ import type { Step, Message } from './types';
 import users from './users';
 
 const MIN_DURATION = 800;
+const MAX_DURATION = 4000;
 const DURATION_PER_CHAR = 25;
 const DURATION_FOR_IMAGE = 2000;
 
@@ -28,9 +29,12 @@ export function fuzzTimeout(timeout: number): number {
 
 // returns interval in ms
 export function getDurationForMessage (message: {text: string, image: ?string}): number {
-    return MIN_DURATION
+    return Math.min(
+        MAX_DURATION,
+        MIN_DURATION
         + DURATION_PER_CHAR * (message.text || '').length
-        + DURATION_FOR_IMAGE * (Number(!!message.image));
+        + DURATION_FOR_IMAGE * (Number(!!message.image))
+    );
 }
 
 export function addMessageDefaults(props: $Shape<Message>): Message {

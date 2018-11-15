@@ -63,7 +63,7 @@ function formatTopicMessage (message: TopicMessage, idx: number): Message {
     const user = getTopicMessageUser(message.userId);
 
     let text = message.text || '';
-    const isMod = text.startsWith('/* ') && text.endsWith(' */');
+    const isMod = message.userId === 'mod' || (text.startsWith('/* ') && text.endsWith(' */'));
     if (isMod) {
         text = text.slice(3, text.length - 3);
     }
@@ -227,7 +227,7 @@ export default class App extends React.Component<{}, State> {
         }
         this.setState({step: responseStep});
         // TODO: does this cause a race condition?
-        setTimeout(this.handleStep, 1500);
+        setTimeout(this.handleStep, 1000);
     }
 
     setError = (error: string) => {

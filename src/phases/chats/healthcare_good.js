@@ -123,7 +123,7 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "the only thing you need to know about my dad's \"\"era\"\" is that he inherited a pretty standard version of our mainstream toxic masculinity. never took a sick day, my mom had to drag him to the doctor the one time he broke his leg (as if it would heal on its own if only he were tough enough).\n\nyou can imagine what his reaction would have been if i'd tried to insist that this time, he really should listen to his doctor, and he should go ahead and *make an appointment* to have some gloved doctor - maybe even a lady doctor, they have those these days! - stick a camera _up his butt_ for _no specific reason._",
+        "text": "the only thing you need to know about my dad's \"era\" is that he inherited a pretty standard version of our mainstream toxic masculinity. never took a sick day, my mom had to drag him to the doctor the one time he broke his leg (as if it would heal on its own if only he were tough enough).\n\nyou can imagine what his reaction would have been if i'd tried to insist that this time, he really should listen to his doctor, and he should go ahead and *make an appointment* to have some gloved doctor - maybe even a lady doctor, they have those these days! - stick a camera _up his butt_ for _no specific reason._",
         "userId": "a",
         "image": null,
         "imageTitle": null
@@ -171,7 +171,7 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "2/ healthcare isn't only about health. it's also about culture.\n\nwe can have the best facilities, equipment, and training in the world, and we still won't make people healthier if we don't understand how their health fits in with the rest of their lives. how can we make a healthcare system that treats the whole person, and not just the \"\"disease\"\" narrowly considered?",
+        "text": "2/ healthcare isn't only about health. it's also about culture.\n\nwe can have the best facilities, equipment, and training in the world, and we still won't make people healthier if we don't understand how their health fits in with the rest of their lives. how can we make a healthcare system that treats the whole person, and not just the \"disease\" narrowly considered?",
         "userId": "a",
         "image": null,
         "imageTitle": null

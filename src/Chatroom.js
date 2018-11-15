@@ -35,13 +35,15 @@ const rootStyle = {
     paddingTop: styles.gridSize(0.5),
     fontFamily: styles.fonts.serious,
     color: styles.colors.dark,
-    display: 'flex',
     backgroundColor: styles.colorsWithOpacity.light(0.3),
 };
 
 const mainPanelStyle = {
-    marginLeft: styles.sidebarWidth,
-    flexGrow: 1,
+    position: 'absolute',
+    left: styles.sidebarWidth,
+    right: 0,
+    top: 0,
+    bottom: 0,
     display: 'flex',
     flexDirection: 'column',
 }

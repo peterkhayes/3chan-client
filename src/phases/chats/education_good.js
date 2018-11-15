@@ -225,7 +225,7 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "> Anyone who claims that teachers are stupid is using propaganda instead of ETS data.\n\nWould you accept \"\"mediocre\"\"? ;-)",
+        "text": "> Anyone who claims that teachers are stupid is using propaganda instead of ETS data.\n\nWould you accept \"mediocre\"? ;-)",
         "userId": null,
         "image": null,
         "imageTitle": null

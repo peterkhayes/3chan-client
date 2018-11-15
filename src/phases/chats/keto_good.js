@@ -58,7 +58,7 @@ export default [
         "imageTitle": null
     },
     {
-        "text": " 'abs' as in absolutely, or as in the ripped af abs you get from doing keto :wink:",
+        "text": "'abs' as in absolutely, or as in the ripped af abs you get from doing keto :wink:",
         "userId": null,
         "image": null,
         "imageTitle": null
@@ -274,13 +274,11 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "\"I check my ketone levels via pee strip maybe a few times a week because I'm paranoid.",
+        "text": "I check my ketone levels via pee strip maybe a few times a week because I'm paranoid.\n\nconfession: afterwards, for some reason at some point I started throwing them into this box, and then I never threw them out, and now I have a shoebox under my bed filled with like 2 yrs of used pee sticks",
         "userId": null,
         "image": null,
         "imageTitle": null
     },
-    null,
-    null,
     {
         "text": "...um",
         "userId": null,

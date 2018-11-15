@@ -196,13 +196,11 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "\"holy shit my heart is literally melting stopppp",
+        "text": "holy shit my heart is literally melting stopppp\n\n(but actually don't, more details!!!!!!)",
         "userId": null,
         "image": null,
         "imageTitle": null
     },
-    null,
-    null,
     {
         "text": "Well I dunno, it's just like, when you first get into polyamory, you wonder whether this will ever actually work. And then your partners all become bffs and even hang out without you and it's so frecking cute you want to curl into a ball and die of cute overload happy thoughts all at once and you realize - this is everything you've ever wanted in life",
         "userId": null,
@@ -234,13 +232,11 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "\"I also have happy news ~",
+        "text": "I also have happy news ~\n\nI married one gorgeous and supportive partner almost 5 years ago. And today, I proposed to another love of my life. They said yes!!!!!",
         "userId": null,
         "image": null,
         "imageTitle": null
     },
-    null,
-    null,
     {
         "text": "awwwwww!",
         "userId": null,
@@ -380,13 +376,11 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "\"Hey lovers, Please sign my petition. Lets see which country has the biggest amount of supporters for this inevitable step for marriages! <3",
+        "text": "Hey lovers, Please sign my petition. Lets see which country has the biggest amount of supporters for this inevitable step for marriages! <3\n\nwww.pluralmarriage.org",
         "userId": null,
         "image": null,
         "imageTitle": null
     },
-    null,
-    null,
     {
         "text": "Mods, is this a spam post? Like, I want it to be real, but it looks shady af",
         "userId": null,
@@ -400,13 +394,11 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "\"ok so like I'm curious how you all handle group cooking when everybody has different dietary requirements?",
+        "text": "ok so like I'm curious how you all handle group cooking when everybody has different dietary requirements?\n\nmy gf is paleo but my bf is vegan and I really don't know how to make this work...\"",
         "userId": "c",
         "image": null,
         "imageTitle": null
     },
-    null,
-    null,
     {
         "text": "That's a tough one--you want to be inclusive of everybody and make special dinners for both your partners, I really feel your struggle <3",
         "userId": null,

@@ -18,7 +18,7 @@ a	I noticed an odd correlation with bean consumption and time to fall asleep. It
 	If any of ya'll want to meet up in person, we can try staring into each others' eyes and trying to quantify this subjectively?	
 	Subjective analysis is suboptimal, but yeah, sometimes it's all you have	
 	Hey are there any apps for regularly measuring inteligence, psychology, and/or trivia?	
-	"Intelligence is considered to be a stable construct, so I don't know if there would be any benefit to measuring it regularly.\n\nFor other aspects of cognition, try neurotrack or braincheck:\n\n* https://www.neurotrack.com/\n* https://braincheck.com/"	
+	Intelligence is considered to be a stable construct, so I don't know if there would be any benefit to measuring it regularly.\n\nFor other aspects of cognition, try neurotrack or braincheck:\n\n* https://www.neurotrack.com/\n* https://braincheck.com/
 	Data question--Is there a way to get data emailed to a Gmail address, and be parsed and integrated into a Google Sheet? I want to be able to run a Siri shortcut on my phone so I can have HealthKit data sent to a Google Sheet, where it can be calculated and presented in a solid format in Google Data Studio.	
 	:drools:	
 	Try IFTTT?	
@@ -40,13 +40,13 @@ b	pretty much
 	Does anybody know how I can I log my YouTube viewing history into an RSS feed or Google Calendar?	
 	Yet again, I think our friend IFTTT can save the day here	
 	seriously, how could anybody do QS before IFTTT	
-	"Does anyone have a remote body temp scanner?\n\nI was thinking of a tracker which can sit by my office that scans to maybe where my face would be in the chair, and if I my body is getting cold or hot, then adjust the aircon?"	
+	Does anyone have a remote body temp scanner?\n\nI was thinking of a tracker which can sit by my office that scans to maybe where my face would be in the chair, and if I my body is getting cold or hot, then adjust the aircon?
 	hm.....	
 	:thinks:	
 c	Quick mini-thread on Social Life Tracking!	
 c	I created a proof of concept app earlier for myself to track my interactions with people, notes and anecdotes about those people, with dates I should follow up with them to continue networking. 	
 c	I'm motivated to build this for more of a mass market. Would anyone be interested in that? And are there any tools you are already using to track personal interactions/networking?	
-d	"Personally, I’ve tracked my networking efforts in Excel when seeking internship exposure. I used conditional formatting which prompted me to follow up with people given time elapsed since last contact.\n\nI’d be interested in an intuitive tool though."	
+d	Personally, I’ve tracked my networking efforts in Excel when seeking internship exposure. I used conditional formatting which prompted me to follow up with people given time elapsed since last contact.\n\nI’d be interested in an intuitive tool though.
 c	Did you ever track details about the interaction or the person? From my perspective, following up (or "staying in touch") is important but so are notes ("talking points") about each person. Is that valuable to you?	
 d	Probably not, not for my networking anyway as I can see talking notes etc based on a LinkedIn conversation history. Though it would be highly valuable with dating / pick-up.	
 	I’d be very interested in something like this.	
@@ -58,15 +58,15 @@ e	tl;dr it seems like I have a 10 day hormonal cycle, yet I am a man who doesn't
 e	Longer story: I've been tracking some subjective measurements which might have psychological or hormonal influences. I record a data point daily. I've noticed, over the past two months, that I seem to have a cycle with a period of about 10 days.	
 e	I do not have a menstrual cycle (as far as I know). Is there any known biological mechanism that could be at work here?	
 	Huh. Could there be some event that happens to you three times a month?	
-	"Found this great blog on Designing your Optimal Human Condition Algorithmically!\n\nhttps://mattburman.com/blog/design-your-life-by-algorithms/"	
-	"Nike repurposing Fuel Bands for Quantified Sex?\n\nhttp://somolo.co/news/quantified-self-nike-quantified-sex/"	
+	Found this great blog on Designing your Optimal Human Condition Algorithmically!\n\nhttps://mattburman.com/blog/design-your-life-by-algorithms/
+	Nike repurposing Fuel Bands for Quantified Sex?\n\nhttp://somolo.co/news/quantified-self-nike-quantified-sex/
 f	Hey Guys! Just made this cool chart of My Coffee Intake for the last two years or so:	
 f		https://preview.redd.it/glssuf1hp4k01.png?width=960&crop=smart&auto=webp&s=6d30c67e204c6f8703aaa0b0ebd9795667377072
-f	"Tracking done using IFTTT (Note Button to GoogleSheets)\n\nR enviroment to import, summarise and plot data"	
+f	Tracking done using IFTTT (Note Button to GoogleSheets)\n\nR enviroment to import, summarise and plot data
 	Wow, 20 cups in a day?	
 	that can't be healthy bro	
 	:coffee: :coffin:	
-g	"Has anybody else here started to realize that they compulsively measure their own pulse?\n\nAt first it was like - just do it for the bio data. And now, I realize I'm doing it all the time as an under-the-table habit, and I'm kind of unhealthily obsessed with my own pulse"	
+g	Has anybody else here started to realize that they compulsively measure their own pulse?\n\nAt first it was like - just do it for the bio data. And now, I realize I'm doing it all the time as an under-the-table habit, and I'm kind of unhealthily obsessed with my own pulse
 	How many times a day are you taking it?	
 g	That's the thing, I don't even know. That many times.	
 	If you don't know, that means you're not even collecting the data anymore. Potentially problematic addictive behavior?	
