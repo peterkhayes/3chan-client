@@ -318,14 +318,14 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "/* user ^ has created a poll: \"Are women people?\". Please vote! */",
+        "text": "/* <username_b> has created a poll: \"Are women people?\". Please vote! */",
         "userId": "mod",
         "image": null,
         "imageTitle": null
     },
     {
-        "text": "ARE WOMEN PEOPLE?\n\nYES [-]\nNO   [--]",
-        "userId": "b",
+        "text": "/* ARE WOMEN PEOPLE?\n\nYES [-]\nNO   [--] */",
+        "userId": "mod",
         "image": null,
         "imageTitle": null
     },
@@ -360,7 +360,7 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "10 new users have voted!\n\nPOLL: ARE WOMEN PEOPLE?\n\nYES [-]\nNO   [-------------]",
+        "text": "/* 10 new users have voted!\n\nPOLL: ARE WOMEN PEOPLE?\n\nYES [-]\nNO   [-------------] */",
         "userId": "mod",
         "image": null,
         "imageTitle": null
@@ -372,7 +372,7 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "8 new users have voted!\n\nPOLL: ARE WOMEN PEOPLE?\n\nYES [--]\nNO   [-------------------]",
+        "text": "/* 8 new users have voted!\n\nPOLL: ARE WOMEN PEOPLE?\n\nYES [--]\nNO   [-------------------] */",
         "userId": "mod",
         "image": null,
         "imageTitle": null

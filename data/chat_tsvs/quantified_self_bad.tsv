@@ -50,16 +50,16 @@ a	I noticed an odd correlation with bean consumption and time to fall asleep. It
 	Maybe they're being shy	
 	Right, all 0.2 people of them	
 b	lol I know a way to make the ladies talk	
-mod	/* user ^ has created a poll: "Are women people?". Please vote! */	
-b	ARE WOMEN PEOPLE?\n\nYES [-]\nNO   [--]
+mod	/* <username_b> has created a poll: "Are women people?". Please vote! */	
+mod	/* ARE WOMEN PEOPLE?\n\nYES [-]\nNO   [--] */
 	Wow. You really went there.	
 	:dying-laughing:	
 	Um, speaking of why there are no women here, this toxic environemnt is probably why?	
 	"environment" -> ftfy	
 	Or it's because women suck for not dating us ?	
-mod	10 new users have voted!\n\nPOLL: ARE WOMEN PEOPLE?\n\nYES [-]\nNO   [-------------]
+mod	/* 10 new users have voted!\n\nPOLL: ARE WOMEN PEOPLE?\n\nYES [-]\nNO   [-------------] */
 	um	
-mod	8 new users have voted!\n\nPOLL: ARE WOMEN PEOPLE?\n\nYES [--]\nNO   [-------------------]
+mod	/* 8 new users have voted!\n\nPOLL: ARE WOMEN PEOPLE?\n\nYES [--]\nNO   [-------------------] */
 	Well well well, looks like all has been decided	
 	This is seriously fucked up. I'm out.	
 mod	/* user ^ has left the chat */	

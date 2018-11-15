@@ -320,7 +320,7 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "/* nHi VanLife channel! The Moderator team wants you to know that there was a minor breach, but everything is back to normal and no personally identifying information was gathered in the process!",
+        "text": "/* Hi VanLife channel! The Moderator team wants you to know that there was a minor breach, but everything is back to normal and no personally identifying information was gathered in the process!",
         "userId": "mod",
         "image": null,
         "imageTitle": null
@@ -350,7 +350,7 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "/* nhello ,, hello ,, i make adult films and you are beautiful . if you would like to participat in my next filming please let me knwo!! ! i pay fair rates - $100 up front for booking fee - pleaes reply for payapl address and filming location!.",
+        "text": "/* hello ,, hello ,, i make adult films and you are beautiful . if you would like to participat in my next filming please let me knwo!! ! i pay fair rates - $100 up front for booking fee - pleaes reply for payapl address and filming location!.",
         "userId": "mod",
         "image": null,
         "imageTitle": null

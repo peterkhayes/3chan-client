@@ -2,7 +2,10 @@
 import image_17 from './images/polyamory_bad-17.jpg';
 import image_18 from './images/polyamory_bad-18.jpg';
 import image_19 from './images/polyamory_bad-19.jpg';
-import image_50 from './images/polyamory_bad-50.jpg';
+import image_22 from './images/PeterHayes.jpg';
+import image_23 from './images/LexiRoss.jpg';
+import image_52 from './images/polyamory_bad-52.jpg';
+import image_71 from './images/MijuHan.jpg';
 
 export default [
     {
@@ -132,9 +135,21 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "His name is __________ and his partner is __________, tell all your friends, seriously , completely toxic people in this community",
-        "userId": null,
+        "text": "His name is Peter Hayes and his partner is Lexi Ross, tell all your friends, seriously , completely toxic people in this community",
+        "userId": "x",
         "image": null,
+        "imageTitle": null
+    },
+    {
+        "text": "Peter Hayes",
+        "userId": "x",
+        "image": image_22,
+        "imageTitle": null
+    },
+    {
+        "text": "Lexi Ross",
+        "userId": "x",
+        "image": image_23,
         "imageTitle": null
     },
     {
@@ -308,7 +323,7 @@ export default [
     {
         "text": "",
         "userId": null,
-        "image": image_50,
+        "image": image_52,
         "imageTitle": null
     },
     {
@@ -361,7 +376,7 @@ export default [
     },
     {
         "text": "ANNOUNCEMENT: As everyone in this community knows, we take our Poly Values very seriously. As such, I'm terribly sad to announce that I saw someone in this community on a 1-1 date this week. As you all know, this is Monogamous Behavior and will not be tolerated. This user has been kindly asked to leave /3/polyamory",
-        "userId": null,
+        "userId": "mod",
         "image": null,
         "imageTitle": null
     },
@@ -420,9 +435,9 @@ export default [
         "imageTitle": null
     },
     {
-        "text": "It's __________ :bomb:",
+        "text": "It's Miju Han :bomb:",
         "userId": null,
-        "image": null,
+        "image": image_71,
         "imageTitle": null
     },
     {
