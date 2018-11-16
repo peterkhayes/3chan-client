@@ -90,9 +90,12 @@ function getTopicMessageStep(): Step {
     const message = formatTopicMessage(nextTopicMessage, topicMessageIndex);
     topicMessageIndex += 1;
 
+    const isLastMessage = topicMessageIndex >= topicMessages.length;
+
     return {
+        changingTopic: isLastMessage,
         message,
-        waitTime: getDurationForMessage(message),
+        waitTime: isLastMessage ? 5000 : getDurationForMessage(message),
     };
 }
 
@@ -283,6 +286,7 @@ export default class App extends React.Component<{}, State> {
                     messages={this.state.messages}
                     topic={topic ? topic.title : 'Who knows??'}
                     invertColors={!!this.state.step.invertColors}
+                    changingTopic={this.state.step.changingTopic}
                     messageInputText={this.state.messageInputText}
                     messageInputError={this.state.messageInputError}
                     messageInputPlaceholder={phase.placeholderText.replace(

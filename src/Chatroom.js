@@ -9,6 +9,7 @@ import MessageInput from './MessageInput';
 type Props = {
     topic: string,
     invertColors: boolean,
+    changingTopic: boolean,
     messageInputText: string,
     messageInputError: ?string,
     messageInputPlaceholder: string,
@@ -49,10 +50,35 @@ const mainPanelStyle = {
 }
 
 const messageListStyle = {
-    // paddingLeft: styles.gridSize(0.5),
-    // paddingRight: styles.gridSize(0.5),
     flex: '1 1 0',
     overflowY: 'auto',
+};
+
+const overlayStyle = {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+}
+
+const popupStyle = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    width: 350,
+    height: 200,
+    marginLeft: -175,
+    marginTop: -150,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontFamily: styles.fonts.fun,
+    boxShadow: '0 3px 10px rgba(0, 0, 0, 0.2)',
+    backgroundColor: 'white',
+    borderRadius: styles.gridSize(),
+    fontSize: 30,
 };
 
 
@@ -80,6 +106,7 @@ export default class Chatroom extends React.Component<Props> {
             messages,
             topic,
             invertColors,
+            changingTopic,
             messageInputText,
             messageInputError,
             messageInputPlaceholder,
@@ -111,6 +138,13 @@ export default class Chatroom extends React.Component<Props> {
                         />
                     </div>
                 </div>
+                {changingTopic && (
+                    <div style={overlayStyle}>
+                        <div style={popupStyle}>
+                            Changing topic...
+                        </div>
+                    </div>
+                )}
             </div>
         )
     }

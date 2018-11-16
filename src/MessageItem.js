@@ -41,6 +41,7 @@ const avatarStyle = {
 
 const messageStyle = {
   flex: '1 1 0',
+  wordBreak: 'break-all',
 };
 
 const moderatorStyle = {

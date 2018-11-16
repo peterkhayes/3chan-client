@@ -25,7 +25,11 @@ const headerStyle = {
 };
 
 const sectionStyle = {
-  marginTop: styles.gridSize(2)
+  marginTop: styles.gridSize(3)
+}
+
+const topicSectionStyle = {
+  fontSize: 20,
 }
 
 const topicStyle = {
@@ -56,10 +60,12 @@ export default class Sidebar extends React.PureComponent<Props> {
           3Chan is Newtopia's central forum for intelligent debate and radical acceptance.
         </div>
         <div style={sectionStyle}>
-          We're currently discussing <span style={topicStyle}>{topic}</span>!
+          Please keep all conversation civil, respectful, and thoughtful. Remember, we're all in this together!
         </div>
         <div style={sectionStyle}>
-          Please keep all conversation civil, respectful, and thoughtful. Remember, we're all in this together!
+          <div style={topicSectionStyle}>
+            We're currently discussing: <span style={topicStyle}>{topic}</span>!
+          </div>
         </div>
         { error && (
           <div style={errorStyle}>
