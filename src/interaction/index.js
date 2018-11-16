@@ -4,7 +4,6 @@ import type { Step } from '../types';
 
 import { randInt, sample, composeSteps, addMessageDefaults, getDurationForMessage } from '../utils';
 import { isDesiredInput } from './utils';
-import users from '../users';
 
 const NICE_REACTIONS = [
     `^ great point tbh @anonymous_citizen`,

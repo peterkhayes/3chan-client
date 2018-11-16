@@ -253,13 +253,13 @@ const content: Array<Content> = [{
     'text': 'Why CNN could soon deliver your groceries',
     'image': image_14,
 }, {
-    'text': '17 Stylish Things For Your Friends?',
+    'text': '15 Stylish Things For Your Friends?',
     'image': image_15,
 }, {
-    'text': '17 Gorgeous Pieces Of Black Clothing For Anyone Cooking Cheap, Lazy Meals',
+    'text': '12 Gorgeous Pieces Of Black Clothing For Anyone Cooking Cheap, Lazy Meals',
     'image': image_16,
 }, {
-    'text': '17 People Who Also Like You During Sex',
+    'text': '9 People Who Also Like You During Sex',
     'image': image_17,
 }, {
     'text': 'This smart sprinkling system comes with a wine glass full of gators who declined to eat him',
@@ -286,7 +286,7 @@ const content: Array<Content> = [{
     'text': 'A crazy-cool new printer could change the way the world talks about mental health',
     'image': image_25,
 }, {
-    'text': "17 Tweets Written By Women That'll Make You Chuckle Softly To Yourself",
+    'text': "45 Tweets Written By Women That'll Make You Chuckle Softly To Yourself",
     'image': image_26,
 }, {
     'text': "Eat Your Way Around Asia And We'll Tell You Which Animated Disney Hunk Is Your Soulmate",
@@ -298,7 +298,7 @@ const content: Array<Content> = [{
     'text': "17 Things Under $10 That Are Actually Better Than The Books They're Based On",
     'image': image_29,
 }, {
-    'text': 'Here Are 17 Jokes, And Then 17 People Who Deserve Nothing But Respect',
+    'text': 'Here Are 28 Jokes, And Then 28 People Who Deserve Nothing But Respect',
     'image': image_30,
 }, {
     'text': 'A Ton Of Pop Culture Will Know Who These Celebrities Are',
@@ -316,22 +316,22 @@ const content: Array<Content> = [{
     'text': 'Elon Musk has to pay $20 million to settle with the iPhone XS Max pre-orders',
     'image': image_35,
 }, {
-    'text': "Dude realizes he's allergic to hair dye just a little less annoying for Note 17 users",
+    'text': "Dude realizes he's allergic to hair dye just a little less annoying for Note 3 users",
     'image': image_36,
 }, {
     'text': 'Here Were The Good Old Days For Anyone Who Doesn’t Care About Anything But The Butts',
     'image': image_37,
 }, {
-    'text': "J.K. Rowling reveals which 17 items you'd need to find more diverse sex partners",
+    'text': "J.K. Rowling reveals which 32 items you'd need to find more diverse sex partners",
     'image': image_38,
 }, {
-    'text': '17 Mousepads For Anyone Cooking Cheap, Lazy Meals',
+    'text': '19 Mousepads For Anyone Cooking Cheap, Lazy Meals',
     'image': image_39,
 }, {
     'text': "I'm Not Kidding, Over 19,000 People Love And Fuck Whoever They Want",
     'image': image_40,
 }, {
-    'text': '17 Stylish And Cheap Things That Anyone Who Is Your Soulmate Based On Your Panera Bread Order',
+    'text': '22 Stylish And Cheap Things That Anyone Who Is Your Soulmate Based On Your Panera Bread Order',
     'image': image_41,
 }, {
     'text': 'Everyone Is A Lot Of Stuff',
@@ -352,7 +352,7 @@ const content: Array<Content> = [{
     'text': "17 Tweets You'll Only Understand If You Don't Want To Try On Saris For The First Time",
     'image': image_47,
 }, {
-    'text': '17 Hipster Bars That Honestly Need To Watch Netflix Right Now',
+    'text': '31 Hipster Bars That Honestly Need To Watch Netflix Right Now',
     'image': image_48,
 }, {
     'text': "Viral Fox News didn't go quite as planned",
@@ -367,13 +367,13 @@ const content: Array<Content> = [{
     'text': 'Here Are 17 TV Couples Meeting For The First Thing You Need To Know About Therapy',
     'image': image_52,
 }, {
-    'text': "17 Products That Will Give You A Celebrity And I'm Triggered",
+    'text': "19 Products That Will Give You A Celebrity And I'm Triggered",
     'image': image_53,
 }, {
-    'text': "Pick 17 Lasagnas, And We'll Guess If You're Having A Secret",
+    'text': "Pick 12 Lasagnas, And We'll Guess If You're Having A Secret",
     'image': image_54,
 }, {
-    'text': '17 apps and resources to take down Robert Mueller spotted at the World Trade Center',
+    'text': '12 apps and resources to take down Robert Mueller spotted at the World Trade Center',
     'image': image_55,
 }, {
     'text': 'Gab, the racist-friendly social media to grow your business by taking a $10 SEO course online',
@@ -430,7 +430,7 @@ const content: Array<Content> = [{
     'text': 'Pixel Stand charges your phone, and does a great Jimmy Fallon has a sleek leather finish, long battery life',
     'image': image_73,
 }, {
-    'text': '17 Spooky Sex Toys That Are Even Cuter Than Your Friends Should Be For Halloween',
+    'text': '15 Spooky Sex Toys That Are Even Cuter Than Your Friends Should Be For Halloween',
     'image': image_74,
 }, {
     'text': 'San Francisco Google employees walk out in protest before an NFL game',
@@ -442,7 +442,7 @@ const content: Array<Content> = [{
     'text': 'What Movie Plot Could Have Been Resolved With A Can Of Pumpkin',
     'image': image_77,
 }, {
-    'text': "17 McDonald's Things That'll Make Even The Most Disturbing Documentaries On Netflix That Was So Tired — So She Made Him Sexier",
+    'text': "24 McDonald's Things That'll Make Even The Most Disturbing Documentaries On Netflix That Was So Tired — So She Made Him Sexier",
     'image': image_78,
 }, {
     'text': "Give Us Your Fall Day Ever And We'll Give You Your Favorite Musicals And We'll Tell You If You're Just Mildly Sensitive",
@@ -607,13 +607,13 @@ const content: Array<Content> = [{
     'text': '17 of the best selfies whenever he drops off a conveyer belt',
     'image': image_132,
 }, {
-    'text': '17 Tips For Acclimating In Cusco, Peru That Will Definitely Make You Forget All About Leggings',
+    'text': '29 Tips For Acclimating In Cusco, Peru That Will Definitely Make You Forget All About Leggings',
     'image': image_133,
 }, {
-    'text': "17 Stylish Things You'll Definitely Want To Halt Arms Sales To Saudi Arabia For",
+    'text': "21 Stylish Things You'll Definitely Want To Halt Arms Sales To Saudi Arabia For",
     'image': image_134,
 }, {
-    'text': "17 Tweets You'll Relate To If You Missed These 17 Random Pictures That'll Send You Into A Complete Nightmare",
+    'text': "13 Tweets You'll Relate To If You Missed These 17 Random Pictures That'll Send You Into A Complete Nightmare",
     'image': image_135,
 }, {
     'text': "Please understand: Conservative Judaism is not impressed by her Oscar-nominated son's career",
@@ -694,7 +694,7 @@ const content: Array<Content> = [{
     'text': 'We Elected The Pizza You Make',
     'image': image_161,
 }, {
-    'text': "17 gifts for your kids that don't have to be Spider-Man",
+    'text': "16 gifts for your kids that don't have to be Spider-Man",
     'image': image_162,
 }, {
     'text': 'Show Us Your Cute Diary Entry About The Importance Of Celebrating Somali Culture In Britain',
@@ -703,7 +703,7 @@ const content: Array<Content> = [{
     'text': 'I Recreated The Morning Routines Of What Successful People Do With Their Mouth in Photos',
     'image': image_164,
 }, {
-    'text': '17 Fuss-Free Dinners Which Require Only 17 Questions',
+    'text': '20 Fuss-Free Dinners Which Require Only 20 Questions',
     'image': image_165,
 }, {
     'text': 'Head transplant surgeon claims he was fired for firing back at toxic fandom',
@@ -727,7 +727,7 @@ const content: Array<Content> = [{
     'text': 'Meghan Markle And Prince Harry To Become Your Go-To Karaoke Classic?',
     'image': image_172,
 }, {
-    'text': "17 Cheap Things That'll Make Servers Laugh",
+    'text': "19 Cheap Things That'll Make Servers Laugh",
     'image': image_173,
 }, {
     'text': 'How to Keep Your Face',
@@ -742,13 +742,13 @@ const content: Array<Content> = [{
     'text': "We'll Reveal If You're An Introvert Or Extrovert Based On What You Type To Laugh At These Memes",
     'image': image_177,
 }, {
-    'text': '17 People Who Are You?',
+    'text': '14 People Who Are You?',
     'image': image_178,
 }, {
     'text': 'Homeless Samaritan suing couple who raised $400,000 to help your canine rest easy',
     'image': image_179,
 }, {
-    'text': "17 Things That'll Actually Make You Forget About Pants",
+    'text': "20 Things That'll Actually Make You Forget About Pants",
     'image': image_180,
 }, {
     'text': "Here's What I Told My White Friend When He Appeared On The Planet",
@@ -763,10 +763,10 @@ const content: Array<Content> = [{
     'text': "A Woman Fought With The Exact Day You'll Get Married",
     'image': image_184,
 }, {
-    'text': '17 Passwords You Should Watch',
+    'text': '21 Passwords You Should Watch',
     'image': image_185,
 }, {
-    'text': '17 Things That Every Grammar Nerd Will Get 7/10 In Tree Trivia?',
+    'text': '26 Things That Every Grammar Nerd Will Get 7/10 In Tree Trivia?',
     'image': image_186,
 }, {
     'text': 'Your Favorite Fall Things That Will Make You Chuckle Softly To Yourself',
@@ -781,7 +781,7 @@ const content: Array<Content> = [{
     'text': 'Researchers have found a moon orbiting a world of e-readers',
     'image': image_190,
 }, {
-    'text': '17 deals on the #MeToo movement',
+    'text': '27 deals on the #MeToo movement',
     'image': image_191,
 }, {
     'text': 'Snake crawls up on the market right now',
@@ -790,7 +790,7 @@ const content: Array<Content> = [{
     'text': "77-year-old Beto O'Rourke dropped the f-bomb on live TV, styles it out like a vagina, which is fine, I guess",
     'image': image_193,
 }, {
-    'text': '17 Life-Changing Ways To Be Believed',
+    'text': '16 Life-Changing Ways To Be Believed',
     'image': image_194,
 }, {
     'text': 'This Animal Lived Alone In A Past Life',
@@ -799,7 +799,7 @@ const content: Array<Content> = [{
     'text': 'PayPal makes it easier to network IRL',
     'image': image_196,
 }, {
-    'text': 'Jim Rickards Reveals 17 Rituals That Will Only Make Sense',
+    'text': 'Jim Rickards Reveals 26 Rituals That Will Only Make Sense',
     'image': image_197,
 }, {
     'text': 'Why the Queen in Westminster Abbey was designed by an e-bike',
@@ -808,7 +808,7 @@ const content: Array<Content> = [{
     'text': 'I Have Trouble Blending Your Foundation, You Need This Vacuum-Sealing Bottle Stopper',
     'image': image_199,
 }, {
-    'text': 'Answer These 17 Last-Minute Gifts From Amazon To Put Up A Crime Scene',
+    'text': 'Answer These 12 Last-Minute Gifts From Amazon To Put Up A Crime Scene',
     'image': image_200,
 }, {
     'text': 'Trump’s Relations With Other Nations Are Not Happy About Plans To Put On Chapstick',

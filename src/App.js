@@ -21,7 +21,6 @@ import {
 import {
     next,
     prev,
-    randInt,
     sample,
     getDurationForMessage,
     addMessageDefaults,
@@ -38,10 +37,13 @@ type State = {
 const ERROR_DURATION = 5000;
 const CLEAR_DURATION = 60000;
 
-const phaseId = qs.parse(window.location.search).phase || 'good';
+const query = qs.parse(window.location.search);
+const phaseId = query.phase || 'good';
 const phase: Phase = phases.find(({id}) => id === phaseId) || phases[0];
-const speedModifier = phase.speedModifier == null ? 1 : phase.speedModifier;
-const topicId = qs.parse(window.location.search).topic;
+const speedModifier =
+    (query.speed ? Number(query.speed) : 1) *
+    (phase.speedModifier == null ? 1 : phase.speedModifier);
+const topicId = query.topic;
 const topic: ?Topic = phase.topics.find(({id}) => id === topicId) || phase.topics[0];
 const topicMessages: Array<TopicMessage> = topic ? topic.messages : [];
 let topicMessageIndex: number = 0;
@@ -99,8 +101,12 @@ function getTopicMessageStep(): Step {
     };
 }
 
-function setQuery(phaseId: string, topicId?: string) {
-    window.location.search = qs.stringify({ phase: phaseId, topic: topicId });
+function setQuery(phaseId: string, topicId?: string, speed?: number) {
+    window.location.search = qs.stringify({
+        phase: phaseId,
+        topic: topicId,
+        speed: speed || speedModifier
+    });
 }
 
 function loadNextTopic() {
@@ -252,9 +258,13 @@ export default class App extends React.Component<{}, State> {
 
     handleKeyPress = (e: SyntheticKeyboardEvent<HTMLElement>) => {
         if (e.shiftKey && e.ctrlKey) {
+            e.preventDefault();
+            e.stopPropagation();
+            
             const phaseIdx = phases.findIndex((phase) => phase.id === phaseId);
             const topicIdx = phase.topics.findIndex((topic) => topic.id === topicId);
             const key = e.key.toLowerCase();
+            console.log("Pressed key", key);
             if (key === 'j') {
                 setQuery(phases[next(phaseIdx, phases.length)].id);
             } else if (key === 'k') {
@@ -268,6 +278,18 @@ export default class App extends React.Component<{}, State> {
                 setQuery(
                     phaseId,
                     phase.topics[prev(topicIdx, phase.topics.length)].id
+                );
+            } else if (key === 'arrowdown') {
+                setQuery(
+                    phaseId,
+                    topicId,
+                    speedModifier * 0.9,
+                );
+            } else if (key === 'arrowup') {
+                setQuery(
+                    phaseId,
+                    topicId,
+                    speedModifier * 1.1,
                 );
             } else if (key === 'r') {
                 window.alert(`Room numbers:\n${getRoomNumbers().join("\n")}`);

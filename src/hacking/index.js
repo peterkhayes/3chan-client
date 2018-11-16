@@ -67,11 +67,6 @@ import image_60 from './60.jpg';
 import image_61 from './61.jpg';
 import image_62 from './62.jpg';
 
-type PutinPost = {
-  image: any,
-  username: string,
-}
-
 const usernames = [
   'Алыйса Нейдр',
   'Сасквач',
@@ -159,7 +154,7 @@ const images = [
 
 export const HACK_CODE = "shield your quiet womb";
 const WAIT_TIME = 200;
-const HACK_DURATION = 90000;
+const HACK_DURATION = 50000;
 
 export default function getHackingStep(): Step {
   const steps: Array<Step> = [];

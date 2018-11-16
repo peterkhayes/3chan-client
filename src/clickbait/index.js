@@ -4,7 +4,6 @@ import clickbait from './content';
 import {
     sample,
     randInt,
-    getDurationForMessage,
     addMessageDefaults,
 } from '../utils';
 

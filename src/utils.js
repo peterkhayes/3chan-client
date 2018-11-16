@@ -3,7 +3,7 @@ import type { Step, Message } from './types';
 import users from './users';
 
 const MIN_DURATION = 800;
-const MAX_DURATION = 4000;
+const MAX_DURATION = 8000;
 const DURATION_PER_CHAR = 25;
 const DURATION_FOR_IMAGE = 2000;
 

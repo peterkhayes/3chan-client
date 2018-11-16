@@ -41,7 +41,10 @@ const avatarStyle = {
 
 const messageStyle = {
   flex: '1 1 0',
-  wordBreak: 'break-all',
+  wordBreak: 'break-word',
+  overflowWrap: 'break-word',
+  hyphens: 'auto',
+  wordWrap: 'break-word',
 };
 
 const moderatorStyle = {
@@ -98,22 +101,22 @@ export default class MessageItem extends React.Component<Props> {
       ...usernameStyle,
       color: isUserMessage ? styles.colors.blue : styles.colors.dark,
     }
-
-    const textElems = text
-      .split('\n')
-      .map((line, i) => {
-        const words = line.split(" ");
-        const wordSpans = words.map((word, j) =>
-          word.startsWith("@")
-            ? <span key={j} style={atMentionStyle}>{word}{' '}</span>
-            : `${word} `
-        )
-        return (
-          <div key={i} style={textStyle}>
-            {!line ? <span>&nbsp;</span> : wordSpans}   
-          </div>
-        )
-      })
+  
+    const textElems = !text ? <span /> :text
+        .split('\n')
+        .map((line, i) => {
+          const words = line.split(" ");
+          const wordSpans = words.map((word, j) =>
+            word.startsWith("@")
+              ? <span key={j} style={atMentionStyle}>{word}{' '}</span>
+              : `${word} `
+          )
+          return (
+            <div key={i} style={textStyle}>
+              {!line ? <span>&nbsp;</span> : wordSpans}   
+            </div>
+          )
+        });
 
     return (
       <div style={rootStyle}>

@@ -1,5 +1,4 @@
 // @flow
-import type { Message } from './types';
 import React from 'react';
 import * as styles from './styles';
 
