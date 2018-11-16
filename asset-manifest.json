@@ -1,7 +1,7 @@
 {
   "main.css": "/3chan-client/static/css/main.4a448501.chunk.css",
-  "main.js": "/3chan-client/static/js/main.0d7f8839.chunk.js",
-  "main.js.map": "/3chan-client/static/js/main.0d7f8839.chunk.js.map",
+  "main.js": "/3chan-client/static/js/main.50b79df6.chunk.js",
+  "main.js.map": "/3chan-client/static/js/main.50b79df6.chunk.js.map",
   "static/js/1.0a3fcd68.chunk.js": "/3chan-client/static/js/1.0a3fcd68.chunk.js",
   "static/js/1.0a3fcd68.chunk.js.map": "/3chan-client/static/js/1.0a3fcd68.chunk.js.map",
   "runtime~main.js": "/3chan-client/static/js/runtime~main.74b95974.js",
@@ -1146,6 +1146,6 @@
   "static/media/avatar.png": "/3chan-client/static/media/avatar.46a912cb.png",
   "static/css/main.4a448501.chunk.css.map": "/3chan-client/static/css/main.4a448501.chunk.css.map",
   "index.html": "/3chan-client/index.html",
-  "precache-manifest.4251bf526213aa7cc448914ee7506416.js": "/3chan-client/precache-manifest.4251bf526213aa7cc448914ee7506416.js",
+  "precache-manifest.db4110d03b894cce9fee7dc8f63a82dd.js": "/3chan-client/precache-manifest.db4110d03b894cce9fee7dc8f63a82dd.js",
   "service-worker.js": "/3chan-client/service-worker.js"
 }

@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/3chan-client/static/media/316.3ebe30a6.jpg"
   },
   {
-    "revision": "0d7f883958f6badc8f3d",
+    "revision": "50b79df68ca8cdd7f35f",
     "url": "/3chan-client/static/css/main.4a448501.chunk.css"
   },
   {
@@ -2536,8 +2536,8 @@ self.__precacheManifest = [
     "url": "/3chan-client/static/media/315.1e27e17f.jpg"
   },
   {
-    "revision": "0d7f883958f6badc8f3d",
-    "url": "/3chan-client/static/js/main.0d7f8839.chunk.js"
+    "revision": "50b79df68ca8cdd7f35f",
+    "url": "/3chan-client/static/js/main.50b79df6.chunk.js"
   },
   {
     "revision": "1feeaa4a871409858b8332277a01f859",
@@ -5544,7 +5544,7 @@ self.__precacheManifest = [
     "url": "/3chan-client/static/media/avatar.46a912cb.png"
   },
   {
-    "revision": "4834d9f66ab786fc45acbf797230b1ae",
+    "revision": "0b0a4191f414d8cbd1f5de5188af154f",
     "url": "/3chan-client/index.html"
   }
 ];
