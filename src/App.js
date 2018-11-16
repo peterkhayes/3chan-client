@@ -2,6 +2,7 @@
 import type { Step, Message, TopicMessage, Phase, Topic } from './types';
 import React from 'react';
 import qs from 'query-string';
+
 import users, {
     type User,
     participantAvatar,
@@ -36,6 +37,8 @@ type State = {
 
 const ERROR_DURATION = 5000;
 const CLEAR_DURATION = 60000;
+
+const sendSound = new Audio(`${process.env.PUBLIC_URL}/send_sound.mp3`);
 
 const query = qs.parse(window.location.search);
 const phaseId = query.phase || 'good';
@@ -215,6 +218,8 @@ export default class App extends React.Component<{}, State> {
                 return;
             }
         }
+
+        sendSound.play();
 
         this.addMessage({
             text: messageText,
