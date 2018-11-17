@@ -14,7 +14,7 @@
   "homepage": "http://peterkhayes.github.io/3chan-client",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && zip -R build build.zip",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "chats": "node ./data/chats",
