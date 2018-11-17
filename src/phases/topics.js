@@ -3,6 +3,7 @@ import type { Topic } from '../types';
 
 import bearConspiracyChats from './chats/bear_conspiracy.js';
 import budsmGoodChats from './chats/budsm_good.js';
+import budsmBadChats from './chats/budsm_bad.js';
 import cryptoBadChats from './chats/crypto_bad.js';
 import cryptoGoodChats from './chats/crypto_good.js';
 import educationGoodChats from './chats/education_good.js';
@@ -34,6 +35,12 @@ export const budsmGood: Topic = {
     id: 'budsm_good',
     title: 'BDSM <> BuDdhiSM',
     messages: budsmGoodChats,
+};
+
+export const budsmBad: Topic = {
+    id: 'budsm_bad',
+    title: 'BDSM <> BuDdhiSM',
+    messages: budsmBadChats,
 };
 
 export const cryptoBad: Topic = {

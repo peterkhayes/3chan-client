@@ -11,7 +11,6 @@ import {
 } from './filters';
 import {
     getNiceInteractionStep,
-    getMediumInteractionStep,
     getNastyInteractionStep,
 } from '../interaction';
 import { 
@@ -21,6 +20,7 @@ import {
 import {
     bearConspiracy,
     budsmGood,
+    budsmBad,
     cryptoBad,
     cryptoGood,
     educationGood,
@@ -81,6 +81,7 @@ const mediumPhase: Phase = {
         polyamoryBad,
         healthcareBad,
         bearConspiracy,
+        budsmBad,
         cryptoBad,
         furries,
         portapottyBad,
@@ -91,7 +92,7 @@ const mediumPhase: Phase = {
     placeholderText: `We're all circlejerking about {{topic}} rn lol`,
     filter: composeFilters(), // TODO: any filters here?
     speedModifier: 1,
-    getInteractionStep: getMediumInteractionStep,
+    getInteractionStep: getNastyInteractionStep,
     clickbaitRate: 0,
     subliminalRate: 0.03,
     catsRate: 0,
@@ -105,6 +106,7 @@ const badPhase: Phase = {
         polyamoryBad,
         healthcareBad,
         bearConspiracy,
+        budsmBad,
         cryptoBad,
         furries,
         portapottyBad,

@@ -39,6 +39,7 @@ const ERROR_DURATION = 5000;
 const CLEAR_DURATION = 60000;
 
 const sendSound = new Audio(`${process.env.PUBLIC_URL}/send_sound.mp3`);
+let receiveSound = new Audio(`${process.env.PUBLIC_URL}/receive_sound.mp3`);
 
 const query = qs.parse(window.location.search);
 const phaseId = query.phase || 'good';
@@ -180,6 +181,10 @@ export default class App extends React.Component<{}, State> {
 
     addMessage = (messageShape: $Shape<Message>, otherState?: $Shape<State>) => {
         const message = addMessageDefaults(messageShape);
+        if (message.text.includes(participantUsername)) {
+            receiveSound.play();
+            receiveSound = new Audio(`${process.env.PUBLIC_URL}/receive_sound.mp3`);
+        }
         this.setState((state) => ({
             ...otherState,
             messages: state.messages.concat(message)

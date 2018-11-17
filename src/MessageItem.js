@@ -43,7 +43,7 @@ const messageStyle = {
   flex: '1 1 0',
   wordBreak: 'break-word',
   overflowWrap: 'break-word',
-  hyphens: 'auto',
+  // hyphens: 'auto',
   wordWrap: 'break-word',
 };
 

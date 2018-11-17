@@ -234,17 +234,6 @@ export function getNiceInteractionStep(): Step {
     return composeSteps(getReactionSteps(NICE_REACTIONS));
 }
 
-export function getMediumInteractionStep(): Step {
-    const reactions = getReactionSteps([...NICE_REACTIONS, ...MEAN_REACTIONS]);
-
-    if (Math.random() < 0.5) {
-        return composeSteps(reactions);
-    } else {
-        const question = getQuestionStep();
-        return composeSteps([...reactions, question]);
-    }
-}
-
 export function getNastyInteractionStep(): Step {
     const reactions = getReactionSteps(MEAN_REACTIONS);
     const question = getQuestionStep();
