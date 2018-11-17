@@ -1,15 +1,15 @@
 self.__precacheManifest = [
   {
-    "revision": "3ebe30a6088a48bd7d354c810b025747",
-    "url": "/3chan-client/static/media/316.3ebe30a6.jpg"
+    "revision": "6ff7abe98d619d266827f2b3fc32252d",
+    "url": "/3chan-client/static/media/323.6ff7abe9.jpg"
   },
   {
-    "revision": "50b79df68ca8cdd7f35f",
-    "url": "/3chan-client/static/css/main.4a448501.chunk.css"
+    "revision": "3a2fec03c5118fb4a288",
+    "url": "/3chan-client/static/css/main.da852c3f.chunk.css"
   },
   {
-    "revision": "0a3fcd681705fcb00950",
-    "url": "/3chan-client/static/js/1.0a3fcd68.chunk.js"
+    "revision": "7a4b858844b82cff481b",
+    "url": "/3chan-client/static/js/1.7a4b8588.chunk.js"
   },
   {
     "revision": "74b959740a73d97e004c",
@@ -366,6 +366,22 @@ self.__precacheManifest = [
   {
     "revision": "af0d3bebedbd7620176b37ad00b8335c",
     "url": "/3chan-client/static/media/x.af0d3beb.png"
+  },
+  {
+    "revision": "913e160f9d49a94d34a3afed650a429c",
+    "url": "/3chan-client/static/media/budsm_good-22.913e160f.jpg"
+  },
+  {
+    "revision": "a3ec1653785025f5f2f2726efa02e845",
+    "url": "/3chan-client/static/media/budsm_bad-11.a3ec1653.jpg"
+  },
+  {
+    "revision": "6e46dfa9430e141f04630f27543bfb59",
+    "url": "/3chan-client/static/media/budsm_bad-14.6e46dfa9.jpg"
+  },
+  {
+    "revision": "ac443e1a6d509f1154e5b31c4895ab08",
+    "url": "/3chan-client/static/media/budsm_bad-37.ac443e1a.jpg"
   },
   {
     "revision": "c305d0e862a89e7d851e452edaaf623e",
@@ -2536,8 +2552,8 @@ self.__precacheManifest = [
     "url": "/3chan-client/static/media/315.1e27e17f.jpg"
   },
   {
-    "revision": "50b79df68ca8cdd7f35f",
-    "url": "/3chan-client/static/js/main.50b79df6.chunk.js"
+    "revision": "3ebe30a6088a48bd7d354c810b025747",
+    "url": "/3chan-client/static/media/316.3ebe30a6.jpg"
   },
   {
     "revision": "1feeaa4a871409858b8332277a01f859",
@@ -2568,8 +2584,8 @@ self.__precacheManifest = [
     "url": "/3chan-client/static/media/322.ef77d639.jpg"
   },
   {
-    "revision": "6ff7abe98d619d266827f2b3fc32252d",
-    "url": "/3chan-client/static/media/323.6ff7abe9.jpg"
+    "revision": "3a2fec03c5118fb4a288",
+    "url": "/3chan-client/static/js/main.3a2fec03.chunk.js"
   },
   {
     "revision": "b741b06dc77184b86b29a0b4c47d94a8",
@@ -5544,7 +5560,7 @@ self.__precacheManifest = [
     "url": "/3chan-client/static/media/avatar.46a912cb.png"
   },
   {
-    "revision": "0b0a4191f414d8cbd1f5de5188af154f",
+    "revision": "23dbc72785b9dc872deb10b261ccd993",
     "url": "/3chan-client/index.html"
   }
 ];
