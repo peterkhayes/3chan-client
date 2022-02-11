@@ -6,6 +6,7 @@ const PHONE_NUMBER_KEY = 'phone_numbers';
 const ROOM_NUMBER_KEY = 'room_numbers';
 const MESSAGE_KEY = 'messages';
 const DELIMITER = '|';
+const INFO_MODAL_KEY = 'info_modal_initial_state'
 
 function getItems(key: string) {
   const existingValue = localStorage.getItem(key);
@@ -42,4 +43,13 @@ export function getPhoneNumbers() {
 
 export function getSavedMessages() {
   return getItems(MESSAGE_KEY);
+}
+
+export function getInfoModalInitialState(): boolean {
+  const stored = localStorage.getItem(INFO_MODAL_KEY)
+  return stored !== 'false';
+}
+
+export function setInfoModalInitialState(val: boolean) {
+  return localStorage.setItem(INFO_MODAL_KEY, val);
 }

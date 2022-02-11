@@ -18,6 +18,8 @@ import {
     getRoomNumbers,
     getPhoneNumbers,
     getSavedMessages,
+    getInfoModalInitialState,
+    setInfoModalInitialState,
 } from './interaction/storage';
 import {
     next,
@@ -33,6 +35,7 @@ type State = {
     step: Step,
     messageInputText: string,
     messageInputError: ?string,
+    showingHelpModal: boolean,
 }
 
 const ERROR_DURATION = 5000;
@@ -172,6 +175,7 @@ export default class App extends React.Component<{}, State> {
             step: getDefaultNextStep(),
             messageInputText: '',
             messageInputError: null,
+            showingHelpModal: getInfoModalInitialState(),
         };
     }
 
@@ -266,7 +270,24 @@ export default class App extends React.Component<{}, State> {
         }, CLEAR_DURATION);
     };
 
+    showHelpModal = () => {
+        if (!this.state.showingHelpModal) {
+            this.setState({showingHelpModal: true});
+            setInfoModalInitialState(true);
+        }
+    }
+
+    hideHelpModal = () => {
+        if (this.state.showingHelpModal) {
+            this.setState({showingHelpModal: false});
+            setInfoModalInitialState(false);
+        }
+    }
+
+
     handleKeyPress = (e: SyntheticKeyboardEvent<HTMLElement>) => {
+        this.hideHelpModal();
+
         if (e.shiftKey && e.ctrlKey) {
             e.preventDefault();
             e.stopPropagation();
@@ -313,7 +334,7 @@ export default class App extends React.Component<{}, State> {
 
     render() {
         return (
-            <div onKeyDown={this.handleKeyPress}>
+            <div onKeyDown={this.handleKeyPress} onClick={this.hideHelpModal}>
                 <Chatroom
                     messages={this.state.messages}
                     topic={topic ? topic.title : 'Who knows??'}
@@ -325,8 +346,10 @@ export default class App extends React.Component<{}, State> {
                         "{{topic}}",
                         topic ? topic.title.toLowerCase() : 'whatever'
                     )}
+                    showingHelpModal={this.state.showingHelpModal}
                     setMessageInputText={this.setMessageInputText}
                     submitMessage={this.submitMessage}
+                    showHelpModal={this.showHelpModal}
                 />
             </div>
         );

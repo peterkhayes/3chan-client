@@ -11,7 +11,7 @@
     "react-scripts": "2.0.4",
     "reading-level": "^0.0.7"
   },
-  "homepage": "http://peterkhayes.github.io/3chan-client",
+  "homepage": "https://peterkhayes.github.io/3chan-client",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

@@ -14,8 +14,10 @@ type Props = {
     messageInputError: ?string,
     messageInputPlaceholder: string,
     messages: Array<Message>,
+    showingHelpModal: boolean,
     setMessageInputText: (string) => void,
     submitMessage: (string) => void,
+    showHelpModal: () => void,
 };
 
 const outerRootStyle = {
@@ -67,19 +69,33 @@ const popupStyle = {
     position: 'absolute',
     top: '50%',
     left: '50%',
+    boxShadow: '0 3px 10px rgba(0, 0, 0, 0.2)',
+    backgroundColor: 'white',
+    borderRadius: styles.gridSize(),
+}
+
+const changeMessagePopupStyle = {
+    ...popupStyle,
     width: 350,
     height: 200,
     marginLeft: -175,
     marginTop: -150,
+    fontSize: 30,
     display: 'flex',
+    fontFamily: styles.fonts.fun,
     alignItems: 'center',
     justifyContent: 'center',
-    fontFamily: styles.fonts.fun,
-    boxShadow: '0 3px 10px rgba(0, 0, 0, 0.2)',
-    backgroundColor: 'white',
-    borderRadius: styles.gridSize(),
-    fontSize: 30,
 };
+
+const popupInstructionsStyle = {
+    ...popupStyle,
+    fontFamily: styles.fonts.serious,
+    width: 400,
+    height: 300,
+    marginLeft: -200,
+    marginTop: -150,
+    padding: 2 * styles.gridSize(),
+}
 
 
 export default class Chatroom extends React.Component<Props> {
@@ -110,14 +126,16 @@ export default class Chatroom extends React.Component<Props> {
             messageInputText,
             messageInputError,
             messageInputPlaceholder,
+            showingHelpModal,
             setMessageInputText,
             submitMessage,
+            showHelpModal,
         } = this.props;
 
         return (
             <div style={{...outerRootStyle, filter: invertColors ? "invert(100%)" : undefined}}>
                 <div style={rootStyle}>
-                    <Sidebar topic={topic} error={messageInputError} />
+                    <Sidebar topic={topic} error={messageInputError} showHelpModal={showHelpModal} />
                     <div style={mainPanelStyle}>
                         <div ref={this.setMessageListEl} style={messageListStyle}>
                             {messages.map((message, idx) => {
@@ -138,11 +156,17 @@ export default class Chatroom extends React.Component<Props> {
                         />
                     </div>
                 </div>
-                {changingTopic && (
+                {(changingTopic || showingHelpModal) && (
                     <div style={overlayStyle}>
-                        <div style={popupStyle}>
-                            Changing topic...
-                        </div>
+                        {changingTopic ? (
+                            <div style={changeMessagePopupStyle}>Changing topic...</div>
+                        ) : (
+                            <div style={popupInstructionsStyle}>
+                                <h2>3Chan</h2>
+                                <p>This project simulates a chatroom. It was on display at an internet-themed party in 2018. Over the course of the evening, the chatroom descends from "civility" into "madness".</p>
+                                <p>Some of the content was written by my partner Andrea Passwater. Other content was scraped from Reddit and/or generated with Markov Chains.</p>
+                            </div>
+                        )}  
                     </div>
                 )}
             </div>
